@@ -1,0 +1,203 @@
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+	font-family: 'RobotoDraft', sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+h1 {
+	font-size:20px;
+}
+.grid24 {
+	width: 100%;
+	padding: 0 20px;
+}
+h3 {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.owner {
+	display: none; // ---> MAL
+}
+
+.list_item span {
+	padding-right: 10px;
+}
+
+input, select, label, textarea {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+
+}
+
+.semi input, .semi label, .semi select {
+	width: 50%;
+}
+
+p.disable {
+	color: #ccc;
+}
+
+p.disable:hover {
+	color: #fff;
+}
+
+input {
+	height: 30px;
+	padding-left: 10px;
+}
+
+textarea {
+	height: 50px;
+}
+
+a, [data-delete] {
+	text-decoration: none;
+	color: #aaa;
+	cursor: pointer;
+}
+
+.grid16 {
+	width: 66%;
+}
+.grid8 {
+	width: 33%;
+}
+.grid12 {
+	width: 50%;
+}
+
+button {
+	cursor: pointer;
+	width: 240px;
+	height: 30px;
+	border-radius: 10px;
+}
+
+[data-form-container] {
+	display: none;  // ---> MAL
+}
+
+div.active [data-form-container] {
+	display: block;
+}
+
+[data-dropdown]:after {
+	content: '[+]'
+}
+
+.active [data-dropdown]:after {
+	content: '[-]'
+}
+
+[data-dropdown] {
+	cursor: pointer;
+}
+
+[data-dropdown]:hover {
+	background-color: #ccc;
+}
+
+.buttonGroup {
+	padding-top: 20px;
+}
+
+.indentado {
+	display: none; // ----> MAL
+}
+
+.hidden {
+	display: none;
+}
+
+main {
+	padding-top: 20px;
+	float: left;
+	padding-bottom: 120px;
+	padding: 20px;
+}
+
+.logo {
+	text-align: center;
+}
+
+main.login {
+	margin: 0 auto;
+	float: none;
+}
+
+.loginForm {
+	margin-bottom: 20px;
+}
+
+header h1 {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 40px;
+}
+
+aside {
+	padding: 20px;
+	float: right;
+}
+
+aside div {
+	padding: 20px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: white;
+	background-color: rgba(128,128,128,0.2);
+	padding-bottom: 20px;
+}
+
+ul {
+	margin-top: 0;
+	-webkit-padding-start: 0;
+}
+
+li {
+	list-style-type: none;
+	height: 30px;
+}
+
+nav li {
+	padding-top: 10px;
+	width: 25%;
+	text-align: center;
+}
+
+nav li:hover {
+	background-color: #ccc;
+}
+footer li {
+	float: left;
+	padding-left: 20px;
+	height: 20px;
+}
+main img {
+	width: 240px;
+}
+
+
+@media (max-width: 940px) {
+  .grid8 {
+  	width: 100%;
+    float: none;
+    text-align: center;
+    padding-left: 0;
+  	padding-bottom: 120px;
+
+  }
+  .grid16 {
+  	width: 100%;
+  	text-align: center;
+  	padding-bottom: 40px;
+  }
+}

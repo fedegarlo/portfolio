@@ -1,0 +1,196 @@
+<% include header.html %>
+    <div class="grid24">
+			<main role="main" class="grid8">
+				<section>
+					<div>
+						<p>Hola <%= user.user.username %> <a href="/logout"><span>Log Out</span></a></p>
+						<p data-dropdown="venues" class="dropdown">Locales</p>
+						<article data-form-container="venues">
+							<header class="indentado">
+								<h2>Formulario para introducir un nuevo local</h2>
+							</header>
+							<form id="venues">
+								<fieldset>
+									<legend>Nuevo local</legend>
+									<label for="venue.name" class="indentado">Nombre</label>
+									<input type="text" id="venue.name" name="name" placeholder="nombre" required></input>
+									<label for="venue.address" class="indentado">Dirección</label>
+									<input type="text" id="venue.address" name="address" placeholder="dirección" required></input>
+									<label for="venue.city" class="indentado">Localidad</label>
+									<input type="text" id="venue.city" name="city" placeholder="localidad" required></input>
+									<label for="venue.phone" class="indentado">Teléfono</label>
+									<input type="text" id="venue.phone" name="phone" placeholder="teléfono"></input>
+									<label for="venue.notes">Notas</label>
+									<textarea name="notes" id="venue.notes"></textarea>
+									<input type="submit" value="Enviar">
+								</fieldset>
+							</form>
+						</article>
+					</div>
+					<div>
+						<p data-dropdown="profiles" class="dropdown disable">Usuarios</p>
+						<article data-form-container="profiles">
+							<header class="indentado">
+								<h2>Formulario para introducir un nuevo usuario</h2>
+							</header>
+							<form id="profiles">
+								<fieldset>
+									<legend>Nuevo usuario</legend>
+									<label for="profile.name" class="indentado">Nombre</label>
+									<input type="text" id="profile.name" name="name" placeholder="nombre" required></input>
+									<label for="profile.surname" class="indentado">Apellidos</label>
+									<input type="text" id="profile.surname" name="surname" placeholder="apellidos" required></input>
+									<label for="profile.phone" class="indentado">Teléfono</label>
+									<input type="number" id="profile.phone" name="phone" placeholder="teléfono" required></input>
+									<label for="profile.mail" class="indentado">Email</label>
+									<input type="email" id="profile.mail" name="mail" placeholder="Email" required></input>
+									<label for="profile.mail" class="indentado">Password</label>
+									<input type="password" id="profile.password" name="password" placeholder="Password" required></input>
+									<p class="semi">
+										<label for="profile.venue">Local asociado</label>
+										<select id="profile.venue" data-combo-venues name="venue">
+										</select>
+									</p>
+									<p class="semi">
+										<label for="profile.category">Categoría</label>
+										<select id="profile.category" name="category">
+											<option value="promote">Promotor</option>
+											<option value="door">Portero</option>
+											<option value="admin">Administrador</option>
+										</select>
+									</p>
+									<label for="profile.notes">Notas</label>
+									<textarea name="notes" id="profile.notes"></textarea>
+									<input type="submit" value="Enviar">
+								</fieldset>
+							</form>
+						</article>
+					</div>
+					<div>
+						<p data-dropdown="lists" class="dropdown">Listas</p>
+						<article data-form-container="lists">
+							<header class="indentado">
+								<h2>Formulario para introducir una nueva lista</h2>
+							</header>
+							<form id="lists">
+								<fieldset>
+									<legend>Nueva lista</legend>
+									<label for="list.name" class="indentado">Nombre</label>
+									<input type="text" id="list.name" name="name" placeholder="nombre" required></input>
+									<input type="submit" value="Enviar">
+								</fieldset>
+							</form>
+						</article>
+					</div>
+					<div>
+						<p data-dropdown="guests" class="dropdown disable">Invitados</p>
+						<article data-form-container="guests">
+							<header class="indentado">
+								<h2>Formulario para introducir un nuevo invitado</h2>
+							</header>
+							<form id="guests">
+								<fieldset>
+									<legend>Nuevo invitado</legend>
+									<label for="guest.name" class="indentado">Nombre</label>
+									<input type="text" id="guest.name" name="name" placeholder="nombre" required></input>
+									<label for="guest.surname" class="indentado">Apellidos</label>
+									<input type="text" id="guest.surname" name="surname" placeholder="apellidos" required></input>
+									<label for="guest.phone" class="indentado">Teléfono</label>
+									<input type="number" id="guest.phone" name="phone" placeholder="teléfono" required></input>
+									<label for="guest.mail" class="indentado">Email</label>
+									<input type="email" id="guest.mail" name="mail" placeholder="Email" required></input>
+									<p class="semi">
+										<label for="guest.genre">Género</label>
+										<select id="guest.genre" name="genre">
+											<option value="male">Hombre</option>
+											<option value="female">Mujer</option>
+										</select>
+									</p>
+									<p class="semi">
+										<label for="guest.category">Categoría</label>
+										<select id="guest.category" name="category">
+											<option value="customer">Cliente</option>
+											<option value="owner">Dueño</option>
+											<option value="waiter">Camarero</option>
+											<option value="manager">Encargado</option>
+										</select>
+									</p>
+									<p class="semi">
+										<label for="guest.list">Lista asociada</label>
+										<select id="guest.list" data-combo-lists name="list">
+										</select>
+									</p>
+									<p class="semi">
+										<label for="guest.companion">Número de acompañantes</label>
+										<select id="guest.companion" name="companion">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+										</select>
+									</p>
+									<label for="guest.notes">Notas</label>
+									<textarea name="notes" id="guest.notes"></textarea>
+									<input type="submit" value="Enviar">
+								</fieldset>
+							</form>
+						</article>
+					</div>
+					<div>
+						<p data-dropdown="events" class="dropdown disable">Eventos</p>
+						<article data-form-container="events">
+							<header class="indentado">
+								<h2>Formulario para introducir una nueva lista</h2>
+							</header>
+							<form id="events">
+								<fieldset>
+									<legend>Nuevo evento</legend>
+									<label for="event.name" class="indentado">Nombre</label>
+									<input type="text" id="event.name" name="name" placeholder="nombre" required></input>
+									<input type="submit" value="Enviar">
+								</fieldset>
+							</form>
+						</article>
+					</div>
+				</section>
+			</main>
+			<aside class="grid16" role="complementary">
+				<section>
+					<article data-container="venues" class="hidden">
+						<header><h3>Locales</h3></header>
+						<p data-message class="hidden">Primero, sería interesante dar de alta un local para poder asignarle usuarios como administrador, portero o promotor.</p>
+						<ul id="venues_container"></ul>
+					</article>
+					<article data-container="profiles" class="hidden">
+						<header><h3>Usuarios</h3></header>
+						<p data-message class="hidden">Para poder usar la app, necesitas crear usuarios con diferentes perfiles. Mínimo, un promotor y un portero.</p>
+						<ul id="profiles_container"></ul>
+					</article>
+					<article data-container="lists" class="hidden">
+						<header><h3>Listas</h3></header>
+						<p data-message class="hidden">Estaría guay dar de alta una lista para poder asignarle invitados.</p>
+						<ul id="lists_container"></ul>
+					</article>
+					<article data-container="guests" class="hidden">
+						<header><h3>Invitados</h3></header>
+						<p data-message class="hidden">Anímate y apunta invitados a una lista. Estamos a un paso de poder crear eventos.</p>
+						<ul id="guests_container"></ul>
+					</article>
+					<article data-container="events" class="hidden">
+						<header><h3>Eventos</h3></header>
+						<p data-message class="hidden">Esta aplicación sin eventos es como un jardín sin flores. Da de alta alguno y que empiece la fiesta.</p>
+						<ul id="events_container"></ul>
+					</article>
+				</section>
+			</aside>
+		</div>
+	</body>
+</html>
+
