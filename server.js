@@ -1,11 +1,14 @@
 #!/bin/env node
 //  OpenShift sample Node application
+
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
 var express = require('express');
 var fs      = require('fs');
 
 var express  = require('express');
 var app      = express();
-var port     = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
@@ -39,6 +42,6 @@ app.configure(function() {
 
 require('./app/routes.js')(app, passport,server); 
 
-server.listen(port);
+server.listen(port, ipaddress);
 console.log('Listening  to  port ' + port);
 
