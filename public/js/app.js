@@ -12,7 +12,7 @@ $(function() {
   }
 
   evaluateMenu = function(data, type) {
-    var mirrorType = (type === 'venues') ? 'profiles' : (type === 'lists') ? 'guests' : 'events',
+    var mirrorType = (type === 'venues') ? 'users' : (type === 'lists') ? 'guests' : 'events',
         $dataContainer = $('[role="complementary"]').find('[data-container="' + type + '"]'),
         $message = $dataContainer.find('[data-message]');
 
@@ -52,7 +52,7 @@ $(function() {
       data: data,
       complete: function (data) {
         getData(formType);
-        $('form').find("input[type=text], textarea").val("");
+        $('form').find("input[type=text], input[type=tel], input[type=email], input[type=password], textarea").val("");
       }
     });
   }
@@ -65,31 +65,43 @@ $(function() {
       data: params,
       complete: function (data) {
         getData(type);
+        $('#myModal').hide();
       }
     });
   }
 
   renderData = function(data, type) {
     var $container = $('#' + type + '_container'),
-        shortType = type.substr(0, type.length - 1);
+        shortType = type.substr(0, type.length - 1),
+        $emptyListMessage = $container.closest('div').find('[data-message]').removeClass('hidden');
 
+    $container.empty();
     if (data.length !== 0) {
-      $container.empty();
+      $emptyListMessage.addClass('hidden');
       $.each(data, function (i, item) {
-        $container.append('<li id="' + type + '_' + i + '" class="list_item"><span data-delete="' + type + '" data-delete-id="' + item['_id'] + '">Eliminar</span></li>');
+        $container.append('<li id="' + type + '_' + i + '" class="list_item"><span data-toggle="modal" data-target="#myModal" data-name="' + item[shortType].name + '" data-delete="' + type + '" data-delete-id="' + item['_id'] + '">Eliminar</span></li>');
         $.each(item[shortType], function (field) {
           $('#' + type + '_' + i).prepend('<span class="' + field + '">' + this.valueOf() + '</span>');
         });
       });
     } else {
-      $container.closest('div').find('[data-message]').removeClass('hidden');
+      $emptyListMessage.removeClass('hidden');
     }
-    $('[data-delete]').off('click').on('click', function(ev) {
-      var type = $(ev.currentTarget).attr('data-delete'),
-          id = $(ev.currentTarget).attr('data-delete-id');
+  }
+
+  $('#myModal').on('show.bs.modal', function (event) {
+    var $target = $(event.relatedTarget),
+      type = $target.attr('data-delete'),
+      id = $target.attr('data-delete-id'),
+      name = $target.attr('data-name');
+
+    var modal = $(this)
+    modal.find('.modal-title').text('Atención')
+    modal.find('.modal-body').find('p').text('Vas a eliminar el registro ' + name)
+    modal.find('[data-send]').off('click.delete').on('click.delete', function(event, data){
       deleteItem(type, id);
     });
-  }
+  });
 
   $('form').on('submit', function(ev) {
     ev.preventDefault();

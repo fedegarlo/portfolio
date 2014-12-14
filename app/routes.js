@@ -3,7 +3,7 @@ var Friend       = require('../app/models/friend');
 var Guest       = require('../app/models/guest');
 var Venue       = require('../app/models/venue');
 var List       = require('../app/models/list');
-var Profile       = require('../app/models/profile');
+var Event       = require('../app/models/event');
 async = require("async");
 var path = require('path'),
     fs = require('fs');
@@ -25,6 +25,9 @@ module.exports = function(app, passport,server) {
 		var query = Guest.find({}).limit(20);
   		query.exec(function(err, guests) {
       		if (!err) {
+      			guests.forEach(function(guest) {
+						   guest.guest.owner= "";
+						});
          		res.send(guests, {
             			'Content-Type': 'application/json'
          		}, 200);
@@ -36,16 +39,20 @@ module.exports = function(app, passport,server) {
    		});
 	}); 
 
-	app.get('/profiles', function (req, res) {
-		var query = Profile.find({}).limit(20);
-  		query.exec(function(err, profiles) {
+	app.get('/users', function (req, res) {
+		var query = User.find({'user.owner': req.user._id}).limit(20);
+  		query.exec(function(err, users) {
       		if (!err) {
-         		res.send(profiles, {
-            			'Content-Type': 'application/json'
+      			users.forEach(function(user) {
+						   user.user.password= "";
+						   user.user.owner= "";
+						});
+         		res.send(users, {
+            	'Content-Type': 'application/json'
          		}, 200);
       		} else {
          		res.send(JSON.stringify(err), {
-            			'Content-Type': 'application/json'
+            	'Content-Type': 'application/json'
          		}, 404);
       		}
    		});
@@ -81,6 +88,24 @@ module.exports = function(app, passport,server) {
    		});
 	});
 
+	app.get('/events', function (req, res) {
+		var query = Event.find({'event.owner': req.user._id}).limit(20);
+  		query.exec(function(err, events) {
+      		if (!err) {
+      			events.forEach(function(evento) {
+						   evento.event.owner= "";
+						});
+         		res.send(events, {
+            			'Content-Type': 'application/json'
+         		}, 200);
+      		} else {
+         		res.send(JSON.stringify(err), {
+            			'Content-Type': 'application/json'
+         		}, 404);
+      		}
+   		});
+	});
+
 	app.post('/lists',  function (request, response){
 		var newList = new List();
 		newList.list.name = request.param('name');
@@ -94,6 +119,21 @@ module.exports = function(app, passport,server) {
 	    }
 	  });
 	  return response.send(newList);
+	});
+
+	app.post('/events',  function (request, response){
+		var newEvent = new Event();
+		newEvent.event.name = request.param('name');
+		newEvent.event.owner = request.user._id;
+
+    newEvent.save(function (err) {
+	    if (!err) {
+	  		return console.log('created');
+	    } else {
+	    	return console.log(err);
+	    }
+	  });
+	  return response.send(newEvent);
 	});
 
 	app.post('/venues',  function (request, response){
@@ -115,26 +155,52 @@ module.exports = function(app, passport,server) {
 	  return response.send(newVenue);
 	});
 
-	app.post('/profiles',  function (request, response){
-		var newProfile = new Profile();
-		newProfile.profile.name = request.param('name');
-		newProfile.profile.surname = request.param('surname');
-		newProfile.profile.email = request.param('email');
-		newProfile.profile.password = request.param('password');
-		newProfile.profile.phone = request.param('phone');
-		newProfile.profile.notes = request.param('notes');
-		newProfile.profile.category = request.param('category');
-		newProfile.profile.venue = request.param('venue');
-		newProfile.profile.owner = request.user._id;
+	app.post('/users',  function (request, response){
+		var newUser = new User();
+		newUser.user.name = request.param('name');
+		newUser.user.username = request.param('name');
+		newUser.user.surname = request.param('surname');
+		newUser.user.email = request.param('mail');
+		newUser.user.password = newUser.generateHash(request.param('password'));
+		newUser.user.phone = request.param('phone');
+		newUser.user.notes = request.param('notes');
+		newUser.user.category = request.param('category');
+		newUser.user.venue = request.param('venue');
+		newUser.user.owner = request.user._id;
+		newUser.user.admin = false;
 
-    newProfile.save(function (err) {
+    newUser.save(function (err) {
 	    if (!err) {
 	  		return console.log('created');
 	    } else {
 	    	return console.log(err);
 	    }
 	  });
-	  return response.send(newProfile);
+	  return response.send(newUser);
+	});
+
+	app.post('/guests',  function (request, response){
+		var newGuest = new Guest();
+
+		newGuest.guest.name = request.param('name');
+		newGuest.guest.surname = request.param('surname');
+		newGuest.guest.phone = request.param('phone');
+		newGuest.guest.email = request.param('email');
+		newGuest.guest.genre = request.param('genre');
+		newGuest.guest.category = request.param('category');
+		newGuest.guest.list = request.param('list');	
+		newGuest.guest.companion = request.param('companion');
+		newGuest.guest.notes = request.param('notes');
+		newGuest.guest.owner = request.user._id;
+
+    newGuest.save(function (err) {
+	    if (!err) {
+	  		return console.log('created');
+	    } else {
+	    	return console.log(err);
+	    }
+	  });
+	  return response.send(newGuest);
 	});
 
 	app.delete('/venues', function(request, response) {
@@ -144,6 +210,78 @@ module.exports = function(app, passport,server) {
 					async.each(venues,
     			function(venue){
 						venue.remove();
+						response.send('OK');
+					}
+		);
+       		} else {
+         		response.send(JSON.stringify(err), {
+            			'Content-Type': 'application/json'
+         		}, 404);
+      		}
+   		});
+	})
+
+	app.delete('/users', function(request, response) {
+			var query = User.find({_id: request.param('id'),'user.owner' : request.user._id });
+			query.exec(function(err, users) {
+				if (!err) {
+					async.each(users,
+    			function(user){
+						user.remove();
+						response.send('OK');
+					}
+		);
+       		} else {
+         		response.send(JSON.stringify(err), {
+            			'Content-Type': 'application/json'
+         		}, 404);
+      		}
+   		});
+	})
+
+	app.delete('/lists', function(request, response) {
+			var query = List.find({_id: request.param('id'),'list.owner' : request.user._id });
+			query.exec(function(err, lists) {
+				if (!err) {
+					async.each(lists,
+    			function(list){
+						list.remove();
+						response.send('OK');
+					}
+		);
+       		} else {
+         		response.send(JSON.stringify(err), {
+            			'Content-Type': 'application/json'
+         		}, 404);
+      		}
+   		});
+	})
+
+	app.delete('/events', function(request, response) {
+			var query = Event.find({_id: request.param('id'),'event.owner' : request.user._id });
+			query.exec(function(err, events) {
+				if (!err) {
+					async.each(events,
+    			function(evento){
+						evento.remove();
+						response.send('OK');
+					}
+		);
+       		} else {
+         		response.send(JSON.stringify(err), {
+            			'Content-Type': 'application/json'
+         		}, 404);
+      		}
+   		});
+	})
+
+	app.delete('/guests', function(request, response) {
+			var query = Guest.find({_id: request.param('id'),'guest.owner' : request.user._id });
+			query.exec(function(err, guests) {
+				if (!err) {
+					async.each(guests,
+    			function(guest){
+						guest.remove();
 						response.send('OK');
 					}
 		);

@@ -51,7 +51,10 @@ module.exports = function(passport) {
                 if (!user.verifyPassword(password))
                     return done(null, false, req.flash('error', 'Enter correct password'));
                else
-                    return done(null, user);
+                    if (user.verifyAdmin())
+                        return done(null, user);
+                    else
+                        return done(null, false, req.flash('error', 'Only admin user can access'));
             });
         });
 
@@ -75,6 +78,7 @@ module.exports = function(passport) {
 			newUser.user.username    = req.body.username;
                         newUser.user.email    = email;
                         newUser.user.password = newUser.generateHash(password);
+                        newUser.user.admin = true;
 			newUser.user.name	= ''
 			newUser.user.address	= ''
                         newUser.save(function(err) {
