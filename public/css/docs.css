@@ -115,7 +115,7 @@ background-color: #ea4c89;
 }
 
 div.firefoxSection:before {
-background: url('../IMG/logoGPApack.png') right top no-repeat;
+background: url('../img/logoGPApack.png') right top no-repeat;
 opacity: 0.2;
 content: "";
 position: absolute;
@@ -205,7 +205,7 @@ display: block;
     font-size: 14px;
     line-height: normal;
     margin-top: 2px;
-    width: 215px;
+    width: 210px;
   }
 
 .grid li {
