@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Ana y Fede | Yecla 2014</title>
+	<meta name="title" content="Ana y Fede | Yecla 2014">
+	<meta name="description" content="Toda la información sobre la boda de Ana en Yecla.">
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="shortcut icon" href="favicon.png">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="js/underscore-min.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/docs.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5TeLdp01EZjqynkCNhBNBw8gTGVuAXWw&sensor=true">
+    </script>
+    <script type="text/javascript">
+    var markers={},
+    map,
+    images = {};
+      function initialize() {
+        var latitudes = {},
+        myNewCenter = new google.maps.LatLng(38.6143804, -1.1098697),
+        cartelitosContent = {},
+        cartelitos = {};
+
+        //Para poner más cartelitos sólo hay que rellenar aquí
+        latitudes[1] = new google.maps.LatLng(38.609883, -1.104236);
+        latitudes[2] = new google.maps.LatLng(38.6172927, -1.0723693);
+        latitudes[3] = new google.maps.LatLng(38.6129726, -1.1346147);
+        latitudes[4] = new google.maps.LatLng(38.6120527, -1.1168158);
+        latitudes[5] = new google.maps.LatLng(38.6074373, -1.1112774);
+        
+        
+        images[1] = new google.maps.MarkerImage("img/pin2.png");
+        images[2] = new google.maps.MarkerImage("img/pin3.png");
+        images[3] = new google.maps.MarkerImage("img/pin2.png");
+        images[4] = new google.maps.MarkerImage("img/pin4.png");
+        images[5] = new google.maps.MarkerImage("img/pin1.png");
+        
+        
+        cartelitosContent[1] = '<div id="content">'+'<p id="firstHeading" class="firstHeading lilita">La Feria</p>'+'<div id="bodyContent">'+'<p>La Explanada</p>'+'</div>'+'</div>';
+        cartelitosContent[2] = '<div id="content">'+'<p id="firstHeading" class="firstHeading lilita">La Celebración</p>'+'<div id="bodyContent">'+'<p>21:30 Restaurante Los Chispos<br/>Carretera Villena km. 3</p>'+'</div>'+'</div>';
+        cartelitosContent[3] = '<div id="content">'+'<p id="firstHeading" class="firstHeading lilita">El Hotel</p>'+'<div id="bodyContent">'+'<p>Hotel La Paz<br/>Avenida de la Paz, 180</p>'+'</div>'+'</div>';
+        cartelitosContent[4] = '<div id="content">'+'<p id="firstHeading" class="firstHeading lilita">La Boda</p>'+'<div id="bodyContent">'+'<p>18:00 Auditorio Municipal<br/>C/ Concejal Sebastián Pérez S/N</p>'+'</div>'+'</div>';
+       cartelitosContent[5] = '<div id="content">'+'<p id="firstHeading" class="firstHeading lilita">Casa de La Novia</p>'+'<div id="bodyContent">'+'<p>C/ San Nicolás ,39</p>'+'</div>'+'</div>';
+        
+
+        //---------------------------------------------------//
+
+        var mapOptions = {
+        	scrollwheel: false,
+          center: myNewCenter,
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE
+          },
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+        $.each(cartelitosContent, function( index, cartelitoContent ) {
+				  cartelitos[index] = new google.maps.InfoWindow({
+	            content: cartelitoContent,
+	            disableAutoPan : true
+	        });
+				});
+
+        $.each(latitudes, function( index, latitud ) {
+				  markers[index] = new google.maps.Marker({
+	          position: latitudes[index],
+	          map: map,
+	          title: 'Cartelito',
+	          icon: images[index]
+	      	});
+				});
+
+        $.each(cartelitos, function( index, cartelito ) {
+				  cartelito.open(map,markers[index]);
+				});
+
+        /*google.maps.event.addListener(markers[1], 'click', function() {
+            cartelitos[1].open(map,markers[1]);
+        });*/
+        
+        $.each(markers, function( index, marker ) {
+          google.maps.event.addListener(marker, 'click', function() {
+            cartelitos[index].open(map,marker);
+          });
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+	<script>
+  _.mixin({
+      formatDate: function (value) {
+        var fecha = new Date(value),
+        fechaHOY = new Date(),
+        fechaMovimiento = fecha;
+
+        fechaHOY = fechaHOY.getFullYear().toString() + fechaHOY.getMonth().toString() + fechaHOY.getDate().toString();
+        fechaMovimiento = fechaMovimiento.getFullYear().toString() + fechaMovimiento.getMonth().toString() + fechaMovimiento.getDate().toString();
+
+        if(parseInt(fechaHOY) === parseInt(fechaMovimiento) + 1) {
+          return "Ayer";
+        } if (parseInt(fechaHOY) === parseInt(fechaMovimiento)) {
+          return "Hoy";
+        } else {
+          return fecha.getDate() + "/" + (parseInt(fecha.getMonth())+1) + "/" + fecha.getFullYear().toString().substring(2);
+        }
+      },
+      formatInstagramDate: function (value) {
+        var date = new Date(parseInt(value) * 1000);
+
+        return _.formatDate(date);
+      }
+
+  })
+    function getEntities( tuit, entities ) {
+    var contador = 0,
+    $hashs = $(entities.hashtags),
+    $imgs = $(entities.media);
+    $urls = $(entities.urls);
+    if ($imgs.length !== 0) {
+      $imgs.each( function() {
+        if (this.type === "photo") {
+          tuit = tuit.replace(tuit.substring(this.indices[0],this.indices[1]),"");
+        }
+      });
+    }
+    if ($urls.length !== 0) {
+      $urls.each( function() {
+          tuit = tuit.replace(tuit.substring(this.indices[0],this.indices[1]),'<a href="' + this.url + '">' + this.url + '</a>');
+      });
+    }
+
+    if ($hashs.length !== 0) {
+      $hashs.each( function() {
+        tuit = tuit.replace("#" + this.text, '<a href="https://twitter.com/search?q=%23' + this.text+ '&src=typd" target="_blank"><span class="hashtag">#' + this.text + '</span></a>');
+      });
+
+    }
+
+
+    return tuit;
+  }
+          function getTuits (url) {
+            var numeroTuits = 4,
+            $tuits = [];
+            $.getJSON('twitter-proxy.php?url='+encodeURIComponent(url), function(d){
+              if (!_.isEmpty(d.statuses)) {
+
+                d.statuses = _.filter(d.statuses, function(tuit){
+                  return tuit.user.screen_name !== 'Lau_Suarrz' && tuit.user.screen_name !== 'Zul_Slgddo' && tuit.user.screen_name !== 'AnhiOch' && tuit.user.screen_name !== 'GldiisRoj' && tuit.text.indexOf('MexicoCity') === -1;
+                });
+
+                for (var i = 0; i < d.statuses.length ; i++){
+                  $tuits.push({mensaje: getEntities(d.statuses[i].text, d.statuses[i].entities), user: d.statuses[i].user.screen_name, avatar: d.statuses[i].user.profile_image_url, retweet : d.statuses[i].retweeted_status, img : d.statuses[i].entities.media, fecha : d.statuses[i].created_at});
+                }
+                ultimoId = d.statuses[0].id;
+              }
+              for (var i = 0; i < numeroTuits ; i++){
+                if ($tuits[i] !== undefined) {
+                  $('#tuitsContainer').append(_.template($('#tweetRow').html(),$tuits[i]));
+                } else {
+                  $('#tuitsContainer').append(_.template($('#tweetRow').html(),{mensaje: 'Aquí puede estar tu mensaje para los novios. Usa en Twitter la etiqueta #anayfede', user: 'tuUsuario', avatar: 'img/noruega_cesped.jpg', retweet : '', img : '', fecha : new Date()}));
+                }
+              }
+            });           
+          }
+
+          function getInstagramPics () {
+            var numeroPics = 4,
+            $pics = [];
+            $.getJSON('instagram-proxy.php', function(d){
+              if (!_.isEmpty(d.data)) {
+
+                d.data = _.filter(d.data, function(pic){
+                  return pic.user.username !== 'ferlocken' && pic.user.username !== 'pamelagdh';
+                });
+                for (var i = 0; i < d.data.length ; i++){
+                  $pics.push({mensaje: d.data[i].caption.text, user: d.data[i].user.username, avatar: d.data[i].user.profile_picture, retweet : null, img : d.data[i].images.standard_resolution.url, fecha : d.data[i].created_time, link : d.data[i].link});
+                }
+              }
+              for (var i = 0; i < numeroPics ; i++){
+                if ($pics[i] !== undefined) {
+                  $('#picsContainer').append(_.template($('#instagramRow').html(),$pics[i]));
+                } else {
+                  $('#picsContainer').append(_.template($('#instagramRow').html(),{mensaje: 'Aquí puede estar tu mensaje para los novios. Usa en Instagram la etiqueta #anayfede', user: 'tuUsuario', avatar: 'img/noruega_cesped.jpg', retweet : '', img : '', fecha : new Date()}));
+                }
+              }
+            });           
+          }
+
+	  $(document).ready(function(){
+
+        var url = "/search/tweets.json?q=",
+        query="%23anayfede";
+        url = url + query;
+
+        getTuits(url);
+        getInstagramPics();
+
+		});
+		
+	</script>
+	<style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+      #map img{max-width: inherit;}
+
+    </style>
+  <style type="text/css" id="bsa_css">.one{position:relative}.one .bsa_it_ad{display:block;padding:15px;border:1px solid #e1e1e1;background:#f9f9f9;font-family:helvetica,arial,sans-serif;line-height:100%;position:relative}.one .bsa_it_ad a{text-decoration:none}.one .bsa_it_ad a:hover{text-decoration:none}.one .bsa_it_ad .bsa_it_t{display:block;font-size:12px;font-weight:bold;color:#212121;line-height:125%;padding:0 0 5px 0}.one .bsa_it_ad .bsa_it_d{display:block;font-size:11px;color:#434343;font-size:12px;line-height:135%}.one .bsa_it_ad .bsa_it_i{float:left;margin:0 15px 10px 0}.one .bsa_it_p{display:block;text-align:right;position:absolute;bottom:10px;right:15px}.one .bsa_it_p a{font-size:10px;color:#666;text-decoration:none}.one .bsa_it_ad .bsa_it_p a:hover{font-style:italic}</style></head>
+<body>
+  <div class="main">
+      <section class="page1 ops-section active" data-index="1">
+        <div class="page_container">
+          <h1><img src="img/logo.gif" class="logoCaras"></h1>
+          <h1>Ana y Fede</h1>
+          <h2>Yecla, 20 de Septiembre de 2014</h2>
+          <p class="credit">Created by <a href="http://www.fedegarlo.com/" target="_blank">@fedegarlo</a></p>
+  	    </div>
+      </section>
+
+      <section data-index="2" class="page3 twitterSection">
+        <div class="page_container_mobile container">
+          <div class="col-md-12">
+            <h1>#anayfede</h1>
+            <p id="tuitExplanation">Comparte tu mensaje usando nuestra etiqueta en Instagram y Twitter.</p>
+            <div id="picsContainer">
+            </div>
+            <div id="tuitsContainer">
+            </div>
+          
+          </div>
+        </div>
+      </section>
+	<section data-index="4" class="page3" mapa="true">
+        <div class="page_container_mobile container">
+        	<div class="col-md-12">
+        		<h1>El Plan</h1>
+        		<div class="media col-sm-4 cita">
+	            <div data-icon="l" class="icon"></div>
+	            <h2>La Boda</h2>
+	            <p class="fechaYHora"><strong>Auditorio de Yecla </strong>Sábado 20 | 18:00</p>
+	            <p>Esto empieza ahora. Todos a ver cómo nos casa un concejal, lo <strong>guapos</strong> que vamos y mucho más.</p>
+		  	      <a class="btn" target="_blank" href="http://maps.google.com/?q=Calle+Concejal+Sebastián+Pérez+3+yecla">Ver ubicación</a>
+	          </div>
+	          <div class="media col-sm-4 cita">
+	            <div data-icon="m" class="icon"></div>
+	            <h2>La Celebración</h2>
+	            <p class="fechaYHora"><strong>Restaurante Los Chispos </strong>Sábado 20 | 21:30</p>
+	            <p>Tenemos preparado un aperitivo para <strong>vosotros.</strong> Y unos cuantos litros de alcohol para celebrarlo.</p>
+	            <a class="btn" target="_blank" href="http://maps.google.com/?q=restaurante+los+chispos+carretera+villena+km+3">Ver ubicación</a>
+	          </div>
+	          <div class="media col-sm-4 cita">
+	            <div data-icon="n" class="icon"></div>
+	            <h2>La Feria</h2>
+	            <p class="fechaYHora"><strong>Explanada Ferial </strong>Sábado 20 | Madrugada</p>
+	            <p>Si aún te quedan ganas de fiesta, <strong>acompáñanos</strong> a echar los últimos bailes, hasta que amanezca.</p>
+	            <a class="btn" target="_blank" href="http://maps.google.com/?q=avenida+cartagena+26+yecla">Ver ubicación</a>
+	          </div>
+	        </div>
+  	    </div>
+      </section>
+      <section data-index="5" class="page3">
+        <div class="page_container_mobile container">
+          <div class="col-md-12">
+            <h1>Sitios de interés</h1>
+            <div class="media col-sm-4 cita">
+              <div data-icon="k" class="icon"></div>
+              <h2>Cata de vinos</h2>
+              <p class="fechaYHora"><strong>Bodegas Evine </strong>Viernes 19 | 19:30</p>
+              <p>Para que nuestros amigos que vienen a compartir el fin de semana, <strong>descubran</strong> lo mejor de Yecla.</p>
+              <a class="btn" target="_blank" href="http://maps.google.com/?q=hotel+la+paz+yecla">Punto encuentro</a>
+            </div>
+            <div class="media col-sm-4 cita">
+              <div data-icon="o" class="icon small"></div>
+              <h2>El Hotel</h2>
+              <p class="fechaYHora"><strong>Hotel La Paz </strong>Todo el fin de semana</p>
+              <p>Si has decidido aguantar hasta el final, <strong>descansa</strong> en este bonito hotel donde te van a tratar muy bien.</p>
+              <a class="btn" target="_blank" href="http://maps.google.com/?q=hotel+la+paz+yecla">Ver ubicación</a>
+            </div>
+            <div class="media col-sm-4 cita">
+              <div data-icon="d" class="icon"></div>
+              <h2>La Novia</h2>
+              <p class="fechaYHora"><strong>La casa de la novia</strong></p>
+              <p>Por si queréis hacer una visita a la casa donde empezó todo. Especialidad, arroz caldoso y tortas fritas.</p>
+              <a class="btn" target="_blank" href="http://maps.google.com/?q=calle+san+nicolas+39+yecla">Ver ubicación</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="page2 ops-section" data-index="2">
+        <div  id="map-canvas"></div>
+      </section> 
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52965873-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>
+<script type="text/template" id="tweetRow">
+            <div class="media col-md-3 tuitContent">
+              <div class="tuitCard">
+              <% if (!_.isEmpty(img)) { %>
+                
+              <%
+              $(img).each( function() {
+                if (this.type === "photo") { %>
+                    <a href="<%= this.media_url %>" target="_blank" class="imagen-card-container">
+                      <img src="<%= this.media_url %>" class="material-card-image" />
+                    </a>
+              <%}
+              });%>
+              <% } else { %>
+                <a href="http://www.twitter.com/<%= user %>" target="_blank" class="imagen-card-container">
+                  <img src="img/fondo.jpg" class="material-card-image" />
+                </a>
+              <% }%>
+              <% if (!_.isEmpty(avatar)) { %>
+                <img class="avatar" src="<%= avatar.replace('normal','bigger') %>" />
+              <% } %>
+              <a href="http://www.twitter.com/<%= user %>" target="_blank">
+                <h2>@<%= user %></h2>
+              </a>
+              <p class="tuit">
+                <% if (!_.isEmpty(retweet)) { %>
+                <%= retweet.text %>
+                <% } else { %>
+                <%= mensaje %>
+                <% } %>
+              </p>
+              <p class="fechaPublicacion">Fecha de publicación: <%= _.formatDate(fecha) %></p>
+            </div>
+          </div>
+</script>
+
+<script type="text/template" id="instagramRow">
+            <div class="media col-md-3 tuitContent">
+              <div class="tuitCard">
+                    <a href="<%= link %>" target="_blank" class="imagen-card-container">
+                      <img src="<%= img %>" class="material-card-image" />
+                    </a>
+              <% if (!_.isEmpty(avatar)) { %>
+                <img class="avatar" src="<%= avatar.replace('normal','bigger') %>" />
+              <% } %>
+              <a href="http://www.instagram.com/<%= user %>" target="_blank">
+                <h2>@<%= user %></h2>
+              </a>
+              <p class="tuit">
+                <% if (!_.isEmpty(mensaje)) { %>
+                <%= mensaje %>
+                <% } %>
+              </p>
+              <p class="fechaPublicacion">Fecha de publicación: <%= _.formatInstagramDate(fecha) %></p>
+            </div>
+          </div>
+</script>
