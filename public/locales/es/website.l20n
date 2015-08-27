@@ -1,6 +1,6 @@
 <title "@fedegarlo. Portfolio de un desarrollador web inquieto.">
 <inviteme "INVITAME ;)">
-<hititle "Hola, soy Fede y os mostraré<br/>qué estuve haciendo todo este tiempo.">
+<hititle "Hola, soy Fede García y os mostraré<br/>qué estuve haciendo todo este tiempo.">
 <skilltitle1 "Construyendo webs">
 <skill1 "Con una trayectoria de más de <strong>diez años</strong>, siempre he apostado por la presencia online de calidad. Los clientes han quedado satisfechos al ver conjugadas sus necesidades con aportaciones de buen gusto y experiencia.">
 <skilltitle2 "Actualizando herramientas">
@@ -15,7 +15,7 @@
 <skill6 "Como amante de todo tipo de gadgets, mantengo la curiosidad por expresarme a través de todos ellos.<br/>Aplicaciones para iPhone<br/>Diseño web adaptativo<br/>Desarrollos para dispositivos móviles<br/>">
 
 <apptext "Aplicación gratuita para inventariar tus productos de Apple y guía para saber qué modelo comprar. Desarrollada con Backbone y Underscore.js, se trata de un experimento para probar el diseño adaptativo que provee Bootstrap 3. En continuo desarrollo, es mi proyecto actual donde investigar nuevos frameworks como Retina.js, internalización con L20N de Mozilla, API de Twitter... Échale un ojo y ya me cuentas.">
-<heretitle "Aquí, una pequeña muestra de mis trabajos web.">
+<heretitle "Hay código escrito por mí en todos estos sitios.">
 <heretitledesign "Y aquí, mis pinitos en diseño gráfico.">
 <slogan "Esto empieza ahora.">
 <see "Ver">
@@ -24,3 +24,4 @@
 <footer "Aún queda mucho por hacer pero, de momento, esto está diseñado por <a href='http://twitter.com/fedegarlo' target='_blank'>@fedegarlo</a>">
 <new "Nuevo">
 <corpimg "Imagen corporativa">
+<helping "Ayudando a la Transformación Digital.">
