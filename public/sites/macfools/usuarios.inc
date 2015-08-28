@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free application for your Apple products inventory and guide to know which model to buy. Create a profile and share on social networks.">
+    <meta name="keywords" content="apple,productos,guia,compras,recomendacion, products, guide">
+    <meta name="author" content="@fedegarlo">
+    <title>Macfools : <?php echo $usuarioActual; ?> : Complete directory of Apple products</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Documentation extras -->
+    <link href="../css/docs.css" rel="stylesheet">
+    <link href="../css/pygments-manni.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../favicon.png">
+    <link rel="shortcut icon" href="../favicon.png">
+    <script src="../lib/l20n.min.js"></script>
+    <link rel="localization" href="../browser.json">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48380119-1', 'macfools.com');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body id="topAplicacion">
+  	  <div class="modal-backdrop fade catalogue" id="uroboroContainer">
+	    	<img src="../images/uroboro2.gif" class="hidden" id="uroboro" alt="loading" />
+	    </div>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <h1 class="mainTitle">
+     		<a href="../index.php"><img class="mainlogo" src="../images/logofull.png" alt="Macfools. Guía de productos Apple." /></a>
+   		</h1>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="visible-lg"><a href="../index.php" data-l10n-id="maintitle"></a></li>
+        <li><a href="../blog/" data-l10n-id="blog"></a></li>
+        <li><a target="_blank" href="http://macfools.com/blog/como-crear-un-perfil-en-macfools/" data-l10n-id="howtouse"></a></li>
+        <!--<li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>-->
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+      	<li>
+	      	<form class="navbar-form navbar-left" role="search">
+	          <div class="form-group">
+	            <input type="text" class="form-control" placeholder="Buscador de productos" id="productSearch">
+	            <input type="hidden" id="product-id">
+	          </div>
+	          <!--<button type="submit" class="btn btn-default">Submit</button>-->
+	        </form>
+      	</li>
+        <?php 
+        if (!$_SESSION['id_user']) {
+          echo '<li><a href="http://www.macfools.com/redirect.php">Login</a></li>';
+        } else {
+          echo '<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">@'.$_SESSION['user_name'].' <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../clearsessions.php">Logout</a></li>
+          </ul>
+        </li>';
+        } ?>        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <!-- Docs page layout -->
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3 sidebarGPA">
+        <div id="profileWidget"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading" data-l10n-id="legendpanetitle"></div>
+            <div class="panel-body">
+              <div>
+                <p data-l10n-id="whowedo" id="login-explanation"></p>
+                <?php if (!$_SESSION['id_user']) { 
+                  echo '<p id="data-login-button-container"><a href="http://www.macfools.com/redirect.php">
+                    <span id="data-login-button" class="label label-danger" data-l10n-id="loginpanetitle"></span>
+                  </a></p>';
+                  }
+                  ?>
+                  <p>
+                    <a href="https://twitter.com/macfools" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">
+                      <span id="data-follow-button" class="label label-default">Follow @Macfools</span>
+                    </a>
+                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default" id="podcastpane">
+            <div class="panel-heading" data-l10n-id="podcastpanetitle">Podcast sobre Apple</div>
+            <div class="panel-body">
+              <ul class="podcastchart">
+                <li class="podcastitem">
+                  <a href="http://www.spreaker.com/show/macfools" target="_blank">
+                    <div>
+                      <img src="../podcasts/cover.png" alt="macfools podcast" />
+                      <p class="podcasttitle">Macfools</p>
+                      <p class="description">Podcast amateur de @fedegarlo y @marcosbarrio.</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="podcastitem">
+                  <a href="https://itunes.apple.com/es/podcast/puromac/id207230788?mt=2" target="_blank">
+                    <div>
+                      <img src="../img/podcasts/puromac.jpg" alt="podcast puromac" />
+                      <p class="podcasttitle">Puromac</p>
+                      <p class="description">El podcast ultramarino de los amigos Fede y Flavio.</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="podcastitem">
+                  <a href="https://itunes.apple.com/es/podcast/emilcar-podcast/id251416655?mt=2" target="_blank">
+                    <div>
+                      <img src="../img/podcasts/emilcar.jpg" alt="podcast emilcar" />
+                      <p class="podcasttitle">Emilcar</p>
+                      <p class="description">Nuestro gurú murciano y fanboy de cabecera.</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="podcastitem">
+                  <a href="https://itunes.apple.com/es/podcast/pensando-como-pollos/id478123908?mt=2" target="_blank">
+                    <div>
+                      <img src="../img/podcasts/ipollos.jpg" alt="podcast ipollos" />
+                      <p class="podcasttitle">Pensando como pollos</p>
+                      <p class="description">Delirante podcast sobre Apple y la tecnonostalgia.</p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9" role="main" id="profileContainer">
+          <ul class="nav nav-tabs" id="myTab">
+            <li>
+              <a href="../index.php" data-link>
+                <span class="glyphicon glyphicon-phone visible-xs"></span>
+                <span data-l10n-id="tab1" class="hidden-xs"></span>
+              </a>
+            </li>
+            <li class="active"><a href="#versionCatalogue" data-toggle="tab" id="tab6"></a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane active fade in" id="devices">
+              <h2 id="media-list" data-l10n-id="tab4"></h2>
+                <p data-l10n-id="tab4desc"></p>
+              <ul class="media-list" id="my_product_container"></ul>
+            </div>
+          </div>
+          <div id="disqus_thread" style="display:none"></div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel" data-l10n-id="loginpanetitle"></h4>
+            </div>
+            <div class="modal-body">
+              <p data-l10n-id="loginpaneexplanation"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" data-l10n-id="nothanks"></button>
+              <a class="btn btn-danger" href="http://www.macfools.com/redirect.php" data-l10n-id="loginpanetitle"></a>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+            <!-- Modal -->
+      <div class="modal fade" id="modalSeleccionModelo" tabindex="-1" role="dialog" aria-labelledby="modalSeleccionModeloLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="modalSeleccionModeloLabel" data-l10n-id="modeltitle"></h4>
+            </div>
+            <div class="modal-body">
+              <div class="btn-group">
+                <p data-l10n-id="selectmodel"></p>
+                  <div data-combo-modelos></div>
+              </div>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="bs-footer" role="contentinfo">
+      <a data-l10n-id="whoweare" href="http://fedegarlo.com" target="_blank"></a>
+    </footer>
+    <script type="text/html" id="tmpl_mensaje">
+      <div class="alert alert-success" data-mensaje-aplicacion>
+        <strong>{{ titulo }}</strong> {{ mensaje }}
+      </div>
+    </script>
+
+
+    <script type="text/html" id="tmpl_producto_general">
+    <% var modeloAMostrar,
+    rutaImagen = '../img/';
+    if (modelo.flagOldModel) {
+      rutaImagen = '../img/olderVersions/'
+    }
+    if (_.isEmpty(modelo.nombre)) { %>
+      <hr>
+      {{ _.template($('#tmpl_mensaje').html(), { titulo : '¡Vaya!', mensaje : 'No hemos encontrado el producto que buscas en nuestra base de datos.'}) }}
+    <%  } else { %>
+
+    <h2 itemprop="name" class="mainProductTitle">{{ modelo.nombre }}
+            <% if (!_.isEmpty(modelo)) { _.each(modelo.models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-info">{{ modeloAMostrar }}</span>
+            <% } %>
+            <% if (modelo.wantProduct) { %> <span class="dollarConfirm"></span><% } %>
+            </h2>
+          <div class="device-wrapper col-md-4" itemscope itemtype="http://schema.org/Product">
+            <figure>
+              <% if (modelo.justUpdated) { %>
+              <div class="newTag" class="hidden"><span>{{ $B.app.literals.product.newProduct }}</span></div>
+              <% } %>
+              <% if (modelo.comingSoon) { %>
+              <div class="comingSoonTag" class="hidden"><span>{{ $B.app.literals.product.comingSoonProduct }}</span></div>
+              <% } %>
+              <% if (modelo.outOfDate) { %>
+              <div class="outOfDateTag" class="hidden"><span>{{ $B.app.literals.product.dontBuyProduct }}</span></div>
+              <% } %>
+              <img itemprop="image" class="media-object mainProductImage" src="{{ rutaImagen + modelo.imagen }}" alt="">
+            </figure>
+          </div>
+          <div class="media-body col-md-8" id="hitos_container">
+
+            <% if (modelo.flagOldModel) { %>
+              <p>{{ modelo.nombre + ' ' + modelo.version }}</p>
+              <p id="precioTag" class="precioTag" style="display:none;">
+              <p id="lastUpdate">{{ 'Fecha lanzamiento' + " " + _.formatDate(modelo.fecha) }}</p>
+            <% } else if (modelo.comingSoon) { %>
+              <p>{{ $B.app.literals.product.newModelSoon }}</p>
+              <p id="precioTag" class="precioTag" style="display:none;">
+              <p id="lastUpdate">{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(modelo.fecha) }}</p>
+            <% } else { %>
+            <p>{{ _.formatString($B.app.literals.product.itemUpdate, modelo.mediaDiasActualizar) }}</p>
+            <p id="precioTag" class="precioTag" style="display:none;">
+            </p>
+             {{ _.template($('#hito_progreso').html(), {fecha : modelo.fecha, mediaDiasActualizar : modelo.mediaDiasActualizar} )}}
+             <% } %>
+             <p>{{ $B.app.literals.product.versions }} <% _.each(modelo.models, function(model, index){ %>
+            <span class="label label-default">{{ model.nombre }}</span>
+            <% }); %></p>
+             <div id="tuit" style="display:none;"></div>
+          </div>
+      <%  } %>
+    </script>
+
+    <script type="text/html" id="tmpl_selector_modelo">
+        <form name="modelo" data-id-modelo-padre="{{idModeloPadre}}" data-ref-modelo-padre="{{modeloPadre.id}}">
+        <% _.each(modelos, function(modelo){ %>
+          {{_.template($('#tmpl_selector_modelo_li').html(), {modelo : modelo})}}
+        <% });  %>
+        </form>
+    </script>
+
+    <script type="text/html" id="tmpl_selector_modelo_li">
+      <input type="radio" name="modeloDispositivo" value="{{modelo.id}}" data-modelo-seleccionado ="{{modelo.id}}">
+        <span class="modeloAElegir">{{modelo.nombre}}</span>
+      </input>
+    </script>
+
+      <script type="text/html" id="tmpl_producto">
+      <% var modeloAMostrar;%>
+        <li class="media col-md-4" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper" itemscope itemtype="http://schema.org/Product">
+            <figure class="device-container">
+              <a class="auth" href="/product/{{ descProducto }}" >
+              	<% if (imagen) { %>
+                <img itemprop="image" class="media-object device-avatar" src="../img/olderVersions/{{ imagen }}" alt="">
+                <% } else { %>
+                <img itemprop="image" class="media-object device-avatar" src="../img/olderVersions/imagen_no_disponible.jpg" alt="">
+                <% } %>
+              </a>
+            </figure>
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading" itemprop="name">{{ nombre }}
+            <% if (!_.isEmpty(modelo)) { _.each(models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-info">{{ modeloAMostrar }}</span>
+            <% } %>
+            <p>{{ version }}</p>
+          </div>
+          <div id="tuit" style="display:none;"></div>
+        </li>
+      </script>
+
+			<script type="text/html" id="tmpl_productPrice">
+			<% if (data.type === 'from') { %>
+      	{{ $B.app.literals.product.typePriceFrom }} 
+      <% } else { %>
+      	{{ $B.app.literals.product.typePriceJust }}
+      <% } %>
+      <span class="precio">{{ data.number }}{{ data.currency }}</span>
+      </script>
+
+      <script type="text/html" id="tmpl_tuit">
+      <img src="../images/twitter_logo.png" /><div class="alert alert-info">
+        <p class="tuit">
+          <!--<span class="glyphicon glyphicon-globe"></span>--><a href="<% if (!_.isEmpty(data.url)) { %>{{ data.url }}<% } else { %>#<% } %>" class="alert-link">{{ data.user }}</a> {{ data.text }}
+        </p>
+        </div>
+      </script>
+
+      <script type="text/html" id="tmpl_subProducto">
+      <% var modeloAMostrar,
+      rutaImagen = '../img/olderVersions/';
+        if (!_.isNull(flagNewModel) && flagNewModel) {
+          rutaImagen = '../img/';
+        }   %>
+        <li class="media col-md-4" data-producto="{{ index }}" data-ref-producto="{{ id }}" data-subproducto>
+          <div class="device-wrapper" itemscope itemtype="http://schema.org/Product">
+            <figure class="pull-left device-container">
+              <a class="auth" href="/product/{{ descProducto }}" >
+              	<% if (!_.isEmpty(imagen)) { %>
+                	<img itemprop="image" class="media-object device-avatar" src="{{ rutaImagen + imagen }}" alt="">
+                <% } else { %>
+                	<img itemprop="image" class="media-object device-avatar" src="../img/olderVersions/imagen_no_disponible.jpg" title="Imagen no disponible" alt="Imagen no disponible">
+                <% } %>
+              </a>
+            </figure>
+            {{ _.template($('#tmpl_owner_card').html(), { ownProduct : ownProduct, wantProduct : wantProduct, idProducto : null, descProducto: id }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+          	<h4 class="media-heading" itemprop="name">{{ nombre }} <% if (!_.isEmpty(version)) {%>{{ version }}<%}%>
+	            <% if (ownProduct && !_.isEmpty(modelo)) { _.each(models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+	            <span class="label label-info">{{ modeloAMostrar }}</span>
+	            <% } %>
+	            <% if (wantProduct) { %> <span class="dollarConfirm"></span><% } %>
+            </h4>
+            <p>{{ $B.app.literals.product.launchdate }}: {{_.formatLaunchDate(fecha)}}</p>
+          </div>
+        </li>
+      </script>
+
+          <script type="text/html" id="tmpl_owner_card">
+            <div class="hovercard hc-product hc-loading">
+              <div class="hc-inner">
+                <span class="arrow left"></span>
+                <div class="hc-body" style="width: 150px;">
+                  <ul class="hc-product-list-menu hc-common-list">
+                    <% if (!_.isNull(ownProduct)) { %>
+                      <li class="hc-product-list-have">
+                        <a class="auth"<?php if (!$user_name) { echo ' data-toggle="modal" data-target="#myModal"'; } else { echo ' data-i-have="<% if (ownProduct) { %>{{ ownProduct }}<% } %>"'; }?>>
+                          <% if (ownProduct) { %>
+                            {{ $B.app.literals.product.ihavent }}
+                          <% } else { %>
+                            {{ $B.app.literals.product.ihaveone }}
+                          <% } %>
+                        </a>
+                      </li>
+                    <% } %>
+                    <% if (!_.isNull(wantProduct)) { %>
+                      <li class="hc-product-list-want">
+                        <a class="auth"<?php if (!$user_name) { echo ' data-toggle="modal" data-target="#myModal"'; } else { echo ' data-i-want="<% if (wantProduct) { %>{{ wantProduct }}<% } %>"'; }?>>
+                          <% if (wantProduct) { %>
+                            {{ $B.app.literals.product.idontwant }}
+                          <% } else { %>
+                            {{ $B.app.literals.product.iwantone }}
+                          <% } %>
+                        </a>
+                      </li>
+                    <% } %>
+                    <% if (!_.isNull(idProducto)) { %>
+                      <li class="hc-product-list-want">
+                        <a class="auth" data-catalogue="{{ idProducto }}">
+                           Modelos anteriores
+                        </a>
+                      </li>
+                     <% } %>
+                     <% if (!_.isEmpty(descProducto)) { %>
+                     <li class="hc-product-list-url">
+                      <a class="auth" href="/product/{{ descProducto }}" >
+                         {{ $B.app.literals.product.viewProfile }}
+                      </a>
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </script>
+
+        <script type="text/html" id="tmpl_producto_customizado">
+        <% var modeloAMostrar;%>
+        <li class="media col-md-4" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper">
+            <figure class="device-container">
+              <img class="media-object device-avatar" src="img/{{ imagen }}" alt="">
+            </figure>
+              {{ _.template($('#tmpl_owner_card').html(), { ownProduct : ownProduct, wantProduct : null, idProducto : null }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading">{{ nombre }}
+            <% if (!_.isEmpty(modelo)) { _.each(models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-info">{{ modeloAMostrar }}</span>
+            <% } %>
+            </h4>
+            <% if (comingSoon) { %>
+            	<p>{{ $B.app.literals.product.newModelSoon }}</p>
+            	<p>{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(fecha) }}</p>
+            <% } else { %>
+            <p>{{_.formatString($B.app.literals.product.itemUpdate, mediaDiasActualizar)}}</p>
+             {{ _.template($('#hito_progreso').html(), {fecha : fecha, mediaDiasActualizar : mediaDiasActualizar} )}}
+            <% } %>
+          </div>
+        </li>
+      </script>
+
+        <script type="text/html" id="tmpl_producto_perfil">
+        <% var modeloAMostrar,
+      rutaImagen = '../img/olderVersions/';
+        if (!_.isNull(flagNewModel) && flagNewModel) {
+          rutaImagen = '../img/';
+        }   %>
+        <li class="media col-md-4" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper">
+            <figure class="device-container">
+              <img class="media-object device-avatar" src="{{ rutaImagen + imagen }}" alt="">
+            </figure>
+            {{ _.template($('#tmpl_owner_card').html(), { ownProduct : null, wantProduct : null, idProducto : null, descProducto : id }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading">{{ nombre + ' ' + version }}
+            <% if (!_.isEmpty(modelo)) { _.each(models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-info">{{ modeloAMostrar }}</span>
+            <% } %>
+            <% if (wantProduct) { %> <span class="dollarConfirm"></span><% } %>
+            </h4>
+            <% if (principal) { %> 
+              <% if (comingSoon) { %>
+                <p>{{ $B.app.literals.product.newModelSoon }}</p>
+                <p>{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(fecha) }}</p>
+              <% } else { %> 
+              <p>{{_.formatString($B.app.literals.product.itemUpdate, mediaDiasActualizar)}}</p>
+               {{ _.template($('#hito_progreso').html(), {fecha : fecha, mediaDiasActualizar : mediaDiasActualizar} )}}
+              <% } %>
+            <% } else { %>
+              <p>{{ $B.app.literals.product.launchdate + " " + _.formatDate(fecha) }}</p>
+            <% } %>
+          </div>
+        </li>
+      </script>
+
+        <script type="text/html" id="tmpl_producto_wishlist">
+        <% var modeloAMostrar;%>
+        <li class="media col-md-4" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper">
+            <figure class="device-container">
+              <img class="media-object device-avatar" src="img/{{ imagen }}" alt="">
+            </figure>
+            {{ _.template($('#tmpl_owner_card').html(), { ownProduct : null, wantProduct : wantProduct, idProducto : null }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading">{{ nombre }}
+            <% if (!_.isEmpty(modeloDeseado)) { _.each(models, function(model, index){if(model.id === modeloDeseado){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-default">{{ modeloAMostrar }}</span>
+            <% } %>
+            <% if (wantProduct) { %> <span class="dollarConfirm"></span><% } %>
+            </h4>
+            <% if (comingSoon) { %>
+            	<p>{{ $B.app.literals.product.newModelSoon }}</p>
+            	<p>{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(fecha) }}</p>
+            <% } else { %>
+            <p>{{_.formatString($B.app.literals.product.itemUpdate, mediaDiasActualizar)}}</p>
+             {{ _.template($('#hito_progreso').html(), {fecha : fecha, mediaDiasActualizar : mediaDiasActualizar} )}}
+             <% } %>
+          </div>
+        </li>
+      </script>
+
+      <script type="text/html" id="preference_pane">
+	      <div class="panel panel-default">
+	      	<div class="panel-heading">{{ $B.app.literals.settings.profileTypeTitle }}</div>
+	      	<div class="panel-body">
+	      		<p><% if (data.value) { %>
+	      			{{ $B.app.literals.settings.privateProfile }}
+	      			<% } else { %>
+	      			{{ $B.app.literals.settings.publicProfile }}
+	      			<% } %>
+	      		</p>
+	    		</div>
+	    	</div>
+    	</script>
+
+      <script type="text/html" id="hito_progreso">
+        <%
+          var progressColor,
+            progress,
+            fecha,
+            classExtra = '';
+
+          progress = _.formatProgress({ fechaCalculo : fecha, mediaCalculada : mediaDiasActualizar} );
+          fechaCalculada = _.formatDate(fecha);
+          classExtra = 'first';
+
+          if (progress <= 70) {
+            progressColor = 'info';
+          } else {
+            progressColor = 'danger';
+          }
+        %>
+        <div class="progressContainer {{ classExtra }}">
+          <div class="progress">
+            <div class="progress-bar progress-bar-{{ progressColor }}" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%">
+              <span class="sr-only">{{ progress }}% Complete (success)</span>
+            </div>
+          </div>
+          <p>
+        	<% if (_.isOutOfDate({ fechaCalculo : fecha, mediaCalculada : mediaDiasActualizar})) { %>{{ $B.app.literals.product.noUpdated }}<% } else { %>{{ $B.app.literals.product.lastUpdate + " " + fechaCalculada }}<% } %><span itemprop="releaseDate" class="hidden">{{fecha}}</span>
+          </p>
+        </div>
+      </script>
+      <script src="../lib/require.js" data-main="../appuser"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'macfools'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </body>
+</html>

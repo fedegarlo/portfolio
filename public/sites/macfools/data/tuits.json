@@ -1,0 +1,120 @@
+{"tuits" : [
+
+	{	
+		"id" : "mb2013",
+		"text" : null
+	},
+	{	
+		"id" : "ipodClassic",
+		"text" : "Say Goodbye to the iPod Classic",
+		"user" : "@redgirlsays",
+		"url" : "http://www.wired.com/gadgetlab/2013/09/goodbye-ipod-classic/"
+
+	},
+	{	
+		"id" : "display2013",
+		"text" : "Display Supplier With Apple Ties Making 4K Panels That Could Be For Future Thunderbolt Display",
+		"user" : "cultofmac",
+		"url" : "http://www.cultofmac.com/255743/display-supplier-with-apple-ties-making-4k-panels-that-could-be-for-future-thunderbolt-display/"
+	},
+	{
+		"id" : "appletv",
+		"text" : "Amazon Planning March Launch for Apple TV Set-Top Box Competitor.",
+		"user" : "@macrumors",
+		"url" : "http://twitter.com/macrumors"		
+	},
+	{
+		"id" : "imac",
+		"text" : null	
+	},
+	{
+		"id" : "macpro",
+		"text" : "Mac Pro Is a Lamborghini, but Who Drives That Fast?",
+		"user" : "@geoffreyfowler",
+		"url" : "http://online.wsj.com/news/articles/SB10001424052702304549504579320674142816790"
+	},
+	{
+		"id" : "ipadair",
+		"text" : "iPad Air es premiada como la mejor tablet en el MWC",
+		"user" : "@revistacapital",
+		"url" : "http://www.capital.cl/negocios/ipad-air-es-premiada-como-la-mejor-tablet-en-el-mwc/"
+	},
+	{
+		"id" : "iphone5s",
+		"text" : "Apple Releases iOS 7.1 Beta 5 To Developers",
+		"user" : "cultofmac",
+		"url" : "http://t.co/GoGzcnUYEk"		
+	},
+	{
+		"id" : "ipadminiretina",
+		"text" : "iPad Mini con pantalla Retina: costosa, pero es la mejor tableta pequeña",
+		"user" : "cultofmac",
+		"url" : "http://t.co/GoGzcnUYEk"
+	},
+	{
+		"id" : "ipodnano2013",
+		"text" : null		
+	},
+	{
+		"id" : "ipodshuffle2013",
+		"text" : null		
+	},
+	{
+		"id" : "ipodtouch2013",
+		"user" : "@JordanKahn",
+		"text" : "Apple Q1 2014: iPod sales decreased by more than half since last year",
+		"url" : "http://9to5mac.com/2014/01/27/apple-q1-2014-ipod-sales-decreased-by-more-than-half-since-last-year/"
+
+	},
+	{
+		"id" : "mbretina",
+		"text" : null
+	},
+	{
+		"id" : "macbookair",
+		"text" : null		
+	},
+	{
+		"id" : "macbookair2014",
+		"user" : "@xataka",
+		"text" : "Apple renueva sus MacBook Air, pero de Retina, nada",
+		"url" : "http://t.co/NmWmobSlrQ"
+
+	},
+	{
+		"id" : "macmini",
+		"user" : "@macrumors",
+		"text" : "New Mac Mini Coming by End of February According to Belgian Retailer",
+		"url" : "http://t.co/lZiStEHAfd"
+	},
+	{
+		"id" : "iphone5c",
+		"text" : "Apple launches cheaper 8GB iPhone 5C",
+		"user" : "@verge",
+		"url" : "http://t.co/9dfYHWqw1o"
+	},
+	{
+		"id" : "airportextreme2013",
+		"text" : null		
+	},
+	{
+		"id" : "ipad",
+		"text" : "Apple Retires iPad 2, Replaces It With Retina Display Model",
+		"user" : "@cultofmac",
+		"url" : "http://t.co/9BmvWx32c7"		
+	},
+	{
+		"id" : "iphone6",
+		"text" : "iPhone 6 Plus se sube al cuadrilátero: ¿saldrá victorioso?",
+		"user" : "@es_engadget",
+		"url" : "http://t.co/nPAkHCda0s"		
+	},
+	{
+		"id" : "iphone6plus",
+		"text" : "iPhone 6 and iPhone 6 Plus feature impressive battery improvements over iPhone 5s",
+		"user" : "@9to5mac",
+		"url" : "http://t.co/UsIUjHiLOv"		
+	}
+
+
+]}

@@ -1,0 +1,852 @@
+<script>
+{{
+$B.app.literals = {
+  atencion: '##app.alerta-saldo-insuficiente-titulo-input##',
+  mensaje_maximo_operaciones_agiles: '##operaciones.agiles.no.puede.incluir.mas##',
+  operacion_anadida_correctamente: '##operaciones.agiles.incluida.correctamente##',
+  titulo_operaciones_agiles: '##operaciones.agiles.operaciones.agiles##',
+  error_msg: '##genericos.hubo.un.error##',
+  error_no_metodos_firma: '##genericos.metodo.firma.no.identificado##',
+  error_formato_fecha: '##genericos.error.formato.fecha##',
+  year: '##genericos.anio##',
+  month: '##genericos.mes##',
+  cargando: '##genericos.cargando##',
+  informe_sobre_un_problema:'##app.t-feedback.informe.un.problema##',
+  defaultMessageConfirmBeforeNavigate: '##app.defaultMessageConfirmBeforeNavigate##',
+  operativaNoDisponiblePerdone: '##app.operativaNoDisponiblePerdone##',
+  paginaNoEncontrada: '##app.t-mensaje-paginanoencontrada##',
+  errorgestor: '##app.t-app_user.gestor.error##',
+  alerta_sesion_expirada: '##app.alerta.sesion-expirada##',
+  alerta_sesion_expirada_recargar: '##app.alerta.sesion-expirada.recargar##',
+  appletDnie: {
+    ERR00: "##areapersonal.firmas.ERR00##",
+    ERR01: "##areapersonal.firmas.ERR01##",
+    ERR02: "##areapersonal.firmas.ERR02##",
+    ERR03: "##areapersonal.firmas.ERR03##",
+    ERR04: "##areapersonal.firmas.ERR04##",
+    ERR09: "##areapersonal.firmas.ERR09##",
+    ERR11: "##areapersonal.firmas.ERR11##",
+    ERR21: "##areapersonal.firmas.ERR21##",
+    ERR22: "##areapersonal.firmas.ERR22##",
+    ERR23: "##areapersonal.firmas.ERR23##",
+    ERR24: "##areapersonal.firmas.ERR24##",
+    ERR25: "##areapersonal.firmas.ERR25##",
+    ERR26: "##areapersonal.firmas.ERR26##",
+    ERR27: "##areapersonal.firmas.ERR27##",
+    ERR28: "##areapersonal.firmas.ERR28##",
+    ERR29: "##areapersonal.firmas.ERR29##",
+    ERR30: "##areapersonal.firmas.ERR30##",
+    ERR31: "##areapersonal.firmas.ERR31##",
+    ERR51: "##areapersonal.firmas.ERR51##",
+    updateJava: "##areapersonal.firmas.updatejava.descripcion##",
+    aviso: "##areapersonal.firmas.updatejava.titulo##"
+  },
+  posicionGlobal: {
+    error_peticion_graficos_default: '##posicion.global.error.recuperando.grafico##',
+    error_validacion_graficos_default: '##posicion.global.datos.grafico.incorrectos##',
+    error_validacion_graficos_valores: '##posicion.global.datos.grafico.valores.incorrectos##',
+    warning_sin_datos: '##posicion.global.datos.grafico.sin.datos##',
+    mostrar_productos: '##app.t-producto-seccion.btn.mostrar.productos##',
+    ocultar_productos: '##app.t-producto-seccion.btn.ocultar.productos##',
+    mostrar_familia: '##app.mostrar.datos.familia.productos##',
+    ocultar_familia: '##app.ocultar.datos.familia.productos##',
+    cuentas_y_tarjetas: '##app.app-menu.menu.cuentas-y-tarjetas##',
+    ahorro_e_inversion: '##app.app-menu.menu.ahorro-e-inversion##',
+    hipotecas_y_prestamos: '##app.app-menu.menu.hipotecas-y-prestamos##',
+    broker: '##app.app-menu.menu.broker##',
+    seguros: '##app.app-menu.menu.seguros##',
+    desenmascarar: '##operativasgenerales.posicionglobal.desenmascarar##',
+    vermenos: '##app.t-buscadores-producto.ver.menos##',
+    vertodos: '##app.t-buscadores-producto.ver.todos##',
+    mostrar_todo: '##operativasgenerales.posicionglobal.boton.tooltip##',
+    ocultar_todo: '##operativasgenerales.posicionglobal.boton.tooltip.ocultar##',
+    tarjetas_oasys_titulo_modal:'##tarjetas.oasys.tituloVentanaModal##'
+  },
+  votoElectronico: {
+      modal_title: '##app.operativasgenerales.posicionglobal.votolEctronico.tituloModal##'
+    },
+    pasaporteMulticanal: {
+        modal_title: '##app.operativasgenerales.pasaporteMulticanal.tituloModal##',
+        modal_title_unnim: '##app.operativasgenerales.pasaporteMulticanal.tituloModalUnnim##',
+        modal_title_cambio_metodo: '##app.operativasgenerales.pasaporteMulticanal.tituloModalCambioAcceso##',
+     },
+    coreLiterals: {
+    title_blinkmessage: '##app.alerta.title-blinkmessage##',
+    error_cargando_recursos: '##core.error.cargando.recursos##',
+    error_tempalte:'##core.error.tempalte##',
+    error_cargando_template:'##core.error.cargando.template##',
+    no_existe_form:'##core.no.existe.form##',
+    subview_needs_property:'##core.subview.needs.property##' ,
+    subview_needs_unique_id:'##core.subview.needs.unique.id##',
+    already_defined:'##core.already.defined##',
+    the_key:'##core.the.key##',
+    does_not_exist:'##core.does.not.exist##',
+    mensage_de_error:'##core.mensage.de.error##',
+    subview:'##core.subview##',
+    not_found_in_stackview:'##core.not.found.in.stackview##',
+    error_inesperado:'##core.error.inesperado##',
+    fuc_must_be_string:'##core.fuc.must.be.string##',
+    office_must_be_string:'##core.office.must.be.string##',
+    hubo_un_error:'##core.hubo.un.error##',
+    error_ajax:'##core.error.ajax##',
+    error_de_carga:'##core.error.de.carga##',
+    no_existe_tmpl:'##core.no.existe.tmpl##',
+    error_recoger_campo:'##core.error.recoger.campo##',
+    template:'##core.template##',
+    mensaje_de_error:'##core.mensaje.de.error##',
+    no_existe_mes:'##core.no.existe.mes##',
+    need_pass_data_Object:'##core.need.pass.data.Object##',
+    no_recibidas_coordenadas:'##core.no.recibidas.coordenadas##',
+    no_dialog_with_id:'##core.no.dialog.with.id##',
+    no_options_for_dialog:'##core.core.no.options.for.dialog##',
+     provide_an_id:'##core.provide.an.id##',
+    create_the_id:'##core.create.the.id##',
+    exists_choose_another:'##core.exists.choose.another##',
+    content_must_be_string:'##core.content.must.be.string##',
+    the_element:'##core.the.element##',
+    not_found_on_dom:'##core.not.found.on.dom##',
+    button_must_be_string:'##core.button.must.be.string##',
+    specify_a_url:'##core.specify.a.url##',
+    urlParams_must_be_object:'##core.urlParams.must.be.object##',
+    no_existe_tooltip:'##core.no.existe.tooltip##',
+    only_use_object_as_argument:'##core.only.use.object.as.argument##',
+    Event:'##core.Event##',
+    not_exist:'##core.not.exist##',
+    not_match_selector:'##core.not.match.selector##',
+    faltan_parametros:'##core.faltan.parametros##',
+    url_must_be_string:'##core.url.must.be.string##',
+    tlgo_buscar_oficina: '##core.tlgo.buscar.oficina##',
+    tlgo_no_coordenadas_pintar_mapa: '##core.tlgo.no.coordenadas.pintar.mapa##',
+    tlgo_oficinas_disponibles_zona: '##core.tlgo.oficinas.disponibles.zona##',
+    tlgo_oficinas_no_disponibles_zona: '##core.tlgo.oficinas.noDisponibles.zona##',
+    tlgo_quiza_quiso_decir: '##core.tlgo.quiza.quiso.decir##',
+    tlgo_is_not_a_number: '##core.tlgo.is.not.a.number##',
+    tlgo_no_existe_el_modo: '##core.tlgo.no.existe.el.modo##',
+    aviso:'##core.aviso##',
+    subordinada_no_disponible: '##core.subordinada.no.disponible##',
+    stackview_boton_siguiente: '##core.stackview.boton.siguiente##',
+    stackview_boton_anterior: '##core.stackview.boton.anterior##',
+    error: '##core.error##',
+    cerrar: '##core.cerrar##'
+  },
+  areapersonal: {
+    anyadir_telefono: '##areapersonal.perfil.telefonos.titulo_anadir##',
+    modificar_telefono: '##areapersonal.perfil.telefonos.titulo_modificar##',
+    validar_telefonoOperaciones: '##areapersonal.perfil.telefonos.titulo_validar##',
+    eliminar_telefono: '##areapersonal.perfil.telefonos.titulo_eliminar##',
+    telefono_invalido: '##app.c_widget_clickToCall.telefonoInvalido##',
+    anyadir_email: '##areapersonal.perfil.emails.titulo_anadir##',
+    modificar_email: '##areapersonal.perfil.emails.titulo_modificar##',
+    eliminar_email: '##areapersonal.perfil.emails.titulo_eliminar##',
+    verificar_email: '##areapersonal.perfil.emails.titulo_verificar##',
+    editar_foto: '##areapersonal.perfil.datos.titulo_editar##',
+    cambiar_sistema_acceso: '##areapersonal.perfil.seguridad.titulo.cambiar_sistema_acceso##',
+    cambiar_claveacceso: '##areapersonal.perfil.seguridad.titulo.cambiar_claveacceso##',
+    nueva_claveope: '##areapersonal.perfil.seguridad.titulo.nueva_claveope##',
+    eliminar_direccion: '##areapersonal.perfil.direcciones.titulo_eliminar##',
+    combo_localidad_titulo: '##areapersonal.perfil.anadirdireccion.paso1.titulo.combo_localidad##',
+    combo_localidad_opcion1: '##areapersonal.perfil.anadirdireccion.paso1.opcion1.combo_localidad##',
+    contactos_recuperar_btn_aceptar: '##areapersonal.contactos.recuperar.btn_aceptar##',
+    modificarClaveOperaciones: '##areapersonal.perfil.seguridad.titulo.clave_operaciones_cambiar##',
+    modificar_claveacceso: '##areapersonal.perfil.seguridad.titulo.clave_acceso_cambiar##',
+    importar_contactos: '##areapersonal.perfil.importar.contactos##',
+    aniadir_contacto: '##areapersonal.anadir.contacto.vista.aniadir##',
+    anadir_direccion: '##areapersonal.perfil.anadirdireccion.cabecera##',
+    modificar_direccion: '##areapersonal.perfil.modificardireccion.cabecera##',
+    enviar_justificante_enviar:'##areapersonal.paso1.enviarjustificante.cabecera.enviarjustificante##',
+    enviar_justificante_validaremail:'##areapersonal.paso1.enviarjustificante.cabecera.validaremail##',
+    enviar_justificante_crearemail:'##areapersonal.paso1.enviarjustificante.cabecera.crearemail##',
+    enviar_justificante_paso2modificaremail:'##areapersonal.paso2.enviarjustificante.cabecera.modificaremail##',
+    enviar_justificante_paso3_enviar:'##areapersonal.paso3.enviarjustificante.cabecera##',
+    enviar_justificante_sinenvio:'##areapersonal.paso1.enviarjustificante.cabecera.sinenvio.creadoyvalidado##',
+    enviar_justificante_estadoemail_1:'##areapersonal.enviarjustificante.verificaremail.estado1##',
+    enviar_justificante_estadoemail_2:'##areapersonal.enviarjustificante.verificaremail.estado2##',
+    enviar_justificante_estadoemail_3:'##areapersonal.enviarjustificante.verificaremail.estado3##',
+    enviar_justificante_gestionemail:'##areapersonal.firmas.titulo##',
+    contactos_recuperar_paso0_titulo:'##areapersonal.contactos.recuperar.paso0.titulo##',
+    contactos_recuperar_paso1_titulo:'##areapersonal.contactos.recuperar.paso1.titulo##',
+    contactos_recuperar_paso2_datoscontacto:'##areapersonal.contactos.recuperar.paso2.datoscontacto##',
+    combo_postal_titulo:'##areapersonal.perfil.anadirdireccion.paso1.titulo.combo_postal##',
+    combo_postal_opcion1:'##areapersonal.perfil.anadirdireccion.paso1.opcion1.combo_postal##',
+    modulo_cerrarsesion_titulo: '##app.modulo.cerrarsesion.titulo##',
+    barraEstadoPerfil_completado: '##app.t-widget-barraEstadoPerfil.completado##',
+    productos_asociados: '##areapersonal.direcciones.asociadas.titulo_ventana##'
+  },
+  notificacionesalertas: {
+    contratacion:'##notificacionesalertas.contratacion.titulo##',
+    cambioPkt:'##notificacionesalertas.contratacion.cambiar.paquete##',
+    canalesalertas:'##notificacionesalertas.canales.guardaralertas.data-modal-title##',
+    canalesnotificaciones:'##notificacionesalertas.canales.guardarnotificaciones.data-modal-title##',
+    cancelacionalertas:'##notificacionesalertas.cancelacion.data-modal-title##',
+    mensajeValidacionImporte:'##notificacionesalertas.configuracion.importe.mensaje##',
+    tarifas: '##notificacionesalertas.tarifas.header1##'
+  },
+  correspondenciavirtual:{
+    solicitarduplicado:'##correspondenciavirtual.solicitar.duplicado##',
+    desactivar:'##correspondenciavirtual.extracto.desactivar##',
+    activar:'##correspondenciavirtual.extracto.activar##'
+  },
+  recibos: {
+   /* devolverReciboDomiciliadoTitulo: 'recibos.domiciliados.devolverRecibo.titulo',
+    solicitudDuplicadoReciboTitulo: 'recibos.domiciliados.solicitarDuplicado.titulo',
+    mostrarModificarDomiciliacionTitulo: 'recibos.domiciliaciones.modificarRecibo',
+    mostrarVolverPagarReciboTitulo: 'recibos.domiciliaciones.reactivarRecibo.titulo',
+    mostrarDejarPagarReciboTitulo: 'recibos.domiciliaciones.suspenderRecibo.titulo'*/
+    devolverReciboDomiciliadoTitulo: '##recibos.devolver.recibo.domiciliado.titulo##',
+    solicitudDuplicadoReciboTitulo: '##recibos.solicitud.duplicado.recibo.titulo##',
+    mostrarModificarDomiciliacionTitulo: '##recibos.mostrar.modificar.domiciliacion.titulo##',
+    mostrarVolverPagarReciboTitulo: '##recibos.mostrar.volver.pagar.recibo.titulo##',
+    mostrarDejarPagarReciboTitulo: '##recibos.mostrar.dejar.pagar.recibo.titulo##'
+  },
+  altaCliente: {
+    registarme:'##altaCliente.formularioRegistro.botonRegistro##'
+  },
+ contratacion: {
+    tituloGeneral:'##contratacion.tituloGeneral.h1##',
+    tituloGeneralDe:'##contratacion.tituloGeneralDe.h1##',
+    deTarjetas:'##contratacion.deTarjetas.h1##',    
+    deCuentas:'##contratacion.deCuentas.h1##',
+    deDepositos:'##contratacion.deDepositos.h1##',
+    dePlanes:'##contratacion.dePlanes.h1##',
+    deFondos:'##contratacion.deFondos.h1##',
+    altaClienteSeleccionMetodoAcceso: '##contratacion.alta.cliente.seleccion.metodo.acceso##',
+    altaClienteSeleccionMetodoAccesoPublico: '##contratacion.alta.cliente.seleccion.metodo.acceso.publico##',
+    altaClienteParaisoFiscal:'##contratacion.alta.cliente.paraiso.fiscal##',
+    altaClientemostarPasoDireccionPostal: '##contratacion.alta.cliente.mostar.paso.direccion.postal##',
+    altaClienteCnae: '##contratacion.alta.cliente.cnae##',
+    altaClienteCno: '##contratacion.alta.cliente.cno##',
+    altaClienteAdjuntarDni: '##contratacion.alta.cliente.adjuntar.dni##',
+    altaClienteAdjuntarNomina: '##contratacion.alta.cliente.adjuntar.nomina##',
+    altaClienteConfirmar: '##contratacion.alta.cliente.adjuntar.confirmar##',
+    confirmacion_salir: '##contratacion.confirmacion.salir##',
+    contratacionCuentasydepositosAnyadirIntervinientes: '##contratacion.contratacion.cuentas.depositos.anyadir.intervinientes##',
+    contratacionCuentasydepositosListarContratos: '##contratacion.contratacion.cuentas.depositos.listar.contratos##',
+    contratacionCuentasydepositosBonificacionTitle: '##contratacion.contratacion.cuentas.depositos.bonificacion.title##',
+    fondosPlanesInfoCampanyas: '##contratacion.fondos.planes.info.campanyas##',
+    fondosPlanesAfi: '##contratacion.fondos.planes.afi##',
+    fondosPlanesInfoRevalorizacion: '##contratacion.fondos.planes.info.revalorizacion##',
+    segurosModal: '##contratacion.seguros.modal##',
+    showErrorNacar: '##contratacion.show.error.nacar##',
+    altaClienteFinMetodoAccesoDNIe: '##contratacion.alta.cliente.mostarPaso.finDatosAcceso.modalDNIe.titulo##',
+    finnocliente:'##contratacion.fin.nocliente.titulo##',
+    confirmacion_salir_ocl:'##contratacion.ocl.confirmacion.salir##',
+    confirmacion_salir_ocl_finalizada:'##contratacion.ocl.confirmacion.salir.finalizada##',
+    confirmacion_salir_ocl_finalizada_firma:'##contratacion.ocl.confirmacion.salir.finalizada.firma##',
+    confirmacion_salir_ocl_finalizada_error:'##contratacion.ocl.confirmacion.salir.finalizada.error##'
+  },
+  ayudas: {
+    adjuntardocumentacion: '##ayudas.modal.adjuntardocumentacion##',
+    prestamosTituloGraficaTooltip: '##prestamos.t-producto-grafica.titulo-grafica.tooltip##',
+    confirmacionenvio: '##ayudas.modal.confirmacionenvio##',
+    mercadoContinuo: '##ayudas.valores.compraVenta.tooltip##',
+    seleccionarProducto: '##ayudas.combo.seleccionarProducto##',
+    seleccionarTipo: '##ayudas.combo.seleccioneTipo##',
+    seleccionarMotivo: '##ayudas.combo.seleccioneMotivo##',
+    seleccionarTipoLabel: '##ayudas.combo.label.tipo##',
+    seleccionarMotivoLabel: '##ayudas.combo.label.motivo##',
+    tituloInformacion: '##ayudas.titulo.informacion##',
+    tituloTramites: '##ayudas.titulo.tramites##',
+    tituloListado: '##ayudas.titulo.listadoContactos##',
+    calidad: {
+      email: '##ayudas.atencion.gere.mensajeExito.calidad.email##',
+      telefono: '##ayudas.atencion.gere.mensajeExito.calidad.telefono##'
+    },
+    informacion: {
+      email: '##ayudas.atencion.gere.mensajeExito.informacion.email##',
+      telefono: '##ayudas.atencion.gere.mensajeExito.informacion.telefono##'
+    }
+  },
+  cuentas: {
+    transferenciasnueva: '##cuentas.transferencias.mensaje.nueva##',
+    transferenciasgestion: '##cuentas.transferencias.mensaje.gestion##',
+    talonariosbusquedasinresultados: '##cuentas.talonarios.busquedas.in.resultados##',
+    talonariosbusquedaerror: '##cuentas.talonarios.busqueda.error##',
+    errortemplate: '##cuentas.error.template##',
+    widgetgestiontransferenciaserrorbusquedacuentas: '##cuentas.widget.gestion.transferencias.error.busqueda.cuentas##',
+    divisas_paso1_h1: '##cuentas.divisas.header1##',
+    divisas_paso2_h1: '##cuentas.divisas.header2##',
+    entidad: '##app.t-form-ccc.entidad##',
+    retenciones: '##cuentas.retenciones.header1##',
+    botontransferenciasnuevo: '##cuentas.transferencias.mensaje.boton.nueva##',
+    errorRemesaDivisa: '##cuentas.remesas.error.divisa##',
+    cargoCuentaOrdenante: '##cuentas.historico.cuentaOrdenante##',
+    avisoNingunaRemesa: '##cuentas.remesas.historico.avisoNingunaRemesa##'
+  },
+  depositos: {
+    cantidad: '##depositos.operaciones.cancelacion.t-widget-contenedorservicing.indicador.progreso1##',
+    resumen: '##depositos.operaciones.cancelacion.t-widget-contenedorservicing.indicador.progreso2##',
+    confirmar: '##depositos.operaciones.cancelacion.t-widget-contenedorservicing.indicador.progreso3##'
+  },
+  movimientos: {
+    simboloDivisaEuro: '##cuentas.fichacuenta.tmpl-consultasBuscadorFechas.t-buscadores-consultas-importe.euros##',
+    mesesExtracto: {
+      enero: '##datosExtracto.meses.ENERO##',
+      febrero: '##datosExtracto.meses.FEBRERO##',
+      marzo:  '##datosExtracto.meses.MARZO##',
+      abril: '##datosExtracto.meses.ABRIL##',
+      mayo: '##datosExtracto.meses.MAYO##',
+      junio: '##datosExtracto.meses.JUNIO##',
+      julio: '##datosExtracto.meses.JULIO##',
+      agosto: '##datosExtracto.meses.AGOSTO##',
+      septiembre: '##datosExtracto.meses.SEPTIEMBRE##',
+      octubre:  '##datosExtracto.meses.OCTUBRE##',
+      noviembre: '##datosExtracto.meses.NOVIEMBRE##',
+      diciembre: '##datosExtracto.meses.DICIEMBRE##'
+    },
+    simboloDivisaEuro: '##cuentas.fichacuenta.tmpl-consultasBuscadorFechas.t-buscadores-consultas-importe.euros##',
+    extractoCaption: '##cuentas.ficha.modalPDF.fechaMovmiento##',
+    extractoFechaMovmiento: '##cuentas.ficha.modalPDF.fechaMovmiento##',
+    extractoFechaValor: '##cuentas.ficha.modalPDF.fechaValor##',
+    extractoConcepto: '##cuentas.ficha.modalPDF.concepto##',
+    extractoImporte: '##cuentas.ficha.modalPDF.importe##',
+    extractoVisualizarDocumento: '##cuentas.ficha.modalPDF.visualizarDocumento##',
+    extractoVerExtracto: '##cuentas.ficha.modalPDF.verExtracto##'
+  },
+  asesoramiento: {
+    confirmacionSalir: '##asesoramiento.confirmacion.salir##',
+    errorNacar: '##asesoramiento.error.nacar##',
+    validaciones: {
+      numeroObligatorio: '##asesoramiento.validaciones.numeroObligatorio##'
+    },
+    modalpropuesta: '##asesoramiento.modalpropuesta.titulo##',
+    buscadorAvanzadoCategoria: '##asesoramiento.buscadoravanzado.buscadores-porFiltro.categoria##',
+    buscadorAvanzadoSubcategoria: '##asesoramiento.buscadoravanzado.buscadores-porFiltro.subcategoria##',
+    buscadorRiesgoBajo: '##asesoramiento.buscadoresporfiltros.riesgoBajo##',
+    buscadorRiesgoMedio:  '##asesoramiento.buscadoresporfiltros.riesgoMedio##',
+    buscadorRiesgoAlto:  '##asesoramiento.buscadoresporfiltros.riesgoAlto##',
+    buscadorPotencialmenteMenor: '##asesoramiento.buscadoresporfiltros.potencialmenteMenor##',
+    buscadorPotencialmenteMayor: '##asesoramiento.buscadoresporfiltros.potencialmenteMayor##',
+    avisoVentana: '##asesoramiento.segurovivienda.avisoventana##'
+  },
+  segurohogar: {
+    p2titulo: '##asesoramiento.seguroshogar.titulo##',
+    seguroshogar_tramites_titulo: '##asesoramiento.seguroshogar.tramites.titulo##',
+    pasoAltaUsuario_modal_title: '##asesoramiento.seguroshogar.ocp.modal.textoinformativo.alta.titulo##',
+    pasoResumenUsuarioLogado_modal_title: '##asesoramiento.seguroshogar.ocp.modal.pasoResumenUsuarioLogado##'
+  },
+  tarjetas: {
+    definirciptitulo: '##tarjetas.definircip.encabezado##',
+    bluediez: '##tarjetas.bluediez.encabezado##',
+    visualizartarjetatitulo: '##tarjetas.ficha.visualizarTarjeta##'
+  },
+  irpf: {
+    datosfiscalesduplicado: '##impuestos.irpf.consultadatosfiscales.modal.titulo##',
+    consultadatosfiscalessolicitarduplicado: '##impuestos.irpf.consultadatosfiscales.modal.solicitarDuplicado.titulo##',
+    pagosuma: '##app.c_widget_impuestos.pagoimpuestos##'
+  },
+  prestamospide: {
+    activaciontitulo1:'##prestamos.pide.paso1.t-widget-informacionPIDE.titulo##',
+    activaciontitulo2:'##prestamos.pide.paso3.t-widget-informacionPIDE.resumen##',
+    activaciontitulo3:'##prestamos.pide.paso5.disposicionFin.titulo##',
+    activaciontitulo4:'##prestamos.pide.paso6.resultadoAceptacion.titulo##',
+    activaciontitulo5:'##prestamos.pide.paso7.datosDisposicion.titulo##',
+    activaciontitulo6:'##prestamos.pide.paso12.resultadoDisposicion.titulo##',
+    pideayuda:'##prestamos.pideayuda.titulo##'
+  },
+  fondos: {
+    titulo_anularorden:'##fondos.anularOrden.titulo##',
+    titulo_valorliquidativo:'##fondos.valorliquidativo.titulo##',
+    titulo_valorliquidativo_detalle:'##fondos.valorliquidativo.titulo.detalle##',
+    aportacionperiodica_quieroAlta:'##fondos.aportacionperiodica.quieroAlta##'
+  },
+  fondosinternacionales: {
+    titulo_anularorden:'##fondosinternacionales.anularOrden.titulo##'
+  },
+  valores: {
+    titulo_anularorden:'##valores.anularOrden.titulo##',
+    titulo_modificarorden:'##valores.modificarOrden.titulo##',
+    compraventa: {
+      condicionCompra: '##valores.compraventa.condicionada.condicionCompra##',
+      cotizacionActual: '##valores.compraventa.condicionada.cotizacionActual##',
+      cotizacionNoDisponible: '##valores.compraventa.condicionada.cotizacionNoDisponible##',
+      condicionVenta: '##valores.compraventa.condicionada.condicionVenta##',
+      cotizacionActualVenta: '##valores.compraventa.condicionada.cotizacionActualVenta##',
+      cotizacionNoDisponibleVenta: '##valores.compraventa.condicionada.cotizacionNoDisponibleVenta##',
+      paso_comun_inicio:'##valores.compraventa.t-widget-contenedorServicing.activos.titulo##',
+      inicio_mercado_inexistente: '##valores.compraventa.validacion.mercadoinexistente##',
+      inicio_activo_inexistente: '##valores.compraventa.validacion.activoinexistente##',
+      MercadoLondres: '##valores.compraventa.validacion.MercadoLondres##',
+      compra:{
+        valores:'##valores.compra.t-widget-contenedorServicing.valores.titulo##',
+        warrants:'##valores.compra.t-widget-contenedorServicing.warrants.titulo##',
+        etfs:'##valores.compra.t-widget-contenedorServicing.etfs.titulo##',
+        derechos:'##valores.compra.t-widget-contenedorServicing.derechos.titulo##'
+      },
+      venta:{
+        valores:'##valores.venta.t-widget-contenedorServicing.valores.titulo##',
+        warrants:'##valores.venta.t-widget-contenedorServicing.warrants.titulo##',
+        etfs:'##valores.venta.t-widget-contenedorServicing.etfs.titulo##'
+      },
+      tipos:{
+        stoploss:'##valores.compraventa.tipos.stoploss##',
+        mejor:'##valores.compraventa.tipos.porlomejor##',
+        mercado:'##valores.compraventa.tipos.mercado##',
+        limitada:'##valores.compraventa.tipos.limitada##',
+        valores:'##valores.compraventa.tipos.valores##',
+        warrants:'##valores.compraventa.tipos.warrants##',
+        etfs:'##valores.compraventa.tipos.etfs##',
+        derechos: '##valores.compraventa.tipos.derechos##',
+        operacioncompra: '##valores.compraventa.tipos.operacioncompra##',
+        operacionventa: '##valores.compraventa.tipos.operacionventa##',
+        comprabarraventa: '##valores.compraventa.tipos.comprayventa##'
+      },
+      errores:{
+        reiniciaroperativa:'##valores.compraventa.errores.reiniciaroperativa##',
+        refrescarvalores:'##valores.compraventa.errores.refrescarvalores##',
+        detallevalor:'##valores.compraventa.errores.detallevalor##'
+      },
+      ampliacion_capital:'##valores.ampliacion.t-widget-contenedorServicing.derechos.titulo##'
+    },
+    rentabilidad: {
+        vergrafico: '##valores.rentabilidad.movimientos.vergrafico##',
+        ocultargrafico: '##valores.rentabilidad.movimientos.ocultargrafico##'
+    },
+    vistaporvalor: {
+        titulo_vistaporvalor: '##valores.vistaporvalor.titulo##'
+
+    },
+    mifid: {
+      convenienteriesgos_2_1: {
+        derechos: '##mifid.test.mifid.convenienteriesgos.2.1.derechos##',
+        warrants: '##mifid.test.mifid.convenienteriesgos.2.1.warrants##'
+      }
+    }
+  },
+  planes: {
+    titulo_anularorden:'##planes.anularOrden.titulo##',
+    titulos_valoresliquidativos:'##planes.valorliquidativo.titulo.detalle##',
+    titulo_detallevaloresliquidativos:'##planes.valorliquidativo.titulo.detalle##'
+  },
+  operacionesAgiles: {
+    titulo_modal:'##operacionesAgiles.ventanaConfirmacion.titulo##',
+    valorPlaceholder: '##app.c-aside-operacionesAgiles.placeholderValor##'
+  },
+  indicadorProgresoOperativa: {
+    pasoCompletado: '##app.t-widget-indicador-progreso-operativa.estadoPaso.completado##',
+    pasoEnProgreso: '##app.t-widget-indicador-progreso-operativa.estadoPaso.enProgreso##',
+    pasoNoIniciado: '##app.t-widget-indicador-progreso-operativa.estadoPaso.noIniciado##'
+  },
+  sociedades: {
+    emailEnvio: '##sociedades.informes.cabeceraEstado.emailEnvio##',
+    emailModificacion: '##sociedades.informes.cabeceraEstado.emailModificacion##',
+    emailVerificacion: '##sociedades.informes.cabeceraEstado.emailVerificacion##',
+    emailExito: '##sociedades.informes.cabeceraEstado.emailExito##',
+    plantillaExito: '##sociedades.informes.cabeceraEstado.plantillaExito##',
+    consultasEjeDefecto:    '##sociedades.consultas.personalizada.filtro.eje.default##',
+    consultasEjeRegion:     '##sociedades.consultas.personalizada.filtro.eje.region##',
+    consultasEjeSector:     '##sociedades.consultas.personalizada.filtro.eje.sector##',
+    consultasEjeCartera:    '##sociedades.consultas.personalizada.filtro.eje.cartera##',
+    consultasEjeClaseactivo:'##sociedades.consultas.personalizada.filtro.eje.claseactivo##',
+    consultasEjeRating:     '##sociedades.consultas.personalizada.filtro.eje.rating##',
+    consultasEjeDivisa:     '##sociedades.consultas.personalizada.filtro.eje.divisa##',
+    consultasEjePais:      '##sociedades.consultas.personalizada.filtro.eje.pais##',
+    modificarPlantilla:     '##sociedades.informes.modal.modificarPlantilla##',
+    eliminarPlantilla:      '##sociedades.informes.modal.eliminarPlantilla##',
+    crearPlantilla:          '##sociedades.informes.modal.crearPlantilla##'
+  },
+  otrosModulos: {
+    tituloModalInformes: '##otrosmodulos.informe.titulo.modal##',
+    noFavoritos: '##otrosmodulos.iframe.bolsamania.nofavoritos##',
+    aceptarCondiciones: '##otrosmodulos.aceptacion.titulo.modal##',
+    mercados: '##otrosmodulos.iframe.bolsamania.mercados##',
+    mercadonacional: '##otrosmodulos.iframe.bolsamania.mercadonacional##',
+    mercadointernacional: '##otrosmodulos.iframe.bolsamania.mercadointernacional##',
+    etf: '##otrosmodulos.iframe.bolsamania.etf##',
+    analisis: '##otrosmodulos.iframe.bolsamania.analisis##',
+    analisistecnico: '##otrosmodulos.iframe.bolsamania.analisistecnico##',
+    analisisfundamental: '##otrosmodulos.iframe.bolsamania.analisisfundamental##',
+    topsnacional: '##otrosmodulos.iframe.bolsamania.topsnacional##',
+    topsinternacional: '##otrosmodulos.iframe.bolsamania.topsinternacional##',
+    asesor: '##otrosmodulos.iframe.bolsamania.asesor##',
+    datoseconomicos: '##otrosmodulos.iframe.bolsamania.datoseconomicos##',
+    noticias: '##otrosmodulos.iframe.bolsamania.noticias##',
+    pulsos: '##otrosmodulos.iframe.bolsamania.pulsos##',
+    valores: '##otrosmodulos.iframe.bolsamania.valores##',
+    misvalores: '##otrosmodulos.iframe.bolsamania.misvalores##'
+  },
+  carrito: {
+    modalConfirmacionEnviadoTitulo: '##asesoramiento.zonapublica.envioemail.confirmacionenviado.titulo##'
+  },
+  cesta: {
+      errorModalCarrito: '##asesoramiento.cesta.errorModalTitulo##'
+    },
+  graficos: {
+    tituloError: '##app.t-graficos.tituloError##',
+    tituloErrorAtencion: '##app.t-graficos.tituloErrorAtencion##',
+    botonVolver: '##app.t-producto-grafica.grafico.botonVolver##',
+    errorValidacionGenerico: '##app.t-graficos.errorValidacionGenerico##',
+    error_validacion_graficos_valores: '##posicion.global.datos.grafico.valores.incorrectos##',
+    error_no_productos_visibles: '##app.t-graficos.errorValidacionNoProductosVisibles##',
+    error_no_datos: '##app.t-graficos.errorValidacionNoDatos##',
+    literales: {
+        INGRESOS: '##app.t-graficos.tooltip.ingresos##',
+        GASTOS: '##app.t-graficos.tooltip.gastos##',
+        LITERAL_INGRESOS_PERIODO: '##operativasgenerales.tooltips.graficos.LITERAL_INGRESOS_PERIODO##',
+        LITERAL_GASTOS_PERIODO: '##operativasgenerales.tooltips.graficos.LITERAL_GASTOS_PERIODO##',
+        LITERAL_SALDO_PERIODO: '##operativasgenerales.tooltips.graficos.LITERAL_SALDO_PERIODO##',
+        LITERAL_INGRESOS: '##operativasgenerales.tooltips.graficos.LITERAL_INGRESOS##',
+        LITERAL_GASTOS: '##operativasgenerales.tooltips.graficos.LITERAL_GASTOS##',
+        LITERAL_SALDO: '##operativasgenerales.tooltips.graficos.LITERAL_SALDO##',
+        LITERAL_DEPOSITO: '##operativasgenerales.tooltips.graficos.LITERAL_DEPOSITO##',
+        LITERAL_INVERSION_INICIAL: '##operativasgenerales.tooltips.graficos.LITERAL_INVERSION_INICIAL##',
+        LITERAL_INTERESES_GENERADOS: '##operativasgenerales.tooltips.graficos.LITERAL_INTERESES_GENERADOS##',
+        LITERAL_AMORTIZADO_TOTAL: '##operativasgenerales.tooltips.graficos.LITERAL_AMORTIZADO_TOTAL##',
+        PENDIENTE_TOTAL: '##operativasgenerales.tooltips.graficos.PENDIENTE_TOTAL##',
+        LITERAL_IMPORTE_AMORTIZADO: '##operativasgenerales.tooltips.graficos.LITERAL_IMPORTE_AMORTIZADO##',
+        LITERAL_IMPORTE_PENDIENTE: '##operativasgenerales.tooltips.graficos.LITERAL_IMPORTE_PENDIENTE##',
+        LITERAL_AMORTIZADO: '##operativasgenerales.tooltips.graficos.LITERAL_AMORTIZADO##',
+        LITERAL_PENDIENTE: '##operativasgenerales.tooltips.graficos.LITERAL_PENDIENTE##',
+        LITERAL_GRAFICO_HIPOTECAS_DETALLE: '##operativasgenerales.tooltips.graficos.LITERAL_GRAFICO_HIPOTECAS_DETALLE##',
+        LITERAL_PENDIENTE_TOTAL: '##operativasgenerales.tooltips.graficos.LITERAL_PENDIENTE_TOTAL##',
+        GASTOS_PERIODO: '##operativasgenerales.tooltips.graficos.GASTOS_PERIODO##',
+        SALDO_PERIODO: '##operativasgenerales.tooltips.graficos.SALDO_PERIODO##',
+        LITERAL_DISPONIBLE: '##operativasgenerales.tooltips.graficos.LITERAL_DISPONIBLE##',
+        LITERAL_FINANCIACION: '##operativasgenerales.tooltips.graficos.LITERAL_FINANCIACION##',
+        LITERAL_INVERSION: '##operativasgenerales.tooltips.graficos.LITERAL_INVERSION##',
+        LITERAL_IMPORTE_INICIAL: '##operativasgenerales.tooltips.graficos.LITERAL_IMPORTE_INICIAL##',
+        LITERAL_IMPORTE_FINAL: '##operativasgenerales.tooltips.graficos.LITERAL_IMPORTE_FINAL##',
+        LITERAL_EVOLUCION_INVERSION: '##operativasgenerales.tooltips.graficos.LITERAL_EVOLUCION_INVERSION##',
+        LITERAL_DERECHOS_CONSOLIDADOS: '##operativasgenerales.tooltips.graficos.LITERAL_DERECHOS_CONSOLIDADOS##',
+        LITERAL_EVOLUCION_DERECHOS: '##operativasgenerales.tooltips.graficos.LITERAL_EVOLUCION_DERECHOS##',
+        LITERAL_TODOS_SEGUROS: '##operativasgenerales.tooltips.graficos.LITERAL_TODOS_SEGUROS##',
+        LITERAL_CAPITAL_VENCIMIENTO: '##operativasgenerales.tooltips.graficos.LITERAL_CAPITAL_VENCIMIENTO##',
+        LITERAL_PRIMA: '##operativasgenerales.tooltips.graficos.LITERAL_PRIMA##',
+        LITERAL_INGRESOS_DEL_PERIODO: '##operativasgenerales.tooltips.graficos.LITERAL_INGRESOS_DEL_PERIODO##',
+        LITERAL_INTERES_BRUTO_GENERADO: '##operativasgenerales.tooltips.graficos.LITERAL_INTERES_BRUTO_GENERADO##'
+      },
+      literalesEjeX: {
+          ene: '##app.t-graficos.ejeX.ene##',
+          feb: '##app.t-graficos.ejeX.feb##',
+          mar: '##app.t-graficos.ejeX.mar##',
+          abr: '##app.t-graficos.ejeX.abr##',
+          may: '##app.t-graficos.ejeX.may##',
+          jun: '##app.t-graficos.ejeX.jun##',
+          jul: '##app.t-graficos.ejeX.jul##',
+          ago: '##app.t-graficos.ejeX.ago##',
+          sep: '##app.t-graficos.ejeX.sep##',
+          oct: '##app.t-graficos.ejeX.oct##',
+          nov: '##app.t-graficos.ejeX.nov##',
+          dic: '##app.t-graficos.ejeX.dic##',
+          enero: '##app.t-graficos.ejeX.enero##',
+          febrero: '##app.t-graficos.ejeX.febrero##',
+          marzo: '##app.t-graficos.ejeX.marzo##',
+          abril: '##app.t-graficos.ejeX.abril##',
+          mayo: '##app.t-graficos.ejeX.mayo##',
+          junio: '##app.t-graficos.ejeX.junio##',
+          julio: '##app.t-graficos.ejeX.julio##',
+          agosto: '##app.t-graficos.ejeX.agosto##',
+          septiembre: '##app.t-graficos.ejeX.septiembre##',
+          octubre: '##app.t-graficos.ejeX.octubre##',
+          noviembre: '##app.t-graficos.ejeX.noviembre##',
+          diciembre: '##app.t-graficos.ejeX.diciembre##'
+      }
+  },
+  lopddae:  {
+      verOpcionalCompletar: '##app.lopddae.verOpcionalCompletar.titulo##',
+      verCompletarDatosGeneral: '##app.lopddae.verOpcionalCompletar.titulo##',
+      verCompletarDatosEconomicosTipo: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoCompletarDatosEconomicosCuentaAjena: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoTusDatosSeleccionarCNAE: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoTusDatosSeleccionarCNO: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoCompletarDatosEconomicosProfesionalIndependiente: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoCompletarDatosEconomicosPensionista: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoCompletarDatosEconomicosOtrosRentista: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mostrarPasoCompletarDatosEconomicosOtrosSinIngresos: '##app.lopddae.verOpcionalCompletar.titulo##',
+      verPantallaFirma: '##app.lopddae.verOpcionalCompletar.titulo##',
+      mensajeConfirmarSalir: '##app.lopddae.verOpcionalCompletar.titulo##',
+      avisoCuentaPropia: '##lopddae.aviso.cuentapropia##'
+  },
+  breadcrum: {
+       posicionglobal: '##breadcrum.posicionglobal##',
+       volvera: '##breadcrum.volvera##',
+       correspondenciavirtual: '##breadcrum.correpondenciavirtual##',
+       avisos: '##breadcrum.avisos##',
+       misproductos: '##breadcrum.misproductos##',
+       contratado: '##breadcrum.contratado##',
+       misposiciones:'##breadcrum.misposiciones##',
+       contratar: '##breadcrum.contratar##',
+       ficha: '##breadcrum.ficha##',
+       catalogodeproductos: '##breadcrum.catalogodeproductos##',
+       miperfil: {
+           titulo: '##breadcrum.miperfil##',
+           datospersonales: '##breadcrum.miperfil.datospersonales##',
+           contactos: '##breadcrum.miperfil.contactos##',
+           misdocumentos: '##breadcrum.miperfil.misdocumentos##',
+           seguridad: '##breadcrum.miperfil.seguridad##',
+           notificacionesyalertas: '##breadcrum.miperfil.notificacionesyalertas##',
+           extractomensual: '##breadcrum.miperfil.extractomensual##',
+           correspondenciavirtual: '##breadcrum.miperfil.correpondenciavirtual##'
+       },
+       cuentasytarjetas: {
+           titulo: '##breadcrum.cuentasytarjetas##'
+       },
+       hipotecasyprestamos: {
+           titulo: '##breadcrum.hipotecasyprestamos##'
+       },
+       ahorroeinversion: {
+           titulo: '##breadcrum.ahorroeinversion##'
+       },
+       seguros: {
+           titulo: '##breadcrum.seguros##'
+       },
+       recibos: {
+           titulo: '##breadcrum.tusrecibos##',
+           domiciliados: '##breadcrum.recibos.domiciliados##',
+           nodomiciliados: '##breadcrum.recibos.nodomiciliados##',
+           domiciliaciones: '##breadcrum.recibos.domiciliaciones##',
+           pagar: '##breadcrum.recibos.pagar##'
+       },
+       tusimpuestos:{
+           titulo: '##breadcrum.tusimpuestos##',
+           irpf: '##breadcrum.impuestos.irpf##',
+           pagoimpuestos: '##breadcrum.impuestos.pagoimpuestos##',
+           novedadesfiscales: '##breadcrum.impuestos.novedadesfiscales##',
+           informacionfiscal: '##breadcrum.impuestos.informacionfiscal##'
+       },
+       cuentas: {
+          iban: {
+            texto: '##breadcrum.cuentas.iban.texto##'
+          },
+          transferenciasnueva: {
+            texto: '##breadcrum.cuentas.transferenciasnueva.texto##'
+          },
+          transferenciasgestion: {
+            texto: '##breadcrum.cuentas.transferenciasgestion.texto##'
+          },
+          recargamovil: {
+            texto: '##breadcrum.cuentas.recargamovil.texto##'
+          },
+          recargatarjeta: {
+            texto: '##breadcrum.cuentas.recargatarjeta.texto##'
+          },
+          colabora: {
+            texto: '##breadcrum.cuentas.colabora.texto##'
+          },
+          talonarios: {
+            texto: '##breadcrum.cuentas.talonarios.texto##'
+          },
+          remesas: {
+            texto: '##breadcrum.cuentas.remesas.texto##'
+          },
+          ordentraspasoefectivo: {
+            texto: '##breadcrum.cuentas.ordentraspasoefectivo.texto##'
+          },
+          efectivomovil: {
+            texto: '##breadcrum.cuentas.efectivomovil.texto##'
+          },
+          recargatarjetavirtual: {
+            texto: '##breadcrum.cuentas.recargatarjetavirtual.texto##'
+          },
+          monedaextranjera: {
+            texto: '##breadcrum.cuentas.monedaextranjera.texto##'
+          }
+       },
+       tarjetas: {
+          limitecajero: {
+            texto: '##breadcrum.tarjetas.limitecajero.texto##'
+          },
+          recargas: {
+            texto: '##breadcrum.tarjetas.recargas.texto##'
+          },
+          descargartarjeta: {
+            texto: '##breadcrum.tarjetas.descargartarjeta.texto##'
+          },
+          traspasosatarjetas: {
+            texto: '##breadcrum.tarjetas.traspasosatarjetas.texto##'
+          },
+          definircip: {
+            texto: '##breadcrum.tarjetas.definircip.texto##'
+          },
+          recargamovil: {
+            texto: '##breadcrum.tarjetas.recargamovil.texto##'
+          },
+          traspasosacuentas: {
+            texto: '##breadcrum.tarjetas.traspasosacuentas.texto##'
+          },
+          cambiarformapago: {
+            texto: '##breadcrum.tarjetas.cambiarformapago.texto##'
+          },
+          limitecajero: {
+            texto: '##breadcrum.tarjetas.limitecajero.texto##'
+          }
+       },
+       productos: {
+          operaciones: {
+            texto: '##breadcrum.producto.operaciones.texto##'
+          },
+          consultas: {
+            texto: '##breadcrum.producto.consultas.texto##'
+          },
+          condiciones: {
+            texto: '##breadcrum.producto.condiciones.texto##'
+          },
+          personalizar: {
+            texto: '##breadcrum.producto.personalizar.texto##'
+          },
+          configurar: {
+            texto: '##breadcrum.producto.configurar.texto##'
+          }
+       },
+       depositos: {
+          cancelacion: {
+            texto: '##breadcrum.depositos.cancelacion.texto##'
+          }
+       },
+       fondos: {
+          suscripcionadicional: {
+            texto: '##breadcrum.fondos.suscripcionadicional.texto##'
+          },
+          traspaso: {
+            texto: '##breadcrum.fondos.traspaso.texto##'
+          },
+          reembolso: {
+            texto: '##breadcrum.fondos.reembolso.texto##'
+          },
+          aportacionperiodica: {
+            texto: '##breadcrum.fondos.aportacionperiodica.texto##'
+          }
+       },
+       fondosinternacionales: {
+          fichaproducto: {
+            texto: '##breadcrum.fondosinternacionales.fichaproducto.texto##'
+          }
+       },
+       planes: {
+          aportacionextraordinaria: {
+            texto: '##breadcrum.planes.aportacionextraordinaria.texto##'
+          },
+          aportacionperiodica: {
+            texto: '##breadcrum.planes.aportacionperiodica.texto##'
+          },
+          traspaso: {
+            texto: '##breadcrum.planes.traspaso.texto##'
+          }
+       },
+       carterasgestionadas: {
+          resumencarteras: {
+            texto: '##breadcrum.carterasgestionadas.resumencarteras.texto##'
+          },
+          vistaaerea: {
+            texto: '##breadcrum.carterasgestionadas.vistaaerea.texto##'
+          },
+          extractooperaciones: {
+            texto: '##breadcrum.carterasgestionadas.extractooperaciones.texto##'
+          },
+          pyglatentes: {
+            texto: '##breadcrum.carterasgestionadas.pyglatentes.texto##'
+          },
+          avancefiscalpyg: {
+            texto: '##breadcrum.carterasgestionadas.avancefiscalpyg.texto##'
+          },
+          avancefiscalretencion: {
+            texto: '##breadcrum.carterasgestionadas.avancefiscalretencion.texto##'
+          },
+          extractomensual: {
+            texto: '##breadcrum.carterasgestionadas.extractomensual.texto##'
+          },
+          valoracionfinmes: {
+            texto: '##breadcrum.carterasgestionadas.valoracionfinmes.texto##'
+          }
+       },
+       carterasasesoradas: {
+          resumencarteras: {
+            texto: '##breadcrum.carterasasesoradas.resumencarteras.texto##'
+          },
+          vistaaerea: {
+            texto: '##breadcrum.carterasasesoradas.vistaaerea.texto##'
+          },
+          extractooperaciones: {
+            texto: '##breadcrum.carterasasesoradas.extractooperaciones.texto##'
+          },
+          pyglatentes: {
+            texto: '##breadcrum.carterasasesoradas.pyglatentes.texto##'
+          },
+          avancefiscalpyg: {
+            texto: '##breadcrum.carterasasesoradas.avancefiscalpyg.texto##'
+          },
+          avancefiscalretencion: {
+            texto: '##breadcrum.carterasasesoradas.avancefiscalretencion.texto##'
+          },
+          extractomensual: {
+            texto: '##breadcrum.carterasasesoradas.extractomensual.texto##'
+          },
+          valoracionfinmes: {
+            texto: '##breadcrum.carterasasesoradas.valoracionfinmes.texto##'
+          }
+       },
+       valores: {
+          ordenes: {
+            texto: '##breadcrum.valores.ordenes.texto##'
+          },
+          rentabilidad: {
+            texto: '##breadcrum.valores.rentabilidad.texto##'
+          },
+          suscripcionopvs: {
+            texto: '##breadcrum.valores.suscripcionopvs.texto##'
+          },
+          opvs: {
+            texto: '##breadcrum.valores.opvs.texto##'
+          }
+       },
+       carterasgestionadasfondos: {
+          gestion: {
+            texto: '##breadcrum.carterasgestionadasfondos.gestion.texto##'
+          },
+          concepto: {
+            texto: '##breadcrum.carterasgestionadasfondos.concepto.texto##'
+          }
+       },
+       sociedades: {
+          consultasoperaciones: {
+            texto: '##breadcrum.sociedades.consultasoperaciones.texto##'
+          },
+          consultasmovimientos: {
+            texto: '##breadcrum.sociedades.consultasmovimientos.texto##'
+          }
+       }
+   },
+  visor_pdf: {
+    paginaAnterior: '##app.visorpdf.paginaAnterior##',
+    paginaSiguiente: '##app.visorpdf.paginaSiguiente##',
+    pagina: '##app.visorpdf.pagina##',
+    de: '##app.visorpdf.de##',
+    reducirZoom: '##app.visorpdf.reducirZoom##',
+    ampliarZoom: '##app.visorpdf.ampliarZoom##',
+    imprimir: '##app.visorpdf.imprimir##',
+    descargarOriginal: '##app.visorpdf.descargarOriginal##',
+    cerrarVisor: '##app.visorpdf.cerrarVisor##',
+    errores: {
+      tituloError: '##app.visorpdf.errores.tituloError##',
+      tituloAdvertencia: '##app.visorpdf.errores.tituloAdvertencia##',
+      noEsPosibleCarga: '##app.visorpdf.errores.noEsPosibleCarga##',
+      documentoNoValido: '##app.visorpdf.errores.documentoNoValido##',
+      documentoNoEncontrado: '##app.visorpdf.errores.documentoNoEncontrado##',
+      documentoProtegido: '##app.visorpdf.errores.documentoProtegido##',
+      documentoNoRenderizable: '##app.visorpdf.errores.documentoNoRenderizable##',
+      error500: '##app.visorpdf.errores.error500##'
+    }
+  },
+  cestatareas:{
+	  mensajeabandonar:{
+	    pordefecto:'##cestatareas.mensaje.abandonar.pordefecto##',
+	    firma:'##cestatareas.mensaje.abandonar.firma##',
+	    puesta:'##cestatareas.mensaje.abandonar.puesta##'
+	  }
+  },  
+  nuevo_buscador_movimientos: {
+    anadirNuevasNotasMensaje: '##cuentas.nuevo.buscador.movimientos.anadir.notas##'
+  },
+    tabla_rentabilidad_valores: {
+        tituloModalPaso1: '##valores.nueva.tabla.rentabilidad.titulo.h1##',
+        tituloModalPaso2: '##valores.nueva.tabla.rentabilidad.titulo2.h1##',
+        valorSeleccionado: '##valores.nueva.tabla.rentabilidad.consulta.valores.validacion.valorSeleccionado##'
+    },
+    evolutivoSepa: {
+        mensajeIbanIncorrecto: '##evolutivo.sepa.mensaje.iban.incorrecto##'
+    }
+  };
+}}
+
+
+
+</script>

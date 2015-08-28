@@ -1,0 +1,427 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Apple Watch by @fedegarlo</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <script src="bower_components/platform/platform.js"></script>
+  <link rel="import" href="bower_components/core-elements/core-elements.html">
+  <link rel="import" href="bower_components/paper-elements/paper-elements.html">
+  <link rel="import" href="post-filter.html">
+  <link rel="import" href="post-list.html">
+  <link rel="import" href="main-title.html">
+  <link rel="import" href="filter-menu.html">
+  <link rel="import" href="polymer-jsonp.html">
+  <link rel="import" href="apple-product-list.html">
+  <style>
+  html,body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: 'RobotoDraft', sans-serif;
+    font-weight: 100;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;   
+  }
+  core-header-panel {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; 
+  }
+
+  core-header-panel span{
+    padding-left: 16px;
+  }
+
+  .purple {
+    background-color: #3f51b5;
+  }
+
+  .pink paper-tab::shadow #ink {
+    color: #E91E63;
+  }
+  .pink #ink {
+    color: #E91E63;
+  }
+  .pink #selectionBar {
+    background-color: #E91E63;
+  }
+  core-icon[aria-label="menu"] {
+    left: -2px;
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+    margin-top: 10px;
+  }
+  polymer-ui-sidebar-menu {
+    width: 240px;
+    height: 100%;
+  }
+  paper-fab {
+    background: #E91E63; /*color A500*/
+    position: absolute;
+    right: 20px; 
+    bottom: 20px;
+  }
+  @media (min-width: 481px) {
+    #tabs {
+      width: 200px;
+    }
+    .container {
+      width: 400px;
+    }
+  }
+  core-scaffold::shadow core-toolbar {
+      color: #fff;
+      padding-top: 20px;
+      height: 84px;
+    }
+  core-scaffold core-toolbar {
+      color: #fff;
+      padding-top: 20px;
+      height: 84px;
+    }
+    #toast {
+      position: relative;
+    }
+    core-scaffold.purple::shadow core-toolbar {
+      background-color: #3f51b5;
+    }
+    core-scaffold.purple::shadow core-icon-button {
+      color: #1A237E;
+    }
+    core-scaffold.purple core-toolbar {
+      background-color: #3f51b5;
+    }
+    core-scaffold.purple core-toolbar core-icon-button {
+      color: #1A237E;
+    }
+    core-scaffold.pink::shadow core-toolbar {
+      background-color: #E91E63;
+    }
+    core-scaffold.pink::shadow core-icon-button {
+      color: #880E4F;
+    }
+    core-scaffold.pink core-toolbar {
+      background-color: #E91E63;
+    }
+    core-scaffold.pink core-toolbar core-icon-button {
+      color: #880E4F;
+    }
+@media (max-width: 820px) {
+  paper-fab {
+    left: 80%;
+  }
+      #no-favs .container {
+      width: 60% !important;
+      margin-left: auto !important;
+    }
+}
+    #animate-me {
+      background-color: #FFF;
+      position: fixed;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    #no-favs {
+      background-color: #EC407A;/*color A400*/
+      position: fixed;
+      top: 84px;
+      width: 100%;
+      height: 100%;
+      color: white;
+      font-family: 'RobotoDraft', sans-serif;
+      font-weight: 200;
+      text-align: center;
+      padding-top: 40px;
+    }
+    #no-favs .container {
+      width: 50%;
+      padding-top: 10%;
+    }
+    #no-favs p{
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    #no-favs core-icon{
+      width: 120px;
+      height: 120px;
+      margin-bottom: -20px;
+    }
+    #toolbar {
+      float: right;
+      margin-right: 4px;
+    }
+    paper-toggle-button::shadow paper-radio-button::shadow #ink {
+      color: #fff;
+    }
+    paper-toggle-button::shadow #toggleBar {
+      background-color: #1A237E;
+    }
+
+    paper-toggle-button #toggleBar {
+      background-color: #1A237E;
+      position: absolute;
+      top: 3px;
+      left: 10px;
+      border-radius: 5px;
+      height: 10px;
+      width: 40px;
+    }
+    paper-toggle-button::shadow paper-radio-button::shadow #ink[checked] {
+      color: #880E4F;
+    }/*
+    paper-toggle-button::shadow paper-radio-button::shadow #onRadio {
+      background-color: #fff;
+    }*/
+    paper-toggle-button::shadow #toggleBar[checked] {
+      background-color: #880E4F;
+    }
+
+    paper-toggle-button #toggleBar[checked] {
+      background-color: #880E4F;
+    }
+    #toolbarContainer {
+      width: 100%;
+    }
+  </style>
+</head>
+<body unresolved>
+  <polymer-jsonp url="http://www.fedegarlo.com/data/proxy.php?file=apple&callback="></polymer-jsonp>
+  <core-scaffold responsiveWidth="820px" mode="waterfall" class="purple">
+    <core-header-panel navigation flex mode="seamed">
+      <core-toolbar><span>Watches</span></core-toolbar>
+      <core-menu theme="core-light-theme">
+        <post-filter></post-filter>
+      </core-menu>
+    </core-header-panel>
+    <template is="auto-binding" id="toolbarTitle">
+      <div tool id="toolbarContainer">{{text}}
+        <div id="toolbar">
+          <paper-toggle-button id="pinchFav" onchange="pinchFavs()"></paper-toggle-button>
+        </div>
+      </div>
+    </template>
+    <div class="container" layout vertical center>
+      <post-list id="watches" show="all" hidden></post-list>
+      <apple-product-list id="apple" show="all" loading="true" hidden></apple-product-list>
+    </div>
+    <div id="no-favs" hidden>
+      <div class="container">
+          <core-icon icon="star"></core-icon>
+        <p>No favorites added</p>
+        <span>You will find here all the models saved as favorites.</span>
+      </div>
+    </div>
+  </core-scaffold>
+  <paper-fab icon="filter" onclick="tap()"></paper-fab>
+    <div id="animate-me" hidden>
+      <filter-menu></filter-menu>
+    </div>
+  <script>
+    var list = document.querySelector('#watches'),
+    appleList = document.querySelector('#apple'),
+    filters = document.querySelector('post-filter'),
+    fab = document.querySelector('paper-fab'),
+    scaffold = document.querySelector('core-scaffold'),
+    mainTitle = document.querySelector('#toolbarTitle'),
+    filterMenu = document.querySelector('filter-menu'),
+    filterLayer = document.querySelector('#animate-me'),
+    noFavsLayer = document.querySelector('#no-favs'),
+    favPinch = document.querySelector('paper-toggle-button'),
+    jsonp = document.querySelector("polymer-jsonp"),
+    currentFilters = [
+      {
+        text : 'collection',
+        value : ''
+      },
+      {
+        text : 'size',
+        value : ''
+      },
+      {
+        text : 'wristColor',
+        value : ''
+      },
+      {
+        text : 'model',
+        value : ''
+      }],
+    meta,
+    transition,
+    state = {
+      opened: false
+    },
+    noUserFavs = true;
+    document.addEventListener('polymer-ready', function() {
+      setup();
+      filterLayer.removeAttribute('hidden');
+      noFavsLayer.removeAttribute('hidden');
+      list.removeAttribute('hidden');
+    });
+    mainTitle.text = "All models";
+
+    function getMeta() {
+      if (!meta) {
+        meta = document.createElement('core-meta');
+        meta.type = 'transition';
+      }
+      return meta;
+    }
+    function setup() {
+      var target = filterLayer,
+          target2 = noFavsLayer;
+
+      var value = 'core-transition-bottom',
+          fade = 'core-transition-fade';
+      transition = getMeta().byId(value);
+      transitionFavs = getMeta().byId(fade);
+      transition.setup(target);
+      transition.setup(target2);
+    }
+    function tap() {
+      scaffold.closeDrawer();
+      state.opened = true;
+      transition.go(filterLayer, state);
+    }
+
+    function pinchFavs() {
+        appleList.hidden = true;
+        list.removeAttribute('hidden');
+      if (document.querySelector("paper-toggle-button").checked) {
+        text = "Favorites";
+        list.show = 'favorites';
+        toolbarClass = 'pink';
+        fab.hidden=true;
+        if (list.noUserFavs) {
+          showNoFavs();
+        }
+      } else {
+        text = "All models";
+        list.show = 'all';
+        fab.hidden=false;
+        toolbarClass = 'purple';
+        transition.go(noFavsLayer, {opened : false});
+      }
+      mainTitle.text = text;
+      scaffold.setAttribute('class', toolbarClass);
+    }
+
+    function showAppleProducts () {
+      list.$.service.posts = jsonp.response;
+    }
+
+    function showNoFavs() {
+      transition.go(noFavsLayer, {opened : true});
+    }
+
+    filterMenu.addEventListener('close-filter-menu', function(event) {
+      state.opened = false;
+      transition.go(filterLayer, state);
+    });
+
+    filterMenu.addEventListener('filter-sended', function(event) {
+      list.posts.forEach(function(post){
+        post.visible = true;
+      });
+      event.detail.forEach(function(detail){
+        list.posts.forEach(function(post){
+          switch(detail.text) {
+            case 'size':
+              if (detail.value !== 'No filter' && detail.value !== '' && post.size !== detail.value) {
+                post.visible = false;
+              }
+              break;
+              case 'collection':
+              if (detail.value !== 'No filter' && detail.value !== '' && post.collection !== detail.value) {
+                post.visible = false;
+              }
+              break;
+              case 'wristColor':
+              if (detail.value !== 'No filter' && detail.value !== '' && post.wristColor !== detail.value) {
+                post.visible = false;
+              }
+              break;
+              case 'model':
+              if (detail.value !== 'No filter' && detail.value !== '' && post.model !== detail.value) {
+                post.visible = false;
+              }
+              break;
+          }
+        });
+      });
+      state.opened = false;
+      transition.go(filterLayer, state);
+    });
+
+  list.addEventListener('fav-selected', function(event) {
+    if (list.noUserFavs && list.show === 'favorites') {
+      showNoFavs();
+    }
+  });
+
+  jsonp.addEventListener("polymer-response", function(e) {
+    var products = e.detail.response.sort(function(a, b){
+     return b.date-a.date
+    });
+    appleList.loading = false;
+    appleList.products = products;
+  });
+
+  filters.addEventListener('go-to-fedegarlo', function(event) {
+    window.location.href= 'http://fedegarlo.com';
+  });
+
+  filters.addEventListener('filter-selected', function(event) {
+    var value = event.detail.value,
+        key = event.detail.key,
+        text = event.detail.text,
+        toolbarClass = 'purple',
+        favPinch = document.querySelector("paper-toggle-button");
+
+    if (value === 'all') {
+      favPinch.hidden = false;
+      appleList.hidden = true;
+      list.removeAttribute('hidden');
+      list.show = 'all';
+      fab.hidden=false;
+      transition.go(noFavsLayer, {opened : false});
+    } if (value === 'apple') {
+      favPinch.hidden = true;
+      list.hidden = true;
+      if (!jsonp.response) {
+        jsonp.go();
+      }
+      transition.go(noFavsLayer, {opened : false});
+      appleList.removeAttribute('hidden');
+      fab.hidden=true;
+    }
+    favPinch.checked = false;
+    mainTitle.text = text;
+    scaffold.setAttribute('class', toolbarClass);
+    scaffold.closeDrawer();
+  });
+
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48380119-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

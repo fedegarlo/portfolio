@@ -1,0 +1,45 @@
+<link rel="import" href="bower_components/core-elements/core-elements.html">
+<link rel="import" href="post-filters.html">
+<polymer-element name="post-filter">
+  <template>
+    <style>
+        paper-item[name="favorite"]::shadow core-icon {
+          color:#E91E63;
+        }
+    </style>
+    <post-filters id="service" filters="{{filters}}"></post-filters>
+        <template repeat="{{filter in filters}}">
+          <paper-item
+            icon="{{filter.icon}}"
+            label="{{filter.text}}"
+            on-tap="{{filterSelected}}"
+            name="{{filter.name}}"
+            key="{{filter.key}}"
+            value="{{filter.value}}"
+            text="{{filter.text}}">
+          </paper-item>
+        </template>
+    <content></content>
+  </template>
+  <script>
+  Polymer({
+    ready: function() {
+      var query = window.location.search.substring(1);
+      if (typeof(query) !== "undefined" && query.length !== 0) {
+        //this.hidden=true;
+      }
+     },
+    filterSelected: function(event, detail, sender) {
+    var value = sender.getAttribute('value'),
+        key = sender.getAttribute('key'),
+        text = sender.getAttribute('text');
+
+        if (value !== 'fedegarlo') {
+          this.fire('filter-selected', {value: value, key : key, text : text});
+        } else {
+          this.fire('go-to-fedegarlo');
+        }
+    }
+  });
+  </script>
+</polymer-element>
