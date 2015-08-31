@@ -1,0 +1,187 @@
+  <div class="container">
+      <div> 
+        <form class="form--hoshi">
+          <span class="input input--hoshi">
+            <input type="text"
+              id="input-main"
+              ng-model="searchStr.title"
+              class="input__field--hoshi input__field"></input>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-main">
+              <span class="input__label-content input__label-content--hoshi">¿buscas algo en particular?</span>
+            </label>
+          </span>
+        </form>
+      </div>
+      <div style="padding-top:60px;">
+        <h1 class="hidden" data-l20n="heretitle"></h1>
+        <ul class="grid cs-style-2">
+          <li ng-repeat="work in works | filter:searchStr">
+            <figure>
+              <div class="newTag" ng-if="work.new"><span data-l20n="new"></span></div>
+              <img src="img/{{ work.img }}" alt="{{ work.title }} logo">
+              <figcaption>
+                <h3>{{ work.title }}</h3>
+                <span data-l20n="{{ work.id }}"></span>
+                <a href="{{ work.url }}" target="_blank" data-l20n="see">Ver
+                </a>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="jumbotron masthead subSeccion">
+        <div class="container">
+          <p>Esto estuve haciendo últimamente.</p>
+        </div>
+      </div>
+      <div class="marketing">
+        <div class="row">
+          <div class="span4">
+            <img src="img/iconos/icloud_down_ico.png" class="icoSkills" />
+            <h2 data-l20n="skilltitle1"></h2>
+            <p data-l20n="skill1"></p>
+          </div>
+          <div class="span4">
+            <img src="img/iconos/tool_ico.png" class="icoSkills" />
+            <h2 data-l20n="skilltitle2"></h2>
+            <p data-l20n="skill2"></p>
+          </div>
+          <div class="span4">
+            <img src="img/iconos/glasses_ico.png" class="icoSkills" />
+            <h2 data-l20n="skilltitle3"></h2>
+            <p data-l20n="skill3"></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <hr>
+          <div class="jumbotron masthead subSeccion">
+            <div class="container">
+              <p>También, me pruebo con el diseño.</p>
+            </div>
+          </div>
+            <ul class="grid cs-style-1">
+              <li>
+                <figure>
+                  <div class="newTag"><span data-l20n="new">Nuevo</span></div>
+                  <img src="img/lataperia_logo.png" alt="La Tapería">
+                  <figcaption>
+                  	<span class="typeWork" data-l20n="corpimg">Imagen corporativa</span>
+                    <h3>La Tapería</h3>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="img/tplancha_logo.png" alt="Tplancha">
+                  <figcaption>
+                  	<span class="typeWork">Logo</span>
+                    <h3>Tplancha</h3>
+                  </figcaption>
+                </figure>
+              </li>
+               <li>
+                <figure>
+                  <img src="img/portoclub_logo.png" alt="Portoclub">
+                  <figcaption>
+                  	<span class="typeWork" data-l20n="corpimg">Imagen corporativa</span>
+                    <h3>Portoclub</h3>
+                  </figcaption>
+                </figure>
+              </li>
+               <li>
+                <figure>
+                  <img src="img/promoline_logo.png" alt="Promoline">
+                  <figcaption>
+                  	<span class="typeWork" data-l20n="corpimg">Imagen corporativa</span>
+                    <h3>Promoline</h3>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="img/maye_logo.png" alt="Kika y Edu">
+                  <figcaption>
+                  	<span class="typeWork">Logo</span>
+                    <h3>Enlace Kika y Edu</h3>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+      </div>
+      <hr>
+      <div class="jumbotron masthead subSeccion">
+        <div class="container">
+          <p data-l20n="slogan">Ésto empieza ahora.</p>
+        </div>
+      </div>
+      <div class="marketing">
+        <div class="row">
+          <div class="span4">
+            <img src="img/iconos/airdrop_ico.png" class="icoSkills" />
+            <h2 data-l20n="skilltitle4">Técnicas de SEO y Social Media</h2>
+            <p data-l20n="skill4">Trabajando en la formación en el campo del posicionamiento en buscadores y el manejo eficaz de las redes sociales para scar todo el beneficio que proveen las mismas a los comercios tradicionales y online.</p>
+          </div><!-- /.span -->
+          <div class="span4">
+            <img src="img/iconos/camera_ico.png" class="icoSkills" />
+            <h2 data-l20n="skilltitle5">Diseño y maquetación web</h2>
+            <p data-l20n="skill5">Explorando las novedosas técnicas de maquetación de las que disponemos gracias a CSS3. Probando nuevos diseños siempre vigilando la vanguardia que suele venir del mundo de la tecnología.</p>
+          </div><!-- /.span -->
+          <div class="span4">
+          <img src="img/iconos/iphone_ico.png" class="icoSkills" />
+            <h2 data-l20n="skilltitle6">Nuevos frameworks y dispositivos</h2>
+            <p data-l20n="skill6">Como amante de todo tipo de gadgets, mantengo la curiosidad por expresarme a través de todos ellos.<br />Aplicaciones para iPhone<br/>Diseño web adaptativo<br/>Desarrollos para dispositivos móviles<br/></p>
+          </div><!-- /.span -->
+        </div>
+      </div>
+      <hr class="separador">
+    </div>
+    <div class="row firefoxSection">
+      <div class="span4 offset1 imagenPrincipal">
+        <img src="img/iphone_gpa.png" />
+      </div>
+      <div class="span7">
+        <h2>Macfools</h2>
+        <p data-l20n="apptext">Aplicación gratuita para inventariar tus productos de Apple y guía para saber qué modelo comprar. Desarrollada con Backbone y Underscore.js, se trata de un experimento para probar el diseño adaptativo que provee Bootstrap 3. En continuo desarrollo, es mi proyecto actual donde investigar nuevos frameworks como Retina.js, internalización con L20N de Mozilla, API de Twitter... Échale un ojo y ya me cuentas.</p>
+        <p>
+          <a class="botonSecciones enlace" target="_blank" href="sites/macfools/" data-l20n="seeapp">Ver aplicación</a>
+        </p>
+      </div>
+    </div>
+    <div class="jumbotron masthead">
+      <div class="container">
+        <div>
+          <h1>fedegarlo</h1>
+        </div>
+        <p>Gracias por llegar hasta aquí.</p>
+        <p>
+          <a href="https://twitter.com/fedegarlo" class="sb embossed twitter" target="_blank">Twitter</a>
+          <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#103;&#097;&#114;&#099;&#105;&#097;&#108;&#111;&#114;&#099;&#097;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" class="sb embossed email">Email</a>
+          <a href="https://es-es.facebook.com/amansalvacom" class="sb embossed facebook" target="_blank">Facebook</a>
+          <a href="http://es.linkedin.com/in/fedegarcialorca/" class="sb embossed linkedin" target="_blank">LinkedIn</a>
+          <a href="http://dribbble.com/fedegarlo" class="sb embossed pinterest" target="_blank">Dribbble</a>
+        </p>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <!--<p class="pull-right"><a href="#">Volver arriba</a></p>-->
+        <ul class="muchoslogos">
+          <li>
+            <img class="grey" src="img/responsive_logo.png" alt="Responsive Web Design" title="Responsive Web Design"/>
+          </li>
+          <li>
+            <img class="grey" src="img/HTML5_1Color_Black.png" alt="HTML5" title="HTML5"/>
+          </li>
+          <li>
+            <img class="grey" src="img/logo_marketplace.png" alt="Firefox Marketplace" title="Firefox Marketplace"/>
+          </li>
+          <li>
+            <img class="grey" src="img/logo_angular.png" alt="Angular JS" title="Angular JS"/>
+          </li>
+        </ul>
+        <p data-l20n="footer">Aún queda mucho por hacer pero, de momento, esto está diseñado por <a href="http://twitter.com/fedegarlo" target="_blank">@fedegarlo</a>.</p>
+      </div>
+    </footer>
+  </div>
