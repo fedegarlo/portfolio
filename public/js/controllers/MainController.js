@@ -59,6 +59,16 @@ var MainCtrl = function($scope){
 			url : '/sites/norestenet/index.html'
 		}
 	];
+	$( document ).ready(function() {
+    $('#input-main').focus();
+    $('#input-main').blur(function () {
+      if ($('#input-main').val()) {
+        $(this).parents('span').addClass('inputFilled');
+      } else {
+      	$(this).parents('span').removeClass('inputFilled');
+      }
+    });
+  });
 
 };
 
