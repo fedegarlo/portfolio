@@ -1,4 +1,4 @@
-[ 
+_polymer_jsonp_callback_0([ 
 	{
 		"id" : "appletv",
 		"features" : [
@@ -980,4 +980,4 @@
 				}
 			]
 	}
-]
+]);
