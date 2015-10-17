@@ -18,6 +18,21 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 	width: auto;
 }
 
+p {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.skillList {
+  margin: 0;
+}
+
+.skill {
+    list-style: none;
+    float: left;
+    margin-right: 6px;
+}
+
 #bouncingBall {
 	width: 120px;
 }
@@ -185,6 +200,8 @@ float: left;
     max-width: 100%;
     display: block;
     position: relative;
+        min-height: 225px;
+    background-color: white;
 }
 
 
@@ -207,7 +224,7 @@ display: block;
     width: 210px;
   }
 
-.grid li {
+.portfolio_item {
     display: inline-block;
     width: 340px;
     margin: 0;
