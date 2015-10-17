@@ -331,7 +331,9 @@
 
     filterMenu.addEventListener('filter-sended', function(event) {
       list.posts.forEach(function(post){
-        post.visible = true;
+        if (!post.deprecated) {
+          post.visible = true;
+        }
       });
       event.detail.forEach(function(detail){
         list.posts.forEach(function(post){
