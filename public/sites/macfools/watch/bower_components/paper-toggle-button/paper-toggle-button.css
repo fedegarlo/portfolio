@@ -22,14 +22,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 #toggleBar {
-position: absolute;
-top: 3px;
-left: 10px;
-border-radius: 5px;
-height: 10px;
-width: 40px;
-background-color: #5a5a5a;
-pointer-events: none;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  height: 1px;
+  width: 32px;
+  background-color: #5a5a5a;
+  pointer-events: none;
 }
 
 #toggleBar[checked] {
