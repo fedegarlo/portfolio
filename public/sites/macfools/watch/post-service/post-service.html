@@ -48,7 +48,9 @@
       search = QueryString.model;
       this.userFavs = this.$.storage.value ? this.$.storage.value : {};
       this.version = 1.05;
-      this.posts = this.$.ajax.response.slice(0);
+      this.posts = this.$.ajax.response.slice(0).sort(function(a, b){
+       return b.uid-a.uid
+      });
       for (var post in this.posts) {
         for (var fav in this.userFavs) {
           if (this.posts[post].uid.toString() === fav) {
