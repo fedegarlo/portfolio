@@ -18,6 +18,22 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 	width: auto;
 }
 
+p {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.skillList {
+  margin: 0;
+}
+
+.skill {
+    list-style: none;
+    float: left;
+    margin-right: 6px;
+    width: auto !important;
+}
+
 #bouncingBall {
 	width: 120px;
 }
@@ -49,9 +65,8 @@ width: 60px;
 height: 60px;
 border-radius: 50%;
 background-color: #ea4c89;
-//background-color: #286AA6;
 padding-top: 19px;
-padding-left: 6px;
+text-align: center;
 margin-top: 10px;
 right: 10px;
 color: #FFF;
@@ -186,6 +201,8 @@ float: left;
     max-width: 100%;
     display: block;
     position: relative;
+        min-height: 225px;
+    background-color: white;
 }
 
 
@@ -208,7 +225,7 @@ display: block;
     width: 210px;
   }
 
-.grid li {
+.portfolio_item {
     display: inline-block;
     width: 340px;
     margin: 0;

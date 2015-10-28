@@ -62,16 +62,8 @@ To change the radio unchecked color:
   
   <div id="radioContainer" class="{{ {labeled: label} | tokenList }}">
   
-    <paper-shadow z="2">
-    <div id="offRadio">
-      <core-icon icon="star"></core-icon>
-    </div>
-  </paper-shadow>
-  <paper-shadow z="2">
-      <div id="onRadio">
-        <core-icon icon="star"></core-icon>
-    </div>
-  </paper-shadow>
+    <div id="offRadio"></div>
+    <div id="onRadio"></div>
     
     <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
     

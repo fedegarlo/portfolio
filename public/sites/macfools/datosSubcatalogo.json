@@ -313,6 +313,85 @@
 			]
 	},
 	{	
+		"id" : "ipadmini4",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina Display"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "8 MPx"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A8"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M8"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "ipadmini",
+		"index" : 5,
+		"modelsdata" : 5,
+		"imagen" : "ipadmini4.jpeg",
+		"nombre" : "iPad mini 4",
+		"version" : "",
+		"fecha": 1441749600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 389,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 385,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "W16",
+					"nombre" : "WIFI 16GB"
+				},
+				{ "id" : "W64",
+					"nombre" : "WIFI 64GB"
+				},
+				{ "id" : "W128",
+					"nombre" : "WIFI 128GB"
+				},
+				{ "id" : "WC16",
+					"nombre" : "WIFI+4G 16GB"
+				},
+				{ "id" : "WC64",
+					"nombre" : "WIFI+4G 64GB"
+				},
+				{ "id" : "WC128",
+					"nombre" : "WIFI+4G 128GB"
+				}
+			]
+	},
+	{	
 		"id" : "ipodnano2013",
 		"principal" : true,
 		"familia" : "ipodnano",
@@ -830,6 +909,87 @@
 			]
 	},
 	{	
+		"id" : "iphone6s",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina HD Display"
+			},
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "4,7'"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "12 MPx"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "NFC"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "iphone",
+		"index" : 18,
+		"modelsdata" : 18,
+		"imagen" : "iphone6s.jpeg",
+		"nombre" : "iPhone 6S",
+		"version" : "",
+		"fecha": 1441749600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 749,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 380,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"modeloDeseado" : "",
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				},
+				{ "id" : "64GB",
+					"nombre" : "64GB"
+				},
+				{ "id" : "128GB",
+					"nombre" : "128GB"
+				}
+			]
+	},
+	{	
 		"id" : "iphone6plus",
 		"features" : [
 			{
@@ -909,7 +1069,89 @@
 					"nombre" : "128GB"
 				}
 			]
-	},{	
+	},
+	{	
+		"id" : "iphone6splus",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina HD Display"
+			},
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "5,5'"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "12 MPx"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "NFC"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "iphone",
+		"index" : 19,
+		"modelsdata" : 19,
+		"imagen" : "iphone6s.jpeg",
+		"nombre" : "iPhone 6S Plus",
+		"version" : "",
+		"fecha": 1441749600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 859,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 380,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"modeloDeseado" : "",
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				},
+				{ "id" : "64GB",
+					"nombre" : "64GB"
+				},
+				{ "id" : "128GB",
+					"nombre" : "128GB"
+				}
+			]
+	},
+	{	
 		"id" : "iphone5s",
 		"features" : [
 			{

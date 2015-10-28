@@ -234,7 +234,7 @@
 			]
 	},
 	{	
-		"id" : "ipadmini3",
+		"id" : "ipadmini4",
 		"features" : [
 			{
 				"text" : "display",
@@ -271,10 +271,10 @@
 		"familia" : "ipadmini",
 		"index" : 5,
 		"modelsdata" : 5,
-		"imagen" : "ipad_mini_3.png",
-		"nombre" : "iPad mini 3",
+		"imagen" : "ipadmini4.jpeg",
+		"nombre" : "iPad mini 4",
 		"version" : "",
-		"fecha": 1413410400000,
+		"fecha": 1441749600000,
 		"purchasePrice" : [
 			{
 				"zone" : "EU",
@@ -295,20 +295,20 @@
 				{ "id" : "W16",
 					"nombre" : "WIFI 16GB"
 				},
-				{ "id" : "W32",
-					"nombre" : "WIFI 32GB"
-				},
 				{ "id" : "W64",
 					"nombre" : "WIFI 64GB"
+				},
+				{ "id" : "W128",
+					"nombre" : "WIFI 128GB"
 				},
 				{ "id" : "WC16",
 					"nombre" : "WIFI+4G 16GB"
 				},
-				{ "id" : "WC32",
-					"nombre" : "WIFI+4G 32GB"
-				},
 				{ "id" : "WC64",
 					"nombre" : "WIFI+4G 64GB"
+				},
+				{ "id" : "WC128",
+					"nombre" : "WIFI+4G 128GB"
 				}
 			]
 	},
@@ -593,66 +593,6 @@
 			]
 	},
 	{	
-		"id" : "iphone5c",
-		"features" : [
-			{
-				"text" : "display",
-				"class" : "eye-open",
-				"value" : "Retina Display"
-			},
-			{
-				"text" : "camera",
-				"class" : "camera",
-				"value" : "8 MPx"
-			},
-			{
-				"text" : "processor",
-				"class" : "cog",
-				"value" : "CHIP A6"
-			},
-			{
-				"text" : "facetimecamera",
-				"class" : "facetime-video",
-				"value" : "FaceTime HD"
-			}
-		],
-		"principal" : true,
-		"familia" : "iphone",
-		"index" : 4,
-		"modelsdata" : 4,
-		"imagen" : "iphone5c2013.png",
-		"nombre" : "iPhone 5c",
-		"version" : "",
-		"fecha": 1379690400000,
-		"purchasePrice" : [
-			{
-				"zone" : "EU",
-				"number" : 599,
-				"currency" : "€",
-				"type" : "from"
-			}
-		],
-		"mediaDiasActualizar" : 380,
-		"justUpdated" : false,
-		"outOfDate" : false,
-		"comingSoon" : false,
-		"ownProduct" : false,
-		"wantProduct" : false,"visible" : "true",
-		"modelo" : null,
-		"models" :
-			[	
-			{ "id" : "8GB",
-					"nombre" : "8GB"
-				},
-				{ "id" : "16GB",
-					"nombre" : "16GB"
-				},
-				{ "id" : "32GB",
-					"nombre" : "32GB"
-				}
-			]
-	},
-	{	
 		"id" : "mb2013",
 		"principal" : true,
 		"familia" : "macbook",
@@ -749,7 +689,7 @@
 			]
 	},
 	{	
-		"id" : "iphone6",
+		"id" : "iphone6s",
 		"features" : [
 			{
 				"text" : "display",
@@ -769,17 +709,17 @@
 			{
 				"text" : "camera",
 				"class" : "camera",
-				"value" : "8 MPx"
+				"value" : "12 MPx"
 			},
 			{
 				"text" : "processor",
 				"class" : "cog",
-				"value" : "CHIP A8"
+				"value" : "CHIP A9"
 			},
 			{
 				"text" : "coprocessor",
 				"class" : "cog",
-				"value" : "CHIP M8"
+				"value" : "CHIP M9"
 			},
 			{
 				"text" : "coprocessor",
@@ -796,14 +736,14 @@
 		"familia" : "iphone",
 		"index" : 18,
 		"modelsdata" : 18,
-		"imagen" : "2014-iphone6-black.png",
-		"nombre" : "iPhone 6",
+		"imagen" : "iphone6s.jpeg",
+		"nombre" : "iPhone 6S",
 		"version" : "",
-		"fecha": 1411077600000,
+		"fecha": 1441749600000,
 		"purchasePrice" : [
 			{
 				"zone" : "EU",
-				"number" : 699,
+				"number" : 749,
 				"currency" : "€",
 				"type" : "from"
 			}
@@ -830,7 +770,7 @@
 			]
 	},
 	{	
-		"id" : "iphone6plus",
+		"id" : "iphone6splus",
 		"features" : [
 			{
 				"text" : "display",
@@ -850,17 +790,17 @@
 			{
 				"text" : "camera",
 				"class" : "camera",
-				"value" : "8 MPx"
+				"value" : "12 MPx"
 			},
 			{
 				"text" : "processor",
 				"class" : "cog",
-				"value" : "CHIP A8"
+				"value" : "CHIP A9"
 			},
 			{
 				"text" : "coprocessor",
 				"class" : "cog",
-				"value" : "CHIP M8"
+				"value" : "CHIP M9"
 			},
 			{
 				"text" : "coprocessor",
@@ -877,14 +817,14 @@
 		"familia" : "iphone",
 		"index" : 19,
 		"modelsdata" : 19,
-		"imagen" : "2014-iphone6-plus.png",
-		"nombre" : "iPhone 6 Plus",
+		"imagen" : "iphone6s.jpeg",
+		"nombre" : "iPhone 6S Plus",
 		"version" : "",
-		"fecha": 1411077600000,
+		"fecha": 1441749600000,
 		"purchasePrice" : [
 			{
 				"zone" : "EU",
-				"number" : 799,
+				"number" : 859,
 				"currency" : "€",
 				"type" : "from"
 			}

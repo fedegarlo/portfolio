@@ -4,7 +4,7 @@
           <span class="input input--hoshi">
             <input type="text"
               id="input-main"
-              ng-model="searchStr.title"
+              ng-model="searchStr.tags"
               class="input__field--hoshi input__field"></input>
             <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-main">
               <span class="input__label-content input__label-content--hoshi">¿buscas algo en particular?</span>
@@ -14,18 +14,23 @@
       </div>
       <div>
         <h1 class="hidden" data-l20n="heretitle"></h1>
-        <ul class="grid cs-style-2">
-          <li ng-repeat="work in works | filter:searchStr">
-            <figure>
-              <div class="newTag" ng-if="work.new"><span data-l20n="new"></span></div>
-              <img src="img/{{ work.img }}" alt="{{ work.title }} logo">
-              <figcaption>
-                <h3>{{ work.title }}</h3>
+        <ul class="grid">
+          <li ng-repeat="work in works | filter:searchStr" class="portfolio_item">
+            <a href="{{ work.url }}" target="_blank">
+              <figure>
+                <div class="newTag" ng-if="work.new"><span data-l20n="new"></span></div>
+                <img src="img/{{ work.img }}" alt="{{ work.title }} logo">
+              </figure>
+            </a>
+            <div class="explanation">
+              <h3>{{ work.title }}</h3>
+              <p>
                 <span data-l20n="{{ work.id }}"></span>
-                <a href="{{ work.url }}" target="_blank" data-l20n="see">Ver
-                </a>
-              </figcaption>
-            </figure>
+                <ul class="skillList">
+                <li class="skill" ng-repeat="tag in work.tags"><span class="label label-default">{{ tag }}</span></li>
+                </ul>
+              </p>
+            </div>
           </li>
         </ul>
       </div>
@@ -62,7 +67,7 @@
             </div>
           </div>
             <ul class="grid cs-style-1">
-              <li>
+              <li class="portfolio_item">
                 <figure>
                   <div class="newTag"><span data-l20n="new">Nuevo</span></div>
                   <img src="img/lataperia_logo.png" alt="La Tapería">
@@ -72,7 +77,7 @@
                   </figcaption>
                 </figure>
               </li>
-              <li>
+              <li class="portfolio_item">
                 <figure>
                   <img src="img/tplancha_logo.png" alt="Tplancha">
                   <figcaption>
@@ -81,7 +86,7 @@
                   </figcaption>
                 </figure>
               </li>
-               <li>
+               <li class="portfolio_item">
                 <figure>
                   <img src="img/portoclub_logo.png" alt="Portoclub">
                   <figcaption>
@@ -90,7 +95,7 @@
                   </figcaption>
                 </figure>
               </li>
-               <li>
+               <li class="portfolio_item">
                 <figure>
                   <img src="img/promoline_logo.png" alt="Promoline">
                   <figcaption>
@@ -99,7 +104,7 @@
                   </figcaption>
                 </figure>
               </li>
-              <li>
+              <li class="portfolio_item">
                 <figure>
                   <img src="img/maye_logo.png" alt="Kika y Edu">
                   <figcaption>
