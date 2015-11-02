@@ -36,7 +36,7 @@ var MainCtrl = function($scope){
 			new : false,
 			img : 'corpoderma_logo.png',
 			id : 'corpoderma_description',
-			url : '/sites/corpoderma/index.html',
+			url : 'http://www.corpoderma.es',
 			tags : ['corpoderma', 'php', 'mysql', 'bootstrap', 'responsive']
 		},{
 			title : 'Money Labels',
@@ -57,7 +57,7 @@ var MainCtrl = function($scope){
 			new : false,
 			img : 'bevip_logo.png',
 			id : 'bevip_description',
-			url : '/sites/bevip/index.html',
+			url : 'http://corpoderma.esy.es/bevip',
 			tags : ['bevip', 'ios', 'php', 'mysql', 'jquery']
 		},{
 			title : 'Agrupación Marjales',
