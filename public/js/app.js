@@ -6,9 +6,6 @@ myApp.config(function ($routeProvider, $httpProvider) {
         .when('/home', {
             templateUrl: 'html/home.html',
             controller: 'MainController'
-        }).when('/print', {
-            templateUrl: 'html/print.html',
-            controller: 'MainController'
         }).otherwise({
         redirectTo : '/home'         
         }
