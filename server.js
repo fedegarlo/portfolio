@@ -14,14 +14,8 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var path = require('path'),
     fs = require('fs');
-var http = require('http');
-var api = require('instagram-node').instagram();
-var server = http.createServer(app);
-
-api.use({
-  client_id: '5c45535025534f8fa3e56bbed0892b78',
-  client_secret: 'c7e2b49f5b574d3a9df97f944c5fa92b'
-});
+var http = require('http')
+var server = http.createServer(app)
 
 
 var configDB = require('./config/database.js');
@@ -45,35 +39,6 @@ app.configure(function() {
 
 });
 
-//var redirect_uri = 'http://localhost:3000/handleauth';
-/*exports.authorize_user = function(req, res) {
-  res.redirect(api.get_authorization_url(redirect_uri, { scope: ['likes'], state: 'a state' }));
-};
- 
-exports.handleauth = function(req, res) {
-  api.authorize_user(req.query.code, redirect_uri, function(err, result) {
-    if (err) {
-      console.log(err.body);
-      res.send("Didn't work");
-    } else {
-      console.log('Yay! Access token is ' + result.access_token);
-      res.send('You made it!!');
-    }
-  });
-};*/
-
-// This is where you would initially send users to authorize 
-//app.get('/authorize_user', exports.authorize_user);
-// This is your redirect URI 
-//app.get('/handleauth', exports.handleauth);
-
-exports.anayfede = function(req, res) {
-    api.tag_media_recent('anayfede', function(err, result, remaining, limit) {
-        res.send(result);
-    });
-};
- 
-app.get('/instagram/anayfede', exports.anayfede);
 
 require('./app/routes.js')(app, passport,server); 
 
