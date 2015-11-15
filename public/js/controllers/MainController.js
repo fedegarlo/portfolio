@@ -9,7 +9,7 @@ var MainCtrl = function($scope){
 			img : 'bbva.png',
 			id : 'helping',
 			url : 'http://www.bbva.es',
-			tags : ['bbva', 'backbone', 'underscore', 'jquery', 'scss', 'html5', 'javascript']
+			tags : ['bbva', 'backbone', 'underscore', 'jquery', 'scss', 'html5', 'javascript', 'mongodb']
 		},{
 			title : 'Apple Watch Catalogue',
 			new : true,
@@ -23,7 +23,7 @@ var MainCtrl = function($scope){
 			img : 'fedeyana.png',
 			id : 'wedding_description',
 			url : '/sites/anayfede/index.html',
-			tags : ['ana', 'fede', 'google maps', 'twitter api', 'responsive design']
+			tags : ['google maps', 'twitter api', 'responsive', 'nodejs', 'instagram api', 'tipografía iconos']
 		},{
 			title : 'Macfools',
 			new : false,
@@ -45,6 +45,13 @@ var MainCtrl = function($scope){
 			id : 'moneylabels_description',
 			url : 'https://marketplace.firefox.com/app/moneylabels/',
 			tags : ['moneylabels', 'firefoxos', 'javascript']
+		},{
+			title : 'Portfolio',
+			new : false,
+			img : 'portfolio.png',
+			id : 'portfolio_description',
+			url : '',
+			tags : ['angular', 'responsive', 'javascript', 'nodejs']
 		},{
 			title : 'Abece Logopedas',
 			new : false,
