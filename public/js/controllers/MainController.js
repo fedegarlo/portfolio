@@ -51,7 +51,7 @@ var MainCtrl = function($scope){
 			img : 'portfolio.png',
 			id : 'portfolio_description',
 			url : '',
-			tags : ['angular', 'responsive', 'javascript', 'nodejs']
+			tags : ['angular', 'responsive', 'javascript', 'nodejs', 'internacionalización', 'l20n']
 		},{
 			title : 'Abece Logopedas',
 			new : false,
