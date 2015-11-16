@@ -14,8 +14,14 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var path = require('path'),
     fs = require('fs');
-var http = require('http')
-var server = http.createServer(app)
+var http = require('http');
+var api = require('instagram-node').instagram();
+var server = http.createServer(app);
+
+api.use({
+  client_id: '5c45535025534f8fa3e56bbed0892b78',
+  client_secret: 'c7e2b49f5b574d3a9df97f944c5fa92b'
+});
 
 
 var configDB = require('./config/database.js');
@@ -39,6 +45,13 @@ app.configure(function() {
 
 });
 
+exports.anayfede = function(req, res) {
+    api.tag_media_recent('anayfede', function(err, result, remaining, limit) {
+        res.send(result);
+    });
+};
+ 
+app.get('/anayfede', exports.anayfede);
 
 require('./app/routes.js')(app, passport,server); 
 

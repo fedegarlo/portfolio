@@ -179,11 +179,11 @@
           function getInstagramPics () {
             var numeroPics = 4,
             $pics = [];
-            $.getJSON('instagram-proxy.php', function(d){
-              if (!_.isEmpty(d.data)) {
+            $.getJSON('../../anayfede', function(d){
+              if (!_.isEmpty(d)) {
 
-                d.data = _.filter(d.data, function(pic){
-                  return pic.user.username !== 'ferlocken' && pic.user.username !== 'pamelagdh';
+                d.data = _.filter(d, function(pic){
+                  return pic.user.username !== 'ferlocken' && pic.user.username !== 'pamelagdh' && pic.user.username !== 'florgarias' && pic.user.username !== 'fabipecchioni' && pic.user.username !== 'mariapazsosa_event_designer' && pic.user.username !== 'gonlizarraga';
                 });
                 for (var i = 0; i < d.data.length ; i++){
                   $pics.push({mensaje: d.data[i].caption.text, user: d.data[i].user.username, avatar: d.data[i].user.profile_picture, retweet : null, img : d.data[i].images.standard_resolution.url, fecha : d.data[i].created_time, link : d.data[i].link});
