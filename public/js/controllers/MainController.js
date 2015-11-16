@@ -47,7 +47,7 @@ var MainCtrl = function($scope){
 			tags : ['moneylabels', 'firefoxos', 'javascript']
 		},{
 			title : 'Portfolio',
-			new : false,
+			new : true,
 			img : 'portfolio.png',
 			id : 'portfolio_description',
 			url : '',
