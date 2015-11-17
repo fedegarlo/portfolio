@@ -179,7 +179,7 @@
           function getInstagramPics () {
             var numeroPics = 4,
             $pics = [];
-            $.getJSON('../../anayfede', function(d){
+            $.getJSON('../../tag/anayfede', function(d){
               if (!_.isEmpty(d)) {
 
                 d.data = _.filter(d, function(pic){

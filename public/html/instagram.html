@@ -1,0 +1,60 @@
+  <div class="container">
+      <div> 
+        <form class="form--hoshi">
+          <span class="input input--hoshi">
+            <input type="text"
+              id="input-main"
+              ng-model="q"
+              class="input__field--hoshi input__field"></input>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-main">
+              <span class="input__label-content input__label-content--hoshi">busca en Instagram</span>
+            </label>
+          </span>
+        </form>
+      </div>
+      <div>
+        <h1 class="hidden" data-l20n="heretitle"></h1>
+        <ul class="grid">
+          <li ng-repeat="work in works | filter:searchStr" class="instagram_item">
+            <a href="{{ work.link }}" target="_blank">
+              <figure>
+                <img src="{{ work.images.thumbnail.url }}" alt="{{ work.caption.text }}" title="{{ work.caption.text }}">
+              </figure>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="jumbotron masthead">
+      <div class="container">
+        <div>
+          <h1>fedegarlo</h1>
+        </div>
+        <p>Gracias por llegar hasta aquí.</p>
+        <p>
+          <a href="https://twitter.com/fedegarlo" class="sb embossed twitter" target="_blank">Twitter</a>
+          <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#103;&#097;&#114;&#099;&#105;&#097;&#108;&#111;&#114;&#099;&#097;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" class="sb embossed email">Email</a>
+          <a href="https://es-es.facebook.com/amansalvacom" class="sb embossed facebook" target="_blank">Facebook</a>
+          <a href="http://es.linkedin.com/in/fedegarcialorca/" class="sb embossed linkedin" target="_blank">LinkedIn</a>
+          <a href="http://dribbble.com/fedegarlo" class="sb embossed pinterest" target="_blank">Dribbble</a>
+        </p>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <!--<p class="pull-right"><a href="#">Volver arriba</a></p>-->
+        <ul class="muchoslogos">
+          <li>
+            <img class="grey" src="img/responsive_logo.png" alt="Responsive Web Design" title="Responsive Web Design"/>
+          </li>
+          <li>
+            <img class="grey" src="img/HTML5_1Color_Black.png" alt="HTML5" title="HTML5"/>
+          </li>
+          <li>
+            <img class="grey" src="img/logo_angular.png" alt="Angular JS" title="Angular JS"/>
+          </li>
+        </ul>
+        <p data-l20n="footer">Aún queda mucho por hacer pero, de momento, esto está diseñado por <a href="http://twitter.com/fedegarlo" target="_blank">@fedegarlo</a>.</p>
+      </div>
+    </footer>
+  </div>

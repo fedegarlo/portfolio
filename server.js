@@ -10,7 +10,6 @@ var fs      = require('fs');
 var express  = require('express');
 var app      = express();
 var mongoose = require('mongoose');
-var passport = require('passport');
 var flash    = require('connect-flash');
 var path = require('path'),
     fs = require('fs');
@@ -28,8 +27,6 @@ var configDB = require('./config/database.js');
 
 //mongoose.connect(configDB.url); 
 
-require('./config/passport')(passport); 
-
 app.configure(function() {
 
     app.use(express.cookieParser());
@@ -39,21 +36,25 @@ app.configure(function() {
     app.engine('html', require('ejs').renderFile);
     app.use(express.session({ secret: 'fedegarlo' })); 
     app.use(express.bodyParser({uploadDir:'/images'}));
-    app.use(passport.initialize());
-    app.use(passport.session()); 
     app.use(flash()); 
 
 });
 
-exports.anayfede = function(req, res) {
-    api.tag_media_recent('anayfede', function(err, result, remaining, limit) {
-        res.send(result);
-    });
+exports.tagsearch = function(req, res) {
+    if (req.params.tag_name) {
+        api.tag_media_recent(req.params.tag_name, function(err, result, remaining, limit) {
+            res.send(result);
+        });
+    } else {
+        res.status(404).send('Not found');
+    }
 };
- 
-app.get('/anayfede', exports.anayfede);
 
-require('./app/routes.js')(app, passport,server); 
+app.get('/tag/:tag_name', exports.tagsearch);
+
+app.get('/', function(request, response) {
+    response.render('index.html');
+});
 
 server.listen(port, ipaddress);
 console.log('Listening  to  port ' + port);

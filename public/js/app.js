@@ -6,6 +6,9 @@ myApp.config(function ($routeProvider, $httpProvider) {
         .when('/home', {
             templateUrl: 'html/home.html',
             controller: 'MainController'
+        }).when('/instagram', {
+            templateUrl: 'html/instagram.html',
+            controller: 'InstaController'
         }).otherwise({
         redirectTo : '/home'         
         }

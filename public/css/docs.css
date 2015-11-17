@@ -197,11 +197,14 @@ float: left;
     position: relative;
 }
 
+.portfolio .grid figure img {
+  min-height: 225px;
+}
+
 .grid figure img {
     max-width: 100%;
     display: block;
     position: relative;
-        min-height: 225px;
     background-color: white;
 }
 
@@ -228,6 +231,14 @@ display: block;
 .portfolio_item {
     display: inline-block;
     width: 340px;
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+}
+
+.instagram_item {
+    display: inline-block;
     margin: 0;
     padding: 20px;
     text-align: left;
