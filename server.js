@@ -1,31 +1,31 @@
 #!/bin/env node
-//  OpenShift sample Node application
 
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
+    port      = process.env.OPENSHIFT_NODEJS_PORT || 3000,
+    express = require('express'),
+    fs      = require('fs'),
+    express  = require('express'),
+    app      = express(),
+    mongoose = require('mongoose'),
+    flash    = require('connect-flash'),
+    path = require('path'),
+    fs = require('fs'),
+    http = require('http'),
+    api = require('instagram-node').instagram(),
+    server = http.createServer(app);
 
-var express = require('express');
-var fs      = require('fs');
+var mongoip = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
+    mongoport = process.env.OPENSHIFT_MONGODB_DB_PORT || '27017',
+    mongoauth = mongoip === 'localhost' ? '' : 'admin:Ggn_yp3e4vdz@';
 
-var express  = require('express');
-var app      = express();
-var mongoose = require('mongoose');
-var flash    = require('connect-flash');
-var path = require('path'),
-    fs = require('fs');
-var http = require('http');
-var api = require('instagram-node').instagram();
-var server = http.createServer(app);
+require('./models/Chapters');
 
 api.use({
   client_id: '5c45535025534f8fa3e56bbed0892b78',
   client_secret: 'c7e2b49f5b574d3a9df97f944c5fa92b'
 });
 
-
-var configDB = require('./config/database.js');
-
-//mongoose.connect(configDB.url); 
+mongoose.connect('mongodb://'+mongoauth+mongoip+':'+mongoport+'/nodejs');
 
 app.configure(function() {
 
@@ -79,30 +79,41 @@ var feed = new Podcast({
     }],
     itunesImage: 'http://nodejs-fedegarlo.rhcloud.com/sites/macfools/podcast/cover.png'
 });
-var posts = [{title:'uno'},{title:'dos'}];
-for(var key in posts) {
-    feed.item({
-        title:  posts[key].title,
-        description: 'use this for the content. It can include html.',
-        url: 'http://example.com/article4?this&that', // link to the item 
-        guid: '1123', // optional - defaults to url 
-        categories: ['Category 1','Category 2','Category 3','Category 4'], // optional - array of item categories 
-        author: 'Guest Author', // optional - defaults to feed author property 
-        date: 'May 27, 2012', // any format that js Date can parse. 
-        lat: 33.417974, //optional latitude field for GeoRSS 
-        long: -111.933231, //optional longitude field for GeoRSS 
-        itunesAuthor: 'Max Nowack',
-        itunesExplicit: false,
-        itunesSubtitle: 'I am a sub title',
-        itunesSummary: 'I am a summary',
-        itunesDuration: 12345,
-        itunesKeywords: ['javascript','podcast']
-    });
-};
-var xml = feed.xml();
+var Chapter = mongoose.model('Chapter');
 
-    res.set('Content-Type', 'text/xml');
-    res.send(xml);
+// find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
+
+
+var posts = [],
+    xml,
+    defaultItems = {
+        author : 'Fede García'
+    };
+Chapter.find({}, function(err, chapters){
+    if(err){ return next(err); }
+    posts = chapters;
+    for(var key in posts) {
+        feed.item({
+            title:  posts[key].title,
+            description: posts[key].description,
+            url: posts[key].link, // link to the item 
+            guid: posts[key].guid, // optional - defaults to url 
+            date: posts[key].pubDate, // any format that js Date can parse.
+            itunesAuthor: defaultItems.author,
+            itunesExplicit: false,
+            itunesSubtitle: posts[key].subtitle,
+            itunesSummary: posts[key].summary,
+            itunesDuration: posts[key].duration,
+            itunesKeywords: posts[key].keywords,
+            enclosure: posts[key].enclosure
+        });
+
+        xml = feed.xml();
+        res.set('Content-Type', 'text/xml');
+        res.send(xml);
+    };
+});
+
 
 };
 
