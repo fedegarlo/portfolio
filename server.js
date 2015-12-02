@@ -59,7 +59,7 @@ var feed = new Podcast({
     description: 'Mezclamos tecnología, desarrollo de software, videojuegos y algún otro tema que se nos ocurra. Empezamos de nuevo cada programa y no te lo puedes perder.',
     feed_url: 'http://www.fedegarlo.com/rss/macfools',
     site_url: 'http://www.fedegarlo.com',
-    image_url: 'http://nodejs-fedegarlo.rhcloud.com/sites/macfools/podcast/cover.png',
+    image_url: 'http://nodejs-fedegarlo.rhcloud.com/sites/macfools/podcast/cover.jpg',
     docs: 'http://www.fedegarlo.com',
     author: 'Fede Garcia',
     managingEditor: 'Fede Garcia',
@@ -77,7 +77,7 @@ var feed = new Podcast({
         text: 'Computers'
       }]
     }],
-    itunesImage: 'http://nodejs-fedegarlo.rhcloud.com/sites/macfools/podcast/cover.png'
+    itunesImage: 'http://nodejs-fedegarlo.rhcloud.com/sites/macfools/podcast/cover.jpg'
 });
 var Chapter = mongoose.model('Chapter');
 
