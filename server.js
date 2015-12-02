@@ -101,7 +101,7 @@ Chapter.find({}, function(err, chapters){
             date: posts[key].pubDate, // any format that js Date can parse.
             itunesAuthor: defaultItems.author,
             itunesExplicit: false,
-            itunesSubtitle: posts[key].subtitle,
+            itunesSubtitle: posts[key].description,
             itunesSummary: posts[key].summary,
             itunesDuration: posts[key].duration,
             itunesKeywords: posts[key].keywords,
