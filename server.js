@@ -107,7 +107,7 @@ Chapter.find({}, function(err, chapters){
             itunesKeywords: posts[key].keywords,
             enclosure: posts[key].enclosure
         });
-        feed.items[key].custom_elements[2]['itunes:summary'] = ('<![CDATA[ ' + feed.items[key].custom_elements[2]['itunes:summary']).replace(/\]\]>/g, ']]]]><![CDATA[>') + ' ]]>';
+        //feed.items[key].custom_elements[2]['itunes:summary'] = ('<![CDATA[ ' + feed.items[key].custom_elements[2]['itunes:summary']).replace(/\]\]>/g, ']]]]><![CDATA[>') + ' ]]>';
     };
 
         xml = feed.xml();
