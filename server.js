@@ -97,7 +97,7 @@ Chapter.find({}, function(err, chapters){
             title:  posts[key].title,
             description: posts[key].description,
             url: posts[key].link, // link to the item 
-            guid: posts[key].guid, // optional - defaults to url 
+            //guid: posts[key].guid, // optional - defaults to url 
             date: posts[key].pubDate, // any format that js Date can parse.
             itunesAuthor: defaultItems.author,
             itunesExplicit: false,
