@@ -6,6 +6,9 @@ myApp.config(function ($routeProvider, $httpProvider) {
         .when('/home', {
             templateUrl: 'html/home.html',
             controller: 'MainController'
+        }).when('/salvatar', {
+            templateUrl: 'html/salvatar.html',
+            controller: 'MainController'
         }).when('/instagram', {
             templateUrl: 'html/instagram.html',
             controller: 'InstaController'
