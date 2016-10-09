@@ -11,6 +11,13 @@ var MainCtrl = function($scope){
 			url : 'http://salvatar.fedegarlo.com',
 			tags : ['ios', 'stickers', 'xcode', 'diseño']
 		},{
+			title : 'Salva',
+			new : true,
+			img : 'salva_app.png',
+			id : 'salva',
+			url : 'http://appsto.re/es/Pfx6eb.i',
+			tags : ['ios', 'xcode', 'node', 'mongodb', 'angular', 'cordova', 'javascript', 'css']
+		},{
 			title : 'BBVA',
 			new : false,
 			img : 'bbva.png',
