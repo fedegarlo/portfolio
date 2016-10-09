@@ -4,15 +4,22 @@
 var MainCtrl = function($scope){
 	$scope.works = [
 		{
-			title : 'BBVA',
+			title : 'Salvatar Stickers',
 			new : true,
+			img : 'salvatar.png',
+			id : 'salvatar',
+			url : 'http://salvatar.fedegarlo.com',
+			tags : ['ios', 'stickers', 'xcode', 'diseño']
+		},{
+			title : 'BBVA',
+			new : false,
 			img : 'bbva.png',
 			id : 'helping',
 			url : 'http://www.bbva.es',
 			tags : ['bbva', 'backbone', 'underscore', 'jquery', 'scss', 'html5', 'javascript', 'mongodb']
 		},{
 			title : 'Apple Watch Catalogue',
-			new : true,
+			new : false,
 			img : 'watches.png',
 			id : 'watch_description',
 			url : '/sites/macfools/watch/index.html',
@@ -47,7 +54,7 @@ var MainCtrl = function($scope){
 			tags : ['moneylabels', 'firefoxos', 'javascript']
 		},{
 			title : 'Portfolio',
-			new : true,
+			new : false,
 			img : 'portfolio.png',
 			id : 'portfolio_description',
 			url : '',
