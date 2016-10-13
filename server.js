@@ -31,8 +31,8 @@ app.configure(function() {
     var cacheTime = 630720000;
     app.use(express.cookieParser());
     app.use(express.bodyParser()); 
-    app.use(express.static(path.join(__dirname, 'public')));
-    app.use('img', express.static('public/img', { maxAge: cacheTime }));
+    app.use(express.static(path.join(__dirname, 'public'), { maxAge: cacheTime }));
+    //app.use('img', express.static('public/img', { maxAge: cacheTime }));
     app.set('views', __dirname + '/views');
     app.engine('html', require('ejs').renderFile);
     app.use(express.session({ secret: 'fedegarlo' })); 
