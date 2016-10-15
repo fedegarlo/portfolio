@@ -15,7 +15,7 @@ var MainCtrl = function($scope){
 			new : true,
 			img : 'salva_app.png',
 			id : 'salva',
-			url : 'http://appsto.re/es/Pfx6eb.i',
+			url : 'http://fedegarlo.com/sites/salvaapp',
 			tags : ['ios', 'xcode', 'node', 'mongodb', 'angular', 'cordova', 'javascript', 'css']
 		},{
 			title : 'BBVA',
