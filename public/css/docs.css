@@ -78,6 +78,10 @@ color: #FFF;
   text-decoration: none;
 }
 
+a.salva {
+  color: #1F9DD0;
+}
+
 .firefox a.enlace {
   cursor: pointer;
 }
