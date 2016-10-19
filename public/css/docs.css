@@ -615,6 +615,20 @@ content: "@";
   line-height: 25px;
   color: #999;
 }
+
+img.salvalogo{
+  max-width: 60%
+}
+
+.caritas {
+  padding-top: 30px;
+}
+
+.logocontainer {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .marketing img {
   display: block;
   margin: 0 auto 30px;
