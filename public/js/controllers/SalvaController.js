@@ -38,6 +38,17 @@ var SalvaCtrl = function($scope, $http, $window, salvaService){
     }
   };
 
+  $( document ).ready(function() {
+    $('#input-main').focus();
+    $('input').blur(function (ev) {
+      if ($(this).val()) {
+        $(this).parents('span').addClass('inputFilled');
+      } else {
+        $(this).parents('span').removeClass('inputFilled');
+      }
+    });
+  });
+
 };
 
 app.controller("SalvaController",["$scope", "$http", "$window", "salvaService", SalvaCtrl]);
