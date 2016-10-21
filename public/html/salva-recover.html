@@ -1,0 +1,42 @@
+  <div style="background:#1F9DD0; width:100%; text-align:center;padding-top:60px;padding-bottom:60px; color:white;">
+    <img width="120px" src="img/glasses_salva.png" />
+    <h2 style="font-size:60px;">Salva</h2>
+  </div>
+  <div class="container">
+    <div>
+      <div class="marketing">
+        <h1>Recuperar contraseña</h1>
+        <div ng-controller="SalvaController">
+          <div ng-hide="mailSended">
+            <form ng-submit="save(user)" class="form--hoshi">
+                <span class="input input--hoshi">
+                  <input type="text" ng-model="user.email" class="input__field--hoshi input__field" id="input-main"></input>
+                <label class="input__label input__label--hoshi input__label--hoshi-color-4" for="input-main">
+                  <span class="input__label-content input__label-content--hoshi">Tu dirección de email</span>
+                </label>  
+                </span>
+                <span ng-show="formError">Introduzca un email válido</span>
+                <div class="buttons-salva">
+                  <button type="submit" class="btn-salva">Enviar</button>
+                </div>
+            </form>
+          </div>
+          <div ng-show="mailSended">
+            <p>Te acabamos de enviar un email con las instrucciones para cambiar tu contraseña. Revisa también la carpeta de Spam por si acaso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="jumbotron">
+        <div class="container">
+          <p>@salva_app</p>
+          <p>
+            <a href="https://twitter.com/salva_app" class="sb embossed twitter" target="_blank">Twitter</a>
+            <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#103;&#097;&#114;&#099;&#105;&#097;&#108;&#111;&#114;&#099;&#097;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" class="sb embossed email">Email</a>
+            <a href="https://es-es.facebook.com/salvaapp" class="sb embossed facebook" target="_blank">Facebook</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

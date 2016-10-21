@@ -12,21 +12,21 @@ var InstaCtrl = function($scope, $http, $timeout){
 
       tempFilterText = val;
       filterTextTimeout = $timeout(function() {
-      	if (tempFilterText) {
-					$http.get('/tag/' + tempFilterText).success( function(response) {
-				      $scope.works = response; 
-				   });
-      	}
+        if (tempFilterText) {
+          $http.get('/tag/' + tempFilterText).success( function(response) {
+              $scope.works = response; 
+           });
+        }
       }, 1000); 
   });
 
-	$( document ).ready(function() {
+  $( document ).ready(function() {
     $('#input-main').focus();
     $('#input-main').blur(function () {
       if ($('#input-main').val()) {
         $(this).parents('span').addClass('inputFilled');
       } else {
-      	$(this).parents('span').removeClass('inputFilled');
+        $(this).parents('span').removeClass('inputFilled');
       }
     });
   });

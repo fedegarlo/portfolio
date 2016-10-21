@@ -12,6 +12,12 @@ myApp.config(function ($routeProvider, $httpProvider) {
         }).when('/salva', {
             templateUrl: 'html/salva.html',
             controller: 'MainController'
+        }).when('/salva/recover', {
+            templateUrl: 'html/salva-recover.html',
+            controller: 'SalvaController'
+        }).when('/salva/reset/:token', {
+            templateUrl: 'html/salva-reset-password.html',
+            controller: 'SalvaController'
         }).when('/instagram', {
             templateUrl: 'html/instagram.html',
             controller: 'InstaController'

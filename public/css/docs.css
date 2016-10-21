@@ -6,8 +6,17 @@
 /*.pantallazo_mini .caption {
   display: none;
 }*/
+.buttons-salva {
+  margin-top: 20px;
+}
 
 
+.btn-salva {
+  background-color: #1F9DD0;
+  border: 0;
+  color: white;
+  padding: 10px 30px;
+}
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 body, html { font-size: 100%; padding: 0; margin: 0;}
@@ -586,6 +595,7 @@ content: "@";
 -------------------------------------------------- */
 
 .marketing {
+  min-height: 300px;
   text-align: center;
   color: #5a5a5a;
 }
@@ -1467,6 +1477,10 @@ padding-right: 20px;
 
 .input__label--hoshi-color-3::after {
   border-color: hsl(20, 100%, 50%);
+}
+
+.input__label--hoshi-color-4::after {
+  border-color: #1F9DD0;
 }
 
 .input__field--hoshi:focus + .input__label--hoshi::after,
