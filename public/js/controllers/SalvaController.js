@@ -1,7 +1,7 @@
 (function(){
   var app=angular.module("myApp");
 
-var SalvaCtrl = function($scope, $http, salvaService){
+var SalvaCtrl = function($scope, $http, $window, salvaService){
 
   $scope.user = {};
   $scope.mailSended = false;
@@ -24,10 +24,14 @@ var SalvaCtrl = function($scope, $http, salvaService){
 
   $scope.reset = function (user) {
     if (user.password1 && (user.password1 === user.password2)) {
+      user.token = $window.location.href.replace(/.*\//, '');
       $scope.formError = false;
-      salvaService.reset(user).success(function(data){
+      $scope.serviceError = false;
+      salvaService.reset(user).then(function(data){
       console.log('reset completed');
         $scope.resetCompleted = true;
+      }).catch(function(){
+        $scope.serviceError = true;
       });
     } else {
       $scope.formError = true;
@@ -36,6 +40,6 @@ var SalvaCtrl = function($scope, $http, salvaService){
 
 };
 
-app.controller("SalvaController",["$scope", "$http", "salvaService", SalvaCtrl]);
+app.controller("SalvaController",["$scope", "$http", "$window", "salvaService", SalvaCtrl]);
 
 }());
