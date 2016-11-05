@@ -21,13 +21,11 @@ function getMobileOperatingSystem() {
 <body onload="DetectAndServe()">
 <iframe id="ifrm" src="" style="display:none"></iframe>
 <script>
-window.frames['ifrm'].onload = function() {
-   document.location="salvaapp://?campaign=blackfriday";
-};
-window.frames['ifrm'].src = "salvaapp://?campaign=blackfriday";
-</script>
-<script>
 function DetectAndServe(){
+  window.frames['ifrm'].onload = function() {
+     document.location="salvaapp://?campaign=blackfriday";
+  };
+  window.frames['ifrm'].src = "salvaapp://?campaign=blackfriday";
    setTimeout(function() {
     if (getMobileOperatingSystem() == "Android") {
         window.location.href = "https://play.google.com/store/apps/details?id=es.salva.notifier"; 
@@ -38,7 +36,7 @@ function DetectAndServe(){
     if (getMobileOperatingSystem() == "unknown") {
       window.location.href = "http://nodejs-fedegarlo.rhcloud.com/#/salva";
     }
-   }, 500);
+   }, 1000);
  };
 </script>
 </body>
