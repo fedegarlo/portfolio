@@ -28,7 +28,7 @@ api.use({
 mongoose.connect('mongodb://'+mongoauth+mongoip+':'+mongoport+'/nodejs');
 
 app.configure(function() {
-    var cacheTime = 630720000;
+    var cacheTime = 0;
     app.use(express.cookieParser());
     app.use(express.bodyParser()); 
     app.use(express.static(path.join(__dirname, 'public'), { maxAge: cacheTime }));
