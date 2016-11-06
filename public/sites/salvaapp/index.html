@@ -16,18 +16,15 @@
           return "unknown";
       }
       function DetectAndServe(){
-         setTimeout(function() {
-          if (getMobileOperatingSystem() == "Android") {
-              window.location.href = "https://play.google.com/store/apps/details?id=es.salva.notifier"; 
-              }
-          if (getMobileOperatingSystem() == "iOS") {
-              window.location.href = "https://itunes.apple.com/es/app/salva-lista-tus-deseos.-sigue/id1156149609?l=en&mt=8";
-              }
-          if (getMobileOperatingSystem() == "unknown") {
-            window.location.href = "http://nodejs-fedegarlo.rhcloud.com/#/salva";
-          }
-         }, 500);
-         window.open("salvaapp://openUrl?campaign=blackfriday","_self");
+        if (getMobileOperatingSystem() == "Android") {
+            window.location.href = "https://play.google.com/store/apps/details?id=es.salva.notifier"; 
+            }
+        if (getMobileOperatingSystem() == "iOS") {
+            window.location.href = "https://itunes.apple.com/es/app/salva-lista-tus-deseos.-sigue/id1156149609?l=en&mt=8";
+            }
+        if (getMobileOperatingSystem() == "unknown") {
+          window.location.href = "http://nodejs-fedegarlo.rhcloud.com/#/salva";
+        }
        };
     </script>
   </body>
