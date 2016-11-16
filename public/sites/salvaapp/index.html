@@ -21,13 +21,30 @@
           }
           return "unknown";
       }
+      function getParameterByName(name, url) {
+          if (!url) {
+            url = window.location.href;
+          }
+          name = name.replace(/[\[\]]/g, "\\$&");
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
       function DetectAndServe(){
+        var urliOS = "https://itunes.apple.com/es/app/salva-lista-tus-deseos.-sigue/id1156149609?l=en&mt=8",
+            suffix = '';
         if (getMobileOperatingSystem() == "Android") {
             window.location.href = "https://play.google.com/store/apps/details?id=es.salva.notifier"; 
             }
         if (getMobileOperatingSystem() == "iOS") {
-            window.location.href = "https://itunes.apple.com/es/app/salva-lista-tus-deseos.-sigue/id1156149609?l=en&mt=8";
-            }
+          suffix = getParameterByName('ct', window.location.href);
+          if (suffix) {
+            urliOS = urliOS + suffix;
+          }
+          window.location.href = urliOS;
+        }
         if (getMobileOperatingSystem() == "unknown") {
           window.location.href = "http://nodejs-fedegarlo.rhcloud.com/#/salva";
         }
