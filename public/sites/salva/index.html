@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -40,44 +40,7 @@
 
 </head>
 
-<body id="page-top" onload="DetectAndServe()">
-    <script>
-      function getMobileOperatingSystem() {
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-          if (/android/i.test(userAgent)) {
-              return "Android";
-          }
-          if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-              return "iOS";
-          }
-          return "unknown";
-      }
-      function getParameterByName(name, url) {
-          if (!url) {
-            url = window.location.href;
-          }
-          name = name.replace(/[\[\]]/g, "\\$&");
-          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-              results = regex.exec(url);
-          if (!results) return null;
-          if (!results[2]) return '';
-          return decodeURIComponent(results[2].replace(/\+/g, " "));
-      }
-      function DetectAndServe(){
-        var urliOS = "https://itunes.apple.com/es/app/salva-lista-tus-deseos.-sigue/id1156149609?l=es&mt=8",
-            suffix = '';
-        if (getMobileOperatingSystem() == "Android") {
-            window.location.href = "https://play.google.com/store/apps/details?id=es.salva.notifier"; 
-            }
-        if (getMobileOperatingSystem() == "iOS") {
-          suffix = getParameterByName('ct', window.location.href);
-          if (suffix) {
-            urliOS = urliOS + '&ct=' + suffix;
-          }
-          window.location.href = urliOS;
-        }
-       };
-    </script>
+<body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -229,7 +192,7 @@
 
     <section id="contact" class="contact bg-primary">
         <div class="container">
-            <h2>#yoahorroconsalva</h2>
+            <h2>#salva</h2>
             <ul class="list-inline list-social">
                 <li class="social-twitter">
                     <a href="http://www.twitter.com/salva_app"><i class="fa fa-twitter"></i></a>
