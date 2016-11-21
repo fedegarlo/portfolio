@@ -1,9 +1,14 @@
 (function(){
   var app=angular.module("myApp");
 
-var SalvaCtrl = function($scope, $http, $window, salvaService){
+var SalvaCtrl = function($scope, $http, $window, salvaService, statsService){
 
   $scope.user = {};
+  $scope.stats = {};
+  statsService.getStats().then(function(){
+    $scope.stats = statsService.stats;
+    console.log($scope.stats);
+  });
   $scope.mailSended = false;
   $scope.resetCompleted = false;
   $scope.formError = false;
@@ -51,6 +56,6 @@ var SalvaCtrl = function($scope, $http, $window, salvaService){
 
 };
 
-app.controller("SalvaController",["$scope", "$http", "$window", "salvaService", SalvaCtrl]);
+app.controller("SalvaController",["$scope", "$http", "$window", "salvaService", "statsService", SalvaCtrl]);
 
 }());

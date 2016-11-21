@@ -12,6 +12,9 @@ myApp.config(function ($routeProvider, $httpProvider) {
         }).when('/salva', {
             templateUrl: 'html/salva.html',
             controller: 'MainController'
+        }).when('/stats', {
+            templateUrl: 'html/stats.html',
+            controller: 'SalvaController'
         }).when('/salva/recover', {
             templateUrl: 'html/salva-recover.html',
             controller: 'SalvaController'
