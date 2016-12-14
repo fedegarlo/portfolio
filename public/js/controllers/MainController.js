@@ -39,13 +39,6 @@ var MainCtrl = function($scope){
 			url : '/sites/anayfede/index.html',
 			tags : ['google maps', 'twitter api', 'responsive', 'nodejs', 'instagram api', 'tipografía iconos']
 		},{
-			title : 'Macfools',
-			new : false,
-			img : 'macfools.png',
-			id : 'macfools_description',
-			url : '/sites/macfools/index.html',
-			tags : ['macfools', 'apple', 'responsive design']
-		},{
 			title : 'Corpo Derma',
 			new : false,
 			img : 'corpoderma_logo.png',
