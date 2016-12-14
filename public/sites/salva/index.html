@@ -9,10 +9,10 @@
     <meta property="og:image" content="http://nodejs-fedegarlo.rhcloud.com/img/salva_app.jpg"/>
     <meta property="og:url" content="http://salva.fedegarlo.com"/>
     <meta property="og:type" content="product"/>
-    <meta property="og:title" content="Salva. App para seguir precios de Amazon. iOS y Android"/>
-    <meta property="og:description" content="Guarda tu lista de deseos de Amazon y descubre cuando bajan de precio."/>
+    <meta property="og:title" content="Salva. App para seguir precios. iOS y Android"/>
+    <meta property="og:description" content="Guarda tu lista de deseos y descubre cuando bajan de precio."/>
     <meta name="google-site-verification" content="4VQpQul71IaxHEoefSqffXJ3z8mvMyTxicaFOMV7yfU"/>
-    <title>Salva. Aplicación móvil para seguir precios de Amazon.</title>
+    <title>Salva. Aplicación móvil para seguir precios.</title>
 
     <!--   Bootstrap Core CSS   -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -81,7 +81,7 @@
                 <div class="col-sm-7">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1>Recibe notificaciones cuando tus productos Amazon bajen de precio.</h1>
+                            <h1>Recibe notificaciones cuando tus productos bajen de precio.</h1>
                             <a href="#download" class="btn btn-outline btn-xl page-scroll">Empieza a ahorrar</a>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="section-heading">
                         <h2>Nada nos importa más que tus deseos.</h2>
-                        <p class="text-muted">Añade tu lista de deseos de Amazon con un sólo click. Disponible en 
+                        <p class="text-muted">Añade tu lista de deseos con un sólo click. Disponible en 
 <span itemprop="operatingSystem">iOS</span> y Android.</p>
                         <hr/>
                     </div>
@@ -155,14 +155,14 @@
                                 <div class="feature-item">
                                     <i class="icon-pencil text-primary"></i>
                                     <h3>Listar</h3>
-                                    <p class="text-muted">Guarda tu lista de deseos de Amazon y descubre cuando bajan o suben de precio. Descubre ofertas que otros usuarios han encontrado y aprovéchalas por tiempo limitado.</p>
+                                    <p class="text-muted">Guarda tu lista de deseos y descubre cuando bajan o suben de precio. Descubre ofertas que otros usuarios han encontrado y aprovéchalas por tiempo limitado.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="feature-item">
                                     <i class="icon-tag text-primary"></i>
                                     <h3>Seguir</h3>
-                                    <p class="text-muted">En ocasiones, las ofertas de Amazon.es duran muy poco tiempo o se producen descuentos increíbles en unidades limitadas.</p>
+                                    <p class="text-muted">En ocasiones, las ofertas duran muy poco tiempo o se producen descuentos increíbles en unidades limitadas.</p>
                                 </div>
                             </div>
                         </div>
@@ -186,27 +186,6 @@
                 </div>
             </div>
     </div></section>
-
-
-    <section id="promos" class="promos">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-heading">
-                        <h2>Nuestras promos.</h2>
-                        <p class="text-muted">Estas son las ofertas que ya han encontrado nuestros usuarios.</p>
-                        <hr/>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="promoContainer">
-            </div>
-        <p style="text-align:center; font-size:12px;">
-            Salva participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a Amazon.es, Amazon.com, Amazon.de, Amazon.co.uk, Amazon.ca, Amazon.it y Amazon.fr.
-            </p>
-        </div>
-    </section>
-
     <section class="cta">
         <div class="cta-content">
             <div class="container">
@@ -265,17 +244,6 @@
 
     <!--   Theme JavaScript   -->
     <script src="js/new-age.min.js"></script>
-
-    <script>
-    $.ajax({
-    url: "http://pako-fedegarloapps.rhcloud.com/publicpromos",
-    context: document.body
-    }).done(function(data) {
-        $.each(data, function(index, item){
-            $('#promoContainer').append('<div class="col-xs-6 col-md-3 col-lg-3 promo"><a href="'+item.url+'" target="_blank"><div class="feature-item" style="text-align:center;padding-bottom: 20px;"><div class="promoImage" style="background-image:url(\''+item.images[2]+'\')"></div><p class="promoDescription">'+item.description+'</p><p class="promoDescription price">'+parseFloat(item.price/100, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString()+' €</p></div></a></div>');
-        });
-    });
-    </script>
 
 
 </body></html>
