@@ -3,7 +3,26 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-
+form .enviar {
+      padding-top: 20px;
+}
+form input[type="email"] {
+  border: 1px solid;
+  height: 40px;
+  padding-left: 10px;
+}
+ .btn-style{
+  border : solid 0px #ffffff;
+  border-radius : 3px;
+  moz-border-radius : 3px;
+  font-size : 20px;
+  color : #ffffff;
+  padding : 8px 20px;
+  background-color : #000000;
+}
+.salvaeuristas {
+  padding-top: 10px;
+}
  section.promos {
    padding-top: 0;
  }
