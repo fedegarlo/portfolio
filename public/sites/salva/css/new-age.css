@@ -20,8 +20,15 @@ form input[type="email"] {
   padding : 8px 20px;
   background-color : #000000;
 }
+.features {
+  padding-bottom: 30px;
+}
 .salvaeuristas {
-  padding-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.salvaeuristas img {
+  max-width:300px;
 }
  section.promos {
    padding-top: 0;
