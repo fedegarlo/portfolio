@@ -419,10 +419,10 @@ section.contact ul.list-social {
 }
 section.contact ul.list-social li a {
   display: block;
-  height: 80px;
-  width: 80px;
-  line-height: 80px;
-  font-size: 40px;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  font-size: 30px;
   border-radius: 100%;
   color: white;
 }
@@ -431,6 +431,12 @@ section.contact ul.list-social li.social-twitter a {
 }
 section.contact ul.list-social li.social-twitter a:hover {
   background-color: #0d95e8;
+}
+section.contact ul.list-social li.social-mail a {
+  background-color: #ffce00;
+}
+section.contact ul.list-social li.social-mail a:hover {
+  background-color: #ffce00;
 }
 section.contact ul.list-social li.social-facebook a {
   background-color: #3b5998;
