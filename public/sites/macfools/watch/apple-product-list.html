@@ -1,0 +1,44 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="product-card.html">
+<polymer-element name="apple-product-list" attributes="show products loading">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    product-card {
+      margin-bottom: 20px;
+    }
+    product-card .collection {
+      font-weight: 400;
+    }
+    #uroboro {
+      width: 42px;
+    }
+    #uroboroContainer {
+      padding-top: 60%;
+    }
+    </style>
+
+    <div layout vertical center>
+      <div id="uroboroContainer" hidden?="{{(!loading)}}">
+        <img id="uroboro" src="res/images/uroboro.gif" />
+      </div>
+      <template repeat="{{product in products}}">
+        <product-card
+          favorite="{{product.favorite}}"
+          id="{{product.id}}"
+          hidden?="{{(!product.principal)}}">
+          <img src="{{product.picture}}" width="80%">
+          <h2><span class="collection">{{product.model}}</span></h2>
+          <p>{{product.familia}} {{product.version}}</p>
+        </product-card>
+      </template>
+    </div>
+  </template>
+
+  <script>
+  Polymer({});
+  </script>
+</polymer-element>

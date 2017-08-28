@@ -1,0 +1,35 @@
+<polymer-element name="post-filters" attributes="filters">
+  <template>
+    <style>
+    :host {
+      display: none;
+    }
+    </style>
+  </template>
+  <script>
+  Polymer('post-filters', {
+    created: function() {
+      this.filters = [
+      {
+        text : 'Apple Watch 2015',
+        name : 'all',
+        value : 'all',
+        key : 'all',
+        icon : 'query-builder'
+      },
+      {
+        text : 'Apple products',
+        name : 'apple',
+        value : 'apple',
+        key : 'apple',
+        icon : 'shopping-cart'
+      },
+      {
+        text : 'by @fedegarlo',
+        value : 'fedegarlo',
+        icon : 'account-box'
+      }]
+    }
+  });
+  </script>
+</polymer-element>

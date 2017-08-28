@@ -1,0 +1,6 @@
+# robots.txt generated at http://www.mcanerin.com
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /status/
+Sitemap: http://www.macfools.com/sitemap.xml

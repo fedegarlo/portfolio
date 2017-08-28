@@ -1,0 +1,182 @@
+<polymer-element name="filter-menu">
+
+    <template>
+
+        <style>
+            :host {
+                position:absolute;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                top: 0px;
+            }
+            :host core-toolbar {
+              background-color: #eee;
+              border-bottom: 1px #eee solid;
+              height: 84px;
+              padding-top: 20px;
+            }
+            core-toolbar {
+              background-color: #eee;
+              border-bottom: 1px #eee solid;
+              height: 84px;
+              padding-top: 20px;
+            }
+            .colored {
+              color: #E91E63;
+            }
+            #toggles {
+              padding-left: 30px;
+              padding-right: 30px;
+            }
+            .label {
+              float: left;
+            }
+            .item {
+              float: right;
+            }
+            paper-dropdown-menu {
+              top: -10px;
+              padding-top: 2px;
+              float: right;
+            }
+            li {
+              list-style: none;
+              clear: both;
+              margin-top: 30px;
+              height: 20px;
+            }
+            paper-checkbox::shadow #ink[checked] {
+              color: #E91E63;
+            }
+
+            paper-checkbox::shadow #checkbox.checked {
+              border-color: #E91E63;
+            }
+            .content {
+              position: relative;
+            }
+            footer {
+              font-size: 14px;
+              padding-bottom: 20px;
+              padding-top: 40px;
+              bottom: 0;
+            }
+            .nofilter {
+              color: #ccc;
+            }
+            paper-dropdown-menu::shadow #dropdown {
+                border: 1px solid #ccc;
+            }
+        </style>
+        <div>
+          <div class="core-header">
+            <core-toolbar>
+              <core-icon-button icon="close" on-tap="{{close}}"></core-icon-button>
+              <span flex="">Filter models</span>
+            </core-toolbar>
+          </div>
+          <div class="content">
+            <ul id="toggles" layout center>
+              <li>
+                <span class="label">Collection</span>
+                <paper-dropdown-menu selected="{{filtersToSend[0].value}}" valueattr="label" halign="right">
+                  <paper-item class="nofilter" label="No filter"></paper-item>
+                  <paper-item label="Sport"></paper-item>
+                  <paper-item label="Watch"></paper-item>
+                  <paper-item label="Edition"></paper-item>
+              </paper-dropdown-menu>
+              </li>
+              <li>
+                <span class="label">Size</span>
+                <paper-dropdown-menu selected="{{filtersToSend[1].value}}" valueattr="label" halign="right">
+                  <paper-item class="nofilter" label="No filter"></paper-item>
+                  <paper-item label="38mm"></paper-item>
+                  <paper-item label="42mm"></paper-item>
+              </paper-dropdown-menu>
+              </li>
+              <li>
+                <span class="label">Wrist Color</span>
+                <paper-dropdown-menu selected="{{filtersToSend[2].value}}" valueattr="label" halign="right">
+                  <paper-item class="nofilter" label="No filter"></paper-item>
+                  <paper-item label="White"></paper-item>
+                  <paper-item label="Black"></paper-item>
+                  <paper-item label="Blue"></paper-item>
+                  <paper-item label="Silver"></paper-item>
+                  <paper-item label="Orange"></paper-item>
+                  <paper-item label="Red"></paper-item>em>
+                  <paper-item label="Brown"></paper-item>em>
+                  <paper-item label="Stone"></paper-item>
+                  <paper-item label="Lavender"></paper-item>
+                  <paper-item label="Pink"></paper-item>
+                  <paper-item label="Space Black"></paper-item>
+                  <paper-item label="Rose Gray"></paper-item>
+              </paper-dropdown-menu>
+              </li>
+              <li>
+                <span class="label">Case</span>
+                <paper-dropdown-menu selected="{{filtersToSend[3].value}}" valueattr="label" halign="right">
+                  <paper-item class="nofilter" label="No filter"></paper-item>
+                  <paper-item label="Silver Aluminum Case"></paper-item>
+                  <paper-item label="Space Gray Aluminum Case"></paper-item>
+                  <paper-item label="Rose Gold Aluminum Case"></paper-item>
+                  <paper-item label="Gold Aluminum Case"></paper-item>
+                  <paper-item label="Stainless Steel Case"></paper-item>
+                  <paper-item label="Space Black Stainless Steel"></paper-item>
+                  <paper-item label="18K Yellow Gold"></paper-item>
+                  <paper-item label="18K Rose Gold"></paper-item>
+              </paper-dropdown-menu>
+              </li>
+            </ul>
+          </div>
+            <footer>
+              <paper-button on-tap="{{filter}}" class="colored custom">OK</paper-button>
+              <paper-button on-tap="{{close}}">Cancel</paper-button>
+              <paper-button on-tap="{{clear}}">Clear</paper-button>
+            </footer>
+        </div>
+</template>
+
+<script>
+  Polymer('filter-menu', {
+    created: function() {
+      this.filtersToSend = [
+      {
+        text : 'collection',
+        value : ''
+      },
+      {
+        text : 'size',
+        value : ''
+      },
+      {
+        text : 'wristColor',
+        value : ''
+      },
+      {
+        text : 'model',
+        value : ''
+      }]
+    },
+    close: function() {
+      this.filtersToSend.forEach(function(filter, index){
+        filter.value = currentFilters[index].value;
+      });
+      this.fire('close-filter-menu');
+     },
+    clear: function() {
+      this.filtersToSend.forEach(function(filter){
+        filter.value = '';
+      });
+     },
+    filter: function(event, detail, sender) {
+      this.filtersToSend.forEach(function(filter, index){
+        currentFilters[index].value = filter.value;
+        currentFilters[index].text = filter.text;
+      });
+      this.fire('filter-sended',  this.filtersToSend);
+     }
+  });
+</script>
+
+</polymer-element>

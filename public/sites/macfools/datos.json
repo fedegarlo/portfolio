@@ -1,0 +1,923 @@
+[ 
+	{
+		"id" : "appletv",
+		"features" : [
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A5"
+			},
+			{
+				"text" : "resolution",
+				"class" : "eye-open",
+				"value" : "1080p"
+			}
+		],
+		"principal" : true,
+		"familia" : "appletv",
+		"index" : 0,
+		"modelsdata" : 0,
+		"imagen" : "2013-appletv.jpg",
+		"nombre" : "Apple TV",
+		"version" : "2013",
+		"fecha": 1331074800000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 99,
+				"currency" : "€",
+				"type" : "just"
+			}
+		],
+		"mediaDiasActualizar" : 377,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : true,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "1080P",
+					"nombre" : "1080P"
+				}
+			]
+	},
+	{	
+		"id" : "imac",
+		"principal" : true,
+		"familia" : "imac",
+		"index" : 1,
+		"modelsdata" : null,
+		"imagen" : "imac.jpg",
+		"nombre" : "iMac",
+		"version" : "2013",
+		"fecha": 1379973600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 1329,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 333,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "215P27GHZ",
+					"nombre" : "21,5' 2,7GHz"
+				},
+				{ "id" : "215P29GHZ",
+					"nombre" : "21,5' 2,9GHz"
+				},
+				{ "id" : "27P32GHZ",
+					"nombre" : "27' 3,2GHz"
+				},
+				{ "id" : "27P34GHZ",
+					"nombre" : "27' 3,4GHz"
+				}
+			]
+	},
+	{	
+		"id" : "imacretina",
+		"principal" : true,
+		"familia" : "imac",
+		"index" : 21,
+		"modelsdata" : null,
+		"imagen" : "imac_retina.png",
+		"nombre" : "iMac Retina",
+		"version" : "2014",
+		"fecha": 1413410400000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 1329,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 333,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "27P32GHZ",
+					"nombre" : "27' 3,2GHz"
+				},
+				{ "id" : "27P34GHZ",
+					"nombre" : "27' 3,4GHz"
+				}
+			]
+	},
+	{	
+		"id" : "macpro",
+		"principal" : true,
+		"familia" : "macpro",
+		"index" : 2,
+		"modelsdata" : null,
+		"imagen" : "2013-MacPro.jpg",
+		"nombre" : "Mac Pro",
+		"version" : "2013",
+		"fecha": 1387407600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 3049,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 490,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "quadcore",
+					"nombre" : "QUAD CORE"
+				},
+				{ "id" : "sixcore",
+					"nombre" : "6-CORE"
+				}
+			]
+	},
+	{	
+		"id" : "ipadair2",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina Display"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "5 MPx"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A7"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M7"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "ipad",
+		"index" : 3,
+		"modelsdata" : 3,
+		"imagen" : "ipad_air_2.png",
+		"nombre" : "iPad Air 2",
+		"version" : "",
+		"fecha": 1413410400000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 479,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 327,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "W16",
+					"nombre" : "WIFI 16GB"
+				},
+				{ "id" : "W32",
+					"nombre" : "WIFI 32GB"
+				},
+				{ "id" : "W64",
+					"nombre" : "WIFI 64GB"
+				},
+				{ "id" : "WC16",
+					"nombre" : "WIFI+4G 16GB"
+				},
+				{ "id" : "WC32",
+					"nombre" : "WIFI+4G 32GB"
+				},
+				{ "id" : "WC64",
+					"nombre" : "WIFI+4G 64GB"
+				}
+			]
+	},
+	{	
+		"id" : "ipadmini4",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina Display"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "5 MPx"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A7"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M7"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "ipadmini",
+		"index" : 5,
+		"modelsdata" : 5,
+		"imagen" : "ipadmini4.jpeg",
+		"nombre" : "iPad mini 4",
+		"version" : "",
+		"fecha": 1441749600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 389,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 385,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "W16",
+					"nombre" : "WIFI 16GB"
+				},
+				{ "id" : "W64",
+					"nombre" : "WIFI 64GB"
+				},
+				{ "id" : "W128",
+					"nombre" : "WIFI 128GB"
+				},
+				{ "id" : "WC16",
+					"nombre" : "WIFI+4G 16GB"
+				},
+				{ "id" : "WC64",
+					"nombre" : "WIFI+4G 64GB"
+				},
+				{ "id" : "WC128",
+					"nombre" : "WIFI+4G 128GB"
+				}
+			]
+	},
+	{	
+		"id" : "ipodnano2013",
+		"principal" : true,
+		"familia" : "ipodnano",
+		"index" : 6,
+		"modelsdata" : 6,
+		"imagen" : "nano-2013.png",
+		"nombre" : "iPod Nano",
+		"version" : "2013",
+		"fecha": 1378764000000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 169,
+				"currency" : "€",
+				"type" : "just"
+			}
+		],
+		"mediaDiasActualizar" : 365,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"version" : "2013",
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				}
+			]
+	},
+	{	
+		"id" : "ipodshuffle2013",
+		"principal" : true,
+		"familia" : "ipodshuffle",
+		"index" : 7,
+		"modelsdata" : 7,
+		"imagen" : "shuffle-2013.png",
+		"nombre" : "iPod Shuffle",
+		"version" : "2013",
+		"fecha": 1283292000000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 49,
+				"currency" : "€",
+				"type" : "just"
+			}
+		],
+		"mediaDiasActualizar" : 406,
+		"justUpdated" : false,
+		"outOfDate" : true,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "2GB",
+					"nombre" : "2GB"
+				}
+			]
+	},
+	{	
+		"id" : "ipodtouch2013",
+		"principal" : true,
+		"familia" : "ipodtouch",
+		"index" : 8,
+		"modelsdata" : 8,
+		"imagen" : "ipod-touch-2013.png",
+		"nombre" : "iPod Touch",
+		"version" : "2013",
+		"fecha": 1378764000000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 249,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 292,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				},
+				{ "id" : "32GB",
+					"nombre" : "32GB"
+				},
+				{ "id" : "64GB",
+					"nombre" : "64GB"
+				}
+			]
+	},
+	{	
+		"id" : "mbretina",
+		"features" : [
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "Intel Core i5"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "Intel Core i7"
+			},
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina Display"
+			}
+		],
+		"principal" : true,
+		"familia" : "macbook",
+		"index" : 9,
+		"modelsdata" : null,
+		"imagen" : "mbretina2013.png",
+		"nombre" : "MacBook Pro Retina",
+		"version" : "2013",
+		"fecha": 1382392800000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 1329,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 166,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : true,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "13P24GHZ",
+					"nombre" : "13' 2,4GHz"
+				},
+				{ "id" : "13P26GHZ",
+					"nombre" : "13' 2,6GHz"
+				},
+				{ "id" : "15P20GHZ",
+					"nombre" : "15' 2,0GHz"
+				},
+				{ "id" : "15P23GHZ",
+					"nombre" : "15' 2,3GHz"
+				}
+			]
+	},
+	{	
+		"id" : "macbookair2014",
+		"features" : [
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "Intel i5 Haswell"
+			},
+			{
+				"text" : "storage",
+				"class" : "hdd",
+				"value" : "SSD"
+			},
+			{
+				"text" : "thunderbolt",
+				"class" : "flash",
+				"value" : "Thunderbolt"
+			}
+		],
+		"principal" : true,
+		"familia" : "mbair",
+		"index" : 10,
+		"modelsdata" : 10,
+		"imagen" : "macbookair2013.png",
+		"nombre" : "MacBook Air",
+		"version" : "2014",
+		"fecha": 1398722400000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 929,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 340,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "11P128GB2014",
+					"nombre" : "11' 128GB"
+				},
+				{ "id" : "11P256MB2014",
+					"nombre" : "11' 256MB"
+				},
+				{ "id" : "13P128GB2014",
+					"nombre" : "13' 128GB"
+				},
+				{ "id" : "13P256GB2014",
+					"nombre" : "13' 256MB"
+				}
+			]
+	},
+	{	
+		"id" : "macmini2014",
+		"features" : [
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "Intel Core i5"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "Intel Core i7"
+			},
+			{
+				"text" : "thunderbolt",
+				"class" : "flash",
+				"value" : "Thunderbolt"
+			}
+		],
+		"principal" : true,
+		"familia" : "macmini",
+		"index" : 11,
+		"modelsdata" : 11,
+		"imagen" : "macmini.png",
+		"nombre" : "Mac Mini",
+		"version" : "2014",
+		"fecha": 1413410400000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 649,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 381,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : true,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "25GHZ",
+					"nombre" : "i5 2,5GHz"
+				},
+				{ "id" : "23GHZ",
+					"nombre" : "i7 2,3GHz"
+				},
+				{ "id" : "26GHZ",
+					"nombre" : "i7 2,6GHz"
+				},
+				{ "id" : "osxserver",
+					"nombre" : "OSX SERVER 2,3"
+				},
+				{ "id" : "osxserver26",
+					"nombre" : "OSX SERVER 2,6"
+				}
+			]
+	},
+	{	
+		"id" : "mb2013",
+		"principal" : true,
+		"familia" : "macbook",
+		"index" : 13,
+		"modelsdata" : null,
+		"imagen" : "mbpro-old2013.png",
+		"nombre" : "MacBook Pro",
+		"version" : "2013",
+		"fecha": 1339365600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 1229,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 267,
+		"justUpdated" : false,
+		"outOfDate" : true,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "13P25GHZ",
+					"nombre" : "13' 2,5GHz"
+				}
+			]
+	},
+	{	
+		"id" : "display2013",
+		"principal" : true,
+		"familia" : "display",
+		"index" : 15,
+		"modelsdata" : null,
+		"imagen" : "display2013.png",
+		"version" : "",
+		"nombre" : "Thunderbolt Display",
+		"fecha": 1316037600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 1024,
+				"currency" : "€",
+				"type" : "just"
+			}
+		],
+		"mediaDiasActualizar" : 399,
+		"justUpdated" : false,
+		"outOfDate" : true,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "27P",
+					"nombre" : "27'"
+				}
+			]
+	},
+	{	
+		"id" : "airportextreme2013",
+		"principal" : true,
+		"familia" : "airportextreme",
+		"index" : 16,
+		"modelsdata" : null,
+		"imagen" : "airportextreme2013.jpg",
+		"nombre" : "Airport Extreme",
+		"version" : "2013",
+		"fecha": 1370815200000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 199,
+				"currency" : "€",
+				"type" : "just"
+			}
+		],
+		"mediaDiasActualizar" : 730,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "6GEN",
+					"nombre" : "6GEN'"
+				}
+			]
+	},
+	{	
+		"id" : "iphone6s",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina HD Display"
+			},
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "4,7'"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "12 MPx"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "NFC"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "iphone",
+		"index" : 18,
+		"modelsdata" : 18,
+		"imagen" : "iphone6s.jpeg",
+		"nombre" : "iPhone 6S",
+		"version" : "",
+		"fecha": 1441749600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 749,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 380,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"modeloDeseado" : "",
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				},
+				{ "id" : "64GB",
+					"nombre" : "64GB"
+				},
+				{ "id" : "128GB",
+					"nombre" : "128GB"
+				}
+			]
+	},
+	{	
+		"id" : "iphone6splus",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina HD Display"
+			},
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "5,5'"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "12 MPx"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M9"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "NFC"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : true,
+		"familia" : "iphone",
+		"index" : 19,
+		"modelsdata" : 19,
+		"imagen" : "iphone6s.jpeg",
+		"nombre" : "iPhone 6S Plus",
+		"version" : "",
+		"fecha": 1441749600000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 859,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 380,
+		"justUpdated" : true,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modelo" : null,
+		"modeloDeseado" : "",
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				},
+				{ "id" : "64GB",
+					"nombre" : "64GB"
+				},
+				{ "id" : "128GB",
+					"nombre" : "128GB"
+				}
+			]
+	},{	
+		"id" : "iphone5s",
+		"features" : [
+			{
+				"text" : "display",
+				"class" : "eye-open",
+				"value" : "Retina Display"
+			},
+			{
+				"text" : "facetimecamera",
+				"class" : "facetime-video",
+				"value" : "FaceTime HD"
+			},
+			{
+				"text" : "camera",
+				"class" : "camera",
+				"value" : "8 MPx"
+			},
+			{
+				"text" : "processor",
+				"class" : "cog",
+				"value" : "CHIP A7"
+			},
+			{
+				"text" : "coprocessor",
+				"class" : "cog",
+				"value" : "CHIP M7"
+			},
+			{
+				"text" : "touchid",
+				"class" : "hand-up",
+				"value" : "Touch ID"
+			}
+		],
+		"principal" : false,
+		"familia" : "iphone",
+		"index" : 20,
+		"modelsdata" : 19,
+		"imagen" : "2013-iphone5s-silver.jpg",
+		"nombre" : "iPhone 5s",
+		"version" : "",
+		"fecha": 1379690400000,
+		"purchasePrice" : [
+			{
+				"zone" : "EU",
+				"number" : 699,
+				"currency" : "€",
+				"type" : "from"
+			}
+		],
+		"mediaDiasActualizar" : 380,
+		"justUpdated" : false,
+		"outOfDate" : false,
+		"comingSoon" : false,
+		"ownProduct" : false,
+		"wantProduct" : false,"visible" : "true",
+		"modeloDeseado" : "",
+		"modelo" : null,
+		"models" :
+			[
+				{ "id" : "16GB",
+					"nombre" : "16GB"
+				},
+				{ "id" : "32GB",
+					"nombre" : "32GB"
+				},
+				{ "id" : "64GB",
+					"nombre" : "64GB"
+				}
+			]
+	}
+]

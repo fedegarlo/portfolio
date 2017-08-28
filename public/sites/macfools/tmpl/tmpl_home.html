@@ -1,0 +1,193 @@
+     <script type="text/html" id="tmpl_mensaje">
+        <div class="alert alert-success" data-mensaje-aplicacion>
+          <strong>{{ titulo }}</strong> {{ mensaje }}
+        </div>
+      </script>
+
+    <script type="text/html" id="tmpl_selector_modelo">
+
+        <form name="modelo" data-id-modelo-padre="{{idModeloPadre}}" data-ref-modelo-padre="{{modeloPadre.id}}">
+        <% _.each(modelos, function(modelo){ %>
+          {{_.template($('#tmpl_selector_modelo_li').html(), {modelo : modelo})}}
+        <% });  %>
+        </form>
+    </script>
+
+    <script type="text/html" id="tmpl_selector_modelo_li">
+      <input type="radio" name="modeloDispositivo" value="{{modelo.id}}" data-modelo-seleccionado ="{{modelo.id}}">
+        <span class="modeloAElegir">{{modelo.nombre}}</span>
+      </input>
+    </script>
+
+      <script type="text/html" id="tmpl_producto">
+      <% var modeloAMostrar;%>
+        <li class="media col-md-4<% if (wantProduct) { %> dollarConfirm<% } %>" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper" itemscope itemtype="http://schema.org/Product">
+            <figure class="pull-left device-container">
+              <% if (justUpdated) { %>
+              <div class="newTag" class="hidden"><span>{{ $B.app.literals.product.newProduct }}</span></div>
+              <% } %>
+              <% if (comingSoon) { %>
+              <div class="comingSoonTag" class="hidden"><span>{{ $B.app.literals.product.comingSoonProduct }}</span></div>
+              <% } %>
+              <% if (outOfDate) { %>
+              <div class="outOfDateTag" class="hidden"><span>{{ $B.app.literals.product.dontBuyProduct }}</span></div>
+              <% } %>
+              <img itemprop="image" class="media-object device-avatar" src="img/{{ imagen }}" alt="">
+            </figure>
+            {{ _.template($('#tmpl_owner_card').html(), { ownProduct : ownProduct, wantProduct : wantProduct, idProducto : modelsdata }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading" itemprop="name">{{ nombre }}
+            <% if (!_.isEmpty(modelo)) { _.each(models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-success">{{ modeloAMostrar }}</span>
+            <% } %></h4>
+            <% if (comingSoon) { %>
+            	<p>{{ $B.app.literals.product.newModelSoon }}</p>
+            	<p>{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(fecha) }}</p>
+            <% } else { %>
+            <p>{{ _.formatString($B.app.literals.product.itemUpdate, mediaDiasActualizar) }}</p>
+             {{ _.template($('#hito_progreso').html(), {fecha : fecha, mediaDiasActualizar : mediaDiasActualizar} )}}
+             <% } %>
+          </div>
+        </li>
+      </script>
+
+      <script type="text/html" id="tmpl_subProducto">
+      <% var modeloAMostrar;%>
+        <li class="media col-md-4<% if (wantProduct) { %> dollarConfirm<% } %>" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper" itemscope itemtype="http://schema.org/Product">
+            <figure class="pull-left device-container">
+              <img itemprop="image" class="media-object device-avatar" src="img/olderVersions/{{ imagen }}" alt="">
+            </figure>
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading" itemprop="name">{{ nombre }}
+              <% if (!_.isEmpty(version)) {%>{{ version }}<%}%>
+            </h4>
+            <p>Lanzamiento: {{_.formatLaunchDate(fecha)}}</p>
+          </div>
+        </li>
+      </script>
+
+          <script type="text/html" id="tmpl_owner_card">
+            <div class="hovercard hc-product hc-loading">
+              <div class="hc-inner">
+                <span class="arrow left"></span>
+                <div class="hc-body" style="width: 150px;">
+                  <ul class="hc-product-list-menu hc-common-list">
+                    <% if (!_.isNull(ownProduct)) { %>
+                      <li class="hc-product-list-have">
+                        <a class="auth"<?php if (!$misProductos) { echo ' data-toggle="modal" data-target="#myModal"'; } else { echo ' data-i-have="<% if (ownProduct) { %>{{ ownProduct }}<% } %>"'; }?>>
+                          <% if (ownProduct) { %>
+                            {{ $B.app.literals.product.ihavent }}
+                          <% } else { %>
+                            {{ $B.app.literals.product.ihaveone }}
+                          <% } %>
+                        </a>
+                      </li>
+                    <% } %>
+                    <% if (!_.isNull(wantProduct)) { %>
+                      <li class="hc-product-list-want">
+                        <a class="auth"<?php if (!$misProductos) { echo ' data-toggle="modal" data-target="#myModal"'; } else { echo ' data-i-want="<% if (wantProduct) { %>{{ wantProduct }}<% } %>"'; }?>>
+                          <% if (wantProduct) { %>
+                            {{ $B.app.literals.product.idontwant }}
+                          <% } else { %>
+                            {{ $B.app.literals.product.iwantone }}
+                          <% } %>
+                        </a>
+                      </li>
+                    <% } %>
+                    <% if (!_.isNull(idProducto)) { %>
+                      <li class="hc-product-list-want">
+                        <a class="auth" data-catalogue="{{ idProducto }}">
+                           Modelos anteriores
+                        </a>
+                      </li>
+                     <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </script>
+
+        <script type="text/html" id="tmpl_producto_customizado">
+        <% var modeloAMostrar;%>
+        <li class="media col-md-4" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper">
+            <figure class="pull-left device-container">
+              <img class="media-object device-avatar" src="img/{{ imagen }}" alt="">
+            </figure>
+              {{ _.template($('#tmpl_owner_card').html(), { ownProduct : ownProduct, wantProduct : null, idProducto : null }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading">{{ nombre }}
+            <% if (!_.isEmpty(modelo)) { _.each(models, function(model, index){if(model.id === modelo){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-success">{{ modeloAMostrar }}</span>
+            <% } %></h4>
+            <% if (comingSoon) { %>
+            	<p>{{ $B.app.literals.product.newModelSoon }}</p>
+            	<p>{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(fecha) }}</p>
+            <% } else { %>
+            <p>{{_.formatString($B.app.literals.product.itemUpdate, mediaDiasActualizar)}}</p>
+             {{ _.template($('#hito_progreso').html(), {fecha : fecha, mediaDiasActualizar : mediaDiasActualizar} )}}
+            <% } %>
+          </div>
+        </li>
+      </script>
+
+        <script type="text/html" id="tmpl_producto_wishlist">
+        <% var modeloAMostrar;%>
+        <li class="media col-md-4<% if (wantProduct) { %> dollarConfirm<% } %>" data-producto="{{ index }}" data-ref-producto="{{ id }}">
+          <div class="device-wrapper">
+            <figure class="pull-left device-container">
+              <img class="media-object device-avatar" src="img/{{ imagen }}" alt="">
+            </figure>
+            {{ _.template($('#tmpl_owner_card').html(), { ownProduct : null, wantProduct : wantProduct, idProducto : null }) }}
+          </div>
+          <div class="media-body" id="hitos_container">
+            <h4 class="media-heading">{{ nombre }}
+            <% if (!_.isEmpty(modeloDeseado)) { _.each(models, function(model, index){if(model.id === modeloDeseado){modeloAMostrar=model.nombre;}}); %>
+            <span class="label label-default">{{ modeloAMostrar }}</span>
+            <% } %></h4>
+            <% if (comingSoon) { %>
+            	<p>{{ $B.app.literals.product.newModelSoon }}</p>
+            	<p>{{ $B.app.literals.product.lastUpdate + " " + _.formatDate(fecha) }}</p>
+            <% } else { %>
+            <p>{{_.formatString($B.app.literals.product.itemUpdate, mediaDiasActualizar)}}</p>
+             {{ _.template($('#hito_progreso').html(), {fecha : fecha, mediaDiasActualizar : mediaDiasActualizar} )}}
+             <% } %>
+          </div>
+        </li>
+      </script>
+
+      <script type="text/html" id="hito_progreso">
+        <%
+          var progressColor,
+            progress,
+            fecha,
+            classExtra = '';
+
+          progress = _.formatProgress({ fechaCalculo : fecha, mediaCalculada : mediaDiasActualizar} );
+          fechaCalculada = _.formatDate(fecha);
+          classExtra = 'first';
+
+          if (progress <= 20) {
+            progressColor = 'success';
+          } else if (progress <= 80) {
+            progressColor = 'info';
+          } else {
+            progressColor = 'danger';
+          }
+        %>
+        <div class="progressContainer {{ classExtra }}">
+          <div class="progress">
+            <div class="progress-bar progress-bar-{{ progressColor }}" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress }}%">
+              <span class="sr-only">{{ progress }}% Complete (success)</span>
+            </div>
+          </div>
+          <p>
+        	<% if (_.isOutOfDate({ fechaCalculo : fecha, mediaCalculada : mediaDiasActualizar})) { %>{{ $B.app.literals.product.noUpdated }}<% } else { %>{{ $B.app.literals.product.lastUpdate + " " + fechaCalculada }}<% } %><span itemprop="releaseDate" class="hidden">{{fecha}}</span>
+          </p>
+        </div>
+      </script>

@@ -1,0 +1,90 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+
+<polymer-element name="post-card">
+  <template>
+    <style>
+    :host {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 20px;
+      padding-top: 50px;
+      padding-bottom: 30px;
+      width: 100%;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: 300;
+      min-height: 300px;
+    }
+    .card-header {
+      margin-bottom: 10px;
+    }
+    polyfill-next-selector { content: '.card-header h2'; }
+    .card-header ::content h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-top: 20px;
+    }
+    .card-header ::content h2 + p {
+      margin-top: -6px;
+      font-size: 14px;
+    }
+
+    p {
+      margin-top: -6px;
+      font-size: 14px;
+    }
+
+    polyfill-next-selector { content: '.card-header img'; }
+    .card-header ::content img {
+      margin-right: 10px;
+    }
+    core-icon-button {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      color: #636363;
+    }
+    #share {
+      position: absolute;
+      top: 42px;
+      right: 0px;
+      color: #636363;
+    }
+    :host([favorite]) core-icon-button {
+      color: #E91E63;
+    }
+    </style>
+      <paper-shadow z="1">
+        <div class="card-header" layout center>
+          <content select="img"></content>
+          <content select="h2"></content>
+        </div>
+        <core-icon-button
+          id="favicon"
+          icon="star"
+          on-tap="{{favoriteTapped}}">
+        </core-icon-button>
+        <a id="share" onclick="window.open('http://www.twitter.com/share?text=Este%20es%20el%20%23AppleWatch%20que%20me%20voy%20a%20comprar%20&url=http%3A%2F%2Fmacfools.com%2Fwatch%2Findex.html%3Fmodel%3D{{id}}','_blank');"><core-icon-button
+          src="res/icons/twitter_logo.png"
+        </core-icon-button></a>
+      <content></content>   
+    </paper-shadow>
+  </template>
+  <script>
+  Polymer({
+    publish: {
+      favorite: {
+        value: false,
+        reflect: true
+      }
+    },
+    favoriteTapped: function(event, detail, sender) {
+      this.favorite = !this.favorite;
+      this.fire('favorite-tap');
+    }
+  });
+  </script>
+</polymer-element>
