@@ -16,7 +16,8 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
 
 var mongoip = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
     mongoport = process.env.OPENSHIFT_MONGODB_DB_PORT || '27017',
-    mongoauth = mongoip === 'localhost' ? '' : 'admin:Ggn_yp3e4vdz@';
+    mongoauth = mongoip === 'localhost' ? '' : 'admin:Ggn_yp3e4vdz@',
+    tsec = null;
 
 require('./models/Chapters');
 
@@ -57,23 +58,29 @@ exports.afi = function(req, res) {
     json: true // Automatically parses the JSON string in the response 
 };
 
-    rp(options)
-        .then(function (json) {
-        callAfi(json, req.body).then(function(response){
+    if (!tsec) {
+        rp(options)
+            .then(function (json) {
+            callAfi(json.access_token, req.body).then(function(response){
+                res.send(response);
+            });
+        })
+        .catch(function (err) {
+            // Crawling failed... 
+        });
+    } else {
+        callAfi(tsec, req.body).then(function(response){
             res.send(response);
         });
-    })
-    .catch(function (err) {
-        // Crawling failed... 
-    });
+    }
 };
 
-function callAfi(json, body) {
+function callAfi(tsec, body) {
 var options = {
     uri: 'https://www.bbva.es/ASO/mortgagesActions/V01/simulation',
     method: 'POST',
     body: body,
-    headers: { tsec : json.access_token},
+    headers: { tsec : tsec},
     json: true // Automatically parses the JSON string in the response 
 };
     return rp(options);

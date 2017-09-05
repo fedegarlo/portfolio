@@ -10,8 +10,8 @@
   <script src="simulation.js"></script>
 </head>
 <body>
+<div style="width:40%;float: left;padding-left: 20px;">
   <form onsubmit="return false;">
-    <h1>Buy</h1>
 
     <p>
       <label for="houseValue">Precio de la casa :</label>
@@ -37,41 +37,44 @@
 
 
     <p>Hipoteca fija a 30 años (Cuota: <span id="monthFee"></span>€)</p>
-    <p><label>Coste inicial: </label><span id="initialCostBuy"></span>€</p>
-    <p><label>Coste recurrente: </label><span id="recurrentCostBuy"></span>€</p>
-    <p><label>Coste oportunidad: </label><span id="oportunityCostBuy"></span>€</p>
-    <p><label>Beneficio: </label><span id="benefitsBuy"></span>€</p>
-
-    <p>
-      <label for="total">Balance final :</label>
-      <span id="total"></span>€
-    </p>
-    <h1>Rent</h1>
-    <p>
-      Coste recurrente <span id="recurringCosts"></span>€
-    </p>
-    <p>
-      Coste oportunidad <span id="oportunityCosts"></span>€
-    </p>
-    
-    <input class="ui-button ui-widget" type="submit"></button>
+    <div style="width: 50%;float: left;">
+      <h1>Comprar</h1>
+      <p><label>Coste inicial: </label><span id="initialCostBuy"></span>€</p>
+      <p><label>Coste recurrente: </label><span id="recurrentCostBuy"></span>€</p>
+      <p><label>Coste oportunidad: </label><span id="oportunityCostBuy"></span>€</p>
+      <p><label>Beneficio: </label><span id="benefitsBuy"></span>€</p>
+      <p>
+        <label for="total">Balance final :</label>
+        <span id="total"></span>€
+      </p>
+    </div>
+    <div style="width: 50%;float: right;">
+      <h1>Alquilar</h1>
+      <p>
+        Coste recurrente <span id="recurringCosts"></span>€
+      </p>
+      <p>
+        Coste oportunidad <span id="oportunityCosts"></span>€
+      </p>
+    </div>
+    <div style="width: 100%;float: left;padding-top: 20px;">
+    <input class="ui-button ui-widget" type="submit" value="Calcular"></button>
+    </div>
   </form>
-    <div style="width:50%">
-    </div>
-    <div class="center" style="width:50%">
-    <p>
-      Debes de pagar de alquiler menos de
-    </p>
-    <p>
-      <span class="big"><span id="mensualRent"></span></span>
-    </p>
-    </div>
+
+</div>
+<div class="result">
+  <p>
+    Debes de pagar de alquiler menos de
+  </p>
+  <p>
+    <span class="big"><span id="mensualRent"></span></span>
+  </p>
+</div>
   <script>
     $(document).ready(function() {
       $('form').submit(submit);
-      var spinner = $( "[data-spinner]" ).spinner().on( "click", function() {
-        submit();
-      });
+      var spinner = $( "[data-spinner]" ).spinner();
       $('form').submit();
 
   });

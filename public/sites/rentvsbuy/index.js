@@ -4,6 +4,7 @@ var IBI = 150;
 var comunidad = 60;
 
 function submit() {
+  $('#mensualRent').html('--- €');
   var houseVal = +$('#houseValue').val();
   var total = 0;
   var years = +$('#years').val()
