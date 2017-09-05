@@ -1,0 +1,11 @@
+
+    label {
+      min-width: 150px;
+      display: inline-block;
+    }
+    .big {
+    	font-size: 80px;
+    }
+    .center {
+    	text-align: center;
+    }

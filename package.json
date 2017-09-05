@@ -18,6 +18,8 @@
     "passport-local": "0.1.6",
     "passport-twitter": ">= 0.0.0",
     "podcast": "^0.2.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "socket.io": "latest"
   }
 }

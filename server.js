@@ -2,7 +2,6 @@
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
     port      = process.env.OPENSHIFT_NODEJS_PORT || 3002,
-    express = require('express'),
     fs      = require('fs'),
     express  = require('express'),
     app      = express(),
@@ -12,7 +11,8 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
     fs = require('fs'),
     http = require('http'),
     api = require('instagram-node').instagram(),
-    server = http.createServer(app);
+    server = http.createServer(app),
+    rp = require('request-promise');
 
 var mongoip = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
     mongoport = process.env.OPENSHIFT_MONGODB_DB_PORT || '27017',
@@ -50,6 +50,34 @@ exports.tagsearch = function(req, res) {
         res.status(404).send('Not found');
     }
 };
+
+exports.afi = function(req, res) {
+    var options = {
+    uri: 'https://www.bbva.es/BBVANet/api/granting-tickets-oauth/',
+    json: true // Automatically parses the JSON string in the response 
+};
+
+    rp(options)
+        .then(function (json) {
+        callAfi(json, req.body).then(function(response){
+            res.send(response);
+        });
+    })
+    .catch(function (err) {
+        // Crawling failed... 
+    });
+};
+
+function callAfi(json, body) {
+var options = {
+    uri: 'https://www.bbva.es/ASO/mortgagesActions/V01/simulation',
+    method: 'POST',
+    body: body,
+    headers: { tsec : json.access_token},
+    json: true // Automatically parses the JSON string in the response 
+};
+    return rp(options);
+}
 
 exports.macfoolsRss = function(req, res) {
 var Podcast = require('podcast');
@@ -121,6 +149,7 @@ Chapter.find({}, function(err, chapters){
 
 app.get('/tag/:tag_name', exports.tagsearch);
 app.get('/rss/macfools', exports.macfoolsRss);
+app.post('/afi', exports.afi);
 
 app.get('/', function(request, response) {
     response.render('index.html');
