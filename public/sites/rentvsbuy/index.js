@@ -6,6 +6,7 @@ var comunidad = 60;
 function submit() {
   $('#mensualRent').html('--- €');
   var houseVal = +$('#houseValue').val();
+  var province = $('#province').val();
   var total = 0;
   var years = +$('#years').val()
   var houseGrow = 1 + $('#housegrow').val()/100;
@@ -13,7 +14,7 @@ function submit() {
   var investreturn = 1 + $('#investreturn').val()/100;
   var extras = 0;
 
-  simulateMorgage(houseVal).then(mortgage => {
+  simulateMorgage(houseVal, province).then(mortgage => {
     var initialCost = mortgageInitialCost(houseVal, mortgage);
     var recurringCost = mortgageRecurrentCost(mortgage, houseVal, years);
     var oportunityCosts = mortgageOportunityCost(mortgage, investreturn, years, initialCost);
@@ -74,10 +75,9 @@ function mortgageCancellationCost(mortgage, houseVal, years) {
   // Gestoría	150€ a 300 € (no están regulados por Ley, conviene pedir previsión)	250 €
   // Tasación	
   // Según la ficha de https://www.bbva.es/productos/ficha/hipoteca-fija/t000000796
-  // Comisión de subrogación*	0,50 % del capital pendiente (5 primeros años) 0,25 % después	1.525 €
   // Compensación por riesgo de tipo amortización parcial o total del préstamo: hasta un máximo del 1 % del capital pendiente en el momento de la cancelación
   var capitalPendiente = mortgage.amortisationTable[1+years*12].pendingCapital.amount;
-  return 500 + 200 + 250 + mortgage.costs.mortgageValuation.amount + capitalPendiente*0.0025 + capitalPendiente*0.01;
+  return 500 + 200 + 250 + mortgage.costs.mortgageValuation.amount + capitalPendiente*0.01;
 }
 
 // ----- RENT -------

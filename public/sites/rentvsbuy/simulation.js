@@ -1,5 +1,5 @@
 var tsec = '';
-function simulateMorgage(value) {
+function simulateMorgage(value, province) {
   return new Promise((resolve, reject) => {
     var params = [
       'costeVivienda=' + value,
@@ -50,16 +50,16 @@ function simulateMorgage(value) {
           amount: 0.003125,
           currency: 'EUR'
         },
-        newHouse: false,
+        newHouse: true,
         usualHome: true,
         province: {
-          id: 13
+          id: province.slice(0,2) || 28
         },
         tranches: [{
           monthsTerm: 360,
           spreadInterestRate: +HipotecaFija.Diferencial,
           referenceIndex: {
-            id: 1
+            id: 0
           }
         }]
       };
