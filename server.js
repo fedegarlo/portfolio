@@ -100,9 +100,9 @@ app.get('/invest', function(req, res) {
         json: true // Automatically parses the JSON string in the response 
       })
       .then(function (json) {
-        var confidence = json.items.map(item => item.confidence).sort();
+        var confidence = json.items.map(function(item) { return item.confidence }).sort();
         res.send(
-          json.items.find(item => item.confidence===confidence[2])
+          json.items.find(function(item){ return item.confidence===confidence[2]})
         );
       })
       .catch(function(err) {
