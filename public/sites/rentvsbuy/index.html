@@ -8,6 +8,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="index.js"></script>
   <script src="simulation.js"></script>
+  <script src="invest.js"></script>
 </head>
 <body>
 <div style="width:40%;float: left;padding-left: 20px;">
@@ -37,7 +38,7 @@
     </p>
     <p>
       <label for="investreturn">Invest return:</label>
-      <input id="investreturn" name="investreturn" value="2" data-spinner>
+      <input id="investreturn" name="investreturn" value="1" data-spinner>
     </p>
 
 
@@ -55,12 +56,14 @@
     </div>
     <div style="width: 50%;float: right;">
       <h1>Alquilar</h1>
+      <p><label>Coste inicial: </label><span id="initialCostRent"></span>€</p>
       <p>
         Coste recurrente <span id="recurringCosts"></span>€
       </p>
       <p>
         Coste oportunidad <span id="oportunityCosts"></span>€
       </p>
+      <p><label>Beneficio: </label><span id="benefitsRent"></span>€</p>
     </div>
     <div style="width: 100%;float: left;padding-top: 20px;">
     <input class="ui-button ui-widget" type="submit" value="Calcular"></button>
