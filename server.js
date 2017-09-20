@@ -12,7 +12,8 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
     http = require('http'),
     api = require('instagram-node').instagram(),
     server = http.createServer(app),
-    rp = require('request-promise');
+    rp = require('request-promise'),
+    moment = require('moment');
 
 var mongoip = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
     mongoport = process.env.OPENSHIFT_MONGODB_DB_PORT || '27017',
@@ -53,26 +54,12 @@ exports.tagsearch = function(req, res) {
 };
 
 exports.afi = function(req, res) {
-    var options = {
-    uri: 'https://www.bbva.es/BBVANet/api/granting-tickets-oauth/',
-    json: true // Automatically parses the JSON string in the response 
-};
 
-    if (!tsec) {
-        rp(options)
-            .then(function (json) {
-            callAfi(json.access_token, req.body).then(function(response){
-                res.send(response);
-            });
-        })
-        .catch(function (err) {
-            // Crawling failed... 
-        });
-    } else {
+    getTsec().then(() => {
         callAfi(tsec, req.body).then(function(response){
             res.send(response);
-        });
-    }
+            });
+    });
 };
 
 function callAfi(tsec, body) {
@@ -85,6 +72,45 @@ var options = {
 };
     return rp(options);
 }
+
+function getTsec() {
+    return rp({
+      uri: 'https://www.bbva.es/BBVANet/api/granting-tickets-oauth/',
+      json: true // Automatically parses the JSON string in the response 
+    }).then(function (json) {
+      tsec = json.access_token;
+    });
+  }
+
+app.get('/invest', function(req, res) {
+    getTsec().then(() => {
+      var years = +req.query.years;
+      var uri = 'https://www.bbva.es/ASO/management-entity-funds/v0/management-entity-funds/ES0157663008/future-projections?' +
+      'projections.fromProjectionDate=' + moment().endOf('month').format('DD-MM-YYYY') +
+      '&projections.toProjectionDate=' + moment().add(years, 'years').endOf('month').format('DD-MM-YYYY') +
+      '&initialContribution.amount=' + req.query.initialContribution +
+      '&initialContribution.currency=EUR' +
+      '&addedContribution.amount=' + req.query.addedContribution;
+      
+      rp({
+        uri: uri,
+        headers: {
+          tsec: tsec
+        },
+        json: true // Automatically parses the JSON string in the response 
+      })
+      .then(function (json) {
+        var confidence = json.items.map(item => item.confidence).sort();
+        res.send(
+          json.items.find(item => item.confidence===confidence[2])
+        );
+      })
+      .catch(function(err) {
+        console.warn(err);
+        res.status(509).end();
+      });
+    });
+  });
 
 exports.macfoolsRss = function(req, res) {
 var Podcast = require('podcast');
@@ -157,10 +183,12 @@ Chapter.find({}, function(err, chapters){
 app.get('/tag/:tag_name', exports.tagsearch);
 app.get('/rss/macfools', exports.macfoolsRss);
 app.post('/afi', exports.afi);
+app.use('/sites', express.static(__dirname + '/public/sites'));
 
 app.get('/', function(request, response) {
     response.render('index.html');
 });
+
 
 server.listen(port, ipaddress);
 console.log('Listening  to  port ' + port);
