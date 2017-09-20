@@ -55,7 +55,7 @@ exports.tagsearch = function(req, res) {
 
 exports.afi = function(req, res) {
 
-    getTsec().then(() => {
+    getTsec().then(function() {
         callAfi(tsec, req.body).then(function(response){
             res.send(response);
             });
@@ -83,7 +83,7 @@ function getTsec() {
   }
 
 app.get('/invest', function(req, res) {
-    getTsec().then(() => {
+    getTsec().then(function () {
       var years = +req.query.years;
       var uri = 'https://www.bbva.es/ASO/management-entity-funds/v0/management-entity-funds/ES0157663008/future-projections?' +
       'projections.fromProjectionDate=' + moment().endOf('month').format('DD-MM-YYYY') +
