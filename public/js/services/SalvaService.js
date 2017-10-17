@@ -2,7 +2,7 @@
 angular.module("myApp").factory('salvaService', ['$http', function($http){
 
   var o = {},
-  url = 'http://pako-fedegarloapps.rhcloud.com/';
+  url = 'http://salva-api-salva.a3c1.starter-us-west-1.openshiftapps.com/';
   o.recover = function(email) {
     return $http.post(url + 'recover', { email : email });
   };
