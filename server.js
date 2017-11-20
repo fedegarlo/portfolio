@@ -1,7 +1,7 @@
 #!/bin/env node
 
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0",
-    port      = process.env.OPENSHIFT_NODEJS_PORT || 8080,
+var ipaddress = process.env.HOST || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+    port      = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     express = require('express'),
     fs      = require('fs'),
     express  = require('express'),
