@@ -4,19 +4,19 @@
 var MainCtrl = function($scope){
 	$scope.works = [
 		{
-			title : 'Salvatar Stickers',
-			new : true,
-			img : 'salvatar.png',
-			id : 'salvatar',
-			url : 'http://salvatar.fedegarlo.com',
-			tags : ['ios', 'stickers', 'xcode', 'diseño']
-		},{
 			title : 'Salva',
 			new : true,
 			img : 'salva_app.png',
 			id : 'salva',
 			url : 'http://salva.fedegarlo.com',
 			tags : ['ios', 'xcode', 'node', 'mongodb', 'angular', 'cordova', 'javascript', 'css']
+		},{
+			title : 'Salva Stickers',
+			new : false,
+			img : 'salvatar.png',
+			id : 'salvatar',
+			url : 'http://salvatar.fedegarlo.com',
+			tags : ['ios', 'stickers', 'xcode', 'diseño']
 		},{
 			title : 'BBVA',
 			new : false,
