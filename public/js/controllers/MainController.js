@@ -8,14 +8,14 @@ var MainCtrl = function($scope){
 			new : true,
 			img : 'salva_app.png',
 			id : 'salva',
-			url : 'http://salva.fedegarlo.com',
+			url : 'http://www.getsalva.com',
 			tags : ['ios', 'xcode', 'node', 'mongodb', 'angular', 'cordova', 'javascript', 'css']
 		},{
 			title : 'Salva Stickers',
 			new : false,
 			img : 'salvatar.png',
 			id : 'salvatar',
-			url : 'http://salvatar.fedegarlo.com',
+			url : 'http://www.fedegarlo.com/#/salvatar',
 			tags : ['ios', 'stickers', 'xcode', 'diseño']
 		},{
 			title : 'BBVA',
