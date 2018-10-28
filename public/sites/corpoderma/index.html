@@ -108,7 +108,7 @@
 
 <body data-twttr-rendered="true" class="grisecito">
     <div class="bannerOferta">
-      <span class="titular">19€</span><br/>
+      <span class="titular" id="globo_cabecera_titular"></span><br/>
       <div class="cajaOferta">
       <span class="oferta">Ingles o axilas Pack 3 o 5</span>
     </div>
@@ -143,9 +143,21 @@
           <div class="span4">
           <div class="windy-demo">
             <ul id="wi-el" class="wi-container">
-              <li class="wrapper"><div class="ribbon-wrapper-violet"><div class="ribbon-violet">OFERTA</div></div><img src="images/oferta1.png" alt="image1"><h4>Medias piernas+ingles+axilas 99€</h4><p>*consulte más precios y condiciones en centro.</p><p>**promociones no acumulables entre sí.</p></li>
-              <li class="wrapper"><div class="ribbon-wrapper-violet"><div class="ribbon-violet">OFERTA</div></div><img src="images/oferta2.png" alt="image2"><h4>20% dto. para nuevos clientes</h4><p>*consulte más precios y condiciones en centro.</p><p>**promociones no acumulables entre sí.</p></li>
-              <li class="wrapper"><div class="ribbon-wrapper-violet"><div class="ribbon-violet">OFERTA</div></div><img src="images/oferta3.png" alt="image3"><h4>3x2 en TODAS las zonas faciales</h4><p>*consulte más precios y condiciones en centro.</p><p>**promociones no acumulables entre sí.</p></li>
+              <li class="wrapper"><div class="ribbon-wrapper-violet"><div class="ribbon-violet">OFERTA</div></div><img src="images/oferta1.png" alt="image1">
+                <h4 id="promocion_1">
+                  
+                </h4>
+                <p>*consulte más precios y condiciones en centro.</p><p>**promociones no acumulables entre sí.</p></li>
+              <li class="wrapper"><div class="ribbon-wrapper-violet"><div class="ribbon-violet">OFERTA</div></div><img src="images/oferta2.png" alt="image2">
+                <h4 id="promocion_2">
+                  
+                </h4>
+                <p>*consulte más precios y condiciones en centro.</p><p>**promociones no acumulables entre sí.</p></li>
+              <li class="wrapper"><div class="ribbon-wrapper-violet"><div class="ribbon-violet">OFERTA</div></div><img src="images/oferta3.png" alt="image3">
+                <h4 id="promocion_3">
+                  
+                </h4>
+                <p>*consulte más precios y condiciones en centro.</p><p>**promociones no acumulables entre sí.</p></li>
             </ul>
             <nav>
               <span id="nav-prev">prev</span>
@@ -175,13 +187,13 @@
         <div class="row">
           <div class="span6">
             <h2 class="lilita">Dónde estamos</h2>
-            <p>Paseo Joaquín Garrigues Walker, 4 30.007 Murcia.</p>
-            <p>tl: 968 83 80 32 - 606 62 42 42</p>
+            <p id="datos_contacto_direccion"></p>
+            <p id="datos_contacto_telefonos"></p>
           </div>
           <div class="span6">
             <h2 class="lilita">Horario de apertura</h2>
-            <p>Lunes a Viernes 10:00 a 13:30 y 16:30 a 20:30 Medio dia bajo cita previa</p>
-            <p>SÁBADOS de septiembre CERRADO</p>
+            <p id="horario_entre_semana"></p>
+            <p id="horario_finde"></p>
             <p>Corpo Derma, depilación sin competencia.</p>
           </div>
         </div>
@@ -226,6 +238,21 @@
           allownavnext = false;
         
         } );
+        //Nuevo gestor
+        $.ajax({
+          url: "data.json",
+          context: document.body
+        }).done(function(data) {
+          $( '#globo_cabecera_titular' ).text( data.globo_cabecera_titular );
+          $( '#globo_cabecera_texto' ).text( data.globo_cabecera_texto );
+          $( '#promocion_1' ).text( data.promocion_1 );
+          $( '#promocion_2' ).text( data.promocion_2 );
+          $( '#promocion_3' ).text( data.promocion_3 );
+          $( '#horario_entre_semana' ).text( data.horario_entre_semana );
+          $( '#horario_finde' ).text( data.horario_finde );
+          $( '#datos_contacto_direccion' ).text( data.datos_contacto_direccion );
+          $( '#datos_contacto_telefonos' ).text( data.datos_contacto_telefonos );
+        });
 
         function navnext() {
           if( allownavnext ) {
