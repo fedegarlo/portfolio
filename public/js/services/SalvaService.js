@@ -2,7 +2,7 @@
 angular.module("myApp").factory('salvaService', ['$http', function($http){
 
   var o = {},
-  url = 'http://salva-api.com/';
+  url = 'https://salva-api.herokuapp.com/';
   o.recover = function(email) {
     return $http.post(url + 'recover', { email : email });
   };
